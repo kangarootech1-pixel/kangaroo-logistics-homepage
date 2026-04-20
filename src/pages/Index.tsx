@@ -1,16 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { LangProvider } from "@/i18n/LangProvider";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { Services } from "@/components/site/Services";
+import { WhyUs } from "@/components/site/WhyUs";
+import { CoverageMap } from "@/components/site/CoverageMap";
+import { Partners } from "@/components/site/Partners";
+import { CTASection } from "@/components/site/CTASection";
+import { Footer } from "@/components/site/Footer";
+import { ChatWidget } from "@/components/site/ChatWidget";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <LangProvider>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <Hero />
+          <Services />
+          <WhyUs />
+          <CoverageMap />
+          <Partners />
+          <CTASection />
+        </main>
+        <Footer />
+        <ChatWidget />
+      </div>
+    </LangProvider>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
