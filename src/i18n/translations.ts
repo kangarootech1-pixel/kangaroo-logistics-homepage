@@ -2,7 +2,7 @@ export type Lang = "ar" | "en";
 
 export const translations = {
   ar: {
-    dir: "rtl" as const,
+    dir: "rtl" as "rtl" | "ltr",
     nav: {
       home: "الرئيسية",
       services: "خدماتنا",
@@ -85,7 +85,7 @@ export const translations = {
     },
   },
   en: {
-    dir: "ltr" as const,
+    dir: "ltr" as "rtl" | "ltr",
     nav: {
       home: "Home",
       services: "Services",
