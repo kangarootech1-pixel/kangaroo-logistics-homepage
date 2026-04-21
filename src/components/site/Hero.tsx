@@ -22,21 +22,21 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-background/75 backdrop-blur-[1px] -z-10" />
 
       <div className="container relative z-10">
-        <div className="max-w-3xl ms-auto text-end animate-float-up">
+        <div dir="rtl" className="max-w-2xl ms-auto text-right animate-float-up">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-xs font-bold tracking-wide ring-1 ring-primary/20">
             <Sparkles className="h-3.5 w-3.5" />
             {t.hero.tagline}
           </span>
 
-          <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-[1.15] text-foreground">
+          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold leading-[1.2] text-foreground text-balance">
             {t.hero.title}
           </h1>
 
-          <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl ms-auto">
+          <p className="mt-5 text-base md:text-lg text-muted-foreground text-right">
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center sm:justify-end justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row-reverse items-center sm:justify-start justify-center gap-3">
             <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow-glow h-12 px-7">
               <a href="#contact">
                 {t.hero.ctaPrimary}
