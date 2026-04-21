@@ -1,8 +1,69 @@
+import { MapContainer, TileLayer, Marker, Popup, Polyline, CircleMarker } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import { MapPin, Plane, Ship } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 
+// Fix default marker icons (use a green-tinted divIcon instead)
+const greenIcon = L.divIcon({
+  className: "",
+  html: `<div style="
+    background: hsl(122 39% 33%);
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  "></div>`,
+  iconSize: [18, 18],
+  iconAnchor: [9, 9],
+});
+
+const flagIcon = (emoji: string) =>
+  L.divIcon({
+    className: "",
+    html: `<div style="
+      background: white;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 2px solid hsl(122 39% 33%);
+      font-size: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+      white-space: nowrap;
+    ">${emoji}</div>`,
+    iconSize: [40, 28],
+    iconAnchor: [20, 14],
+  });
+
+const palestineCities: { name: string; pos: [number, number] }[] = [
+  { name: "رام الله", pos: [31.9038, 35.2034] },
+  { name: "نابلس", pos: [32.2211, 35.2544] },
+  { name: "الخليل", pos: [31.5326, 35.0998] },
+  { name: "غزة", pos: [31.5017, 34.4668] },
+];
+
+const jordanCity: { name: string; pos: [number, number] } = {
+  name: "عمّان",
+  pos: [31.9539, 35.9106],
+};
+
+const turkey: [number, number] = [39.9334, 32.8597];
+const worldwide: [number, number] = [48.8566, 2.3522];
+
+// Approximate polygon outlines (simplified for visual fill)
+const palestinePolygon: [number, number][] = [
+  [33.1, 35.55], [32.55, 35.57], [32.4, 35.55], [31.9, 35.55],
+  [31.48, 35.4], [31.35, 34.95], [31.22, 34.45], [31.59, 34.21],
+  [32.55, 34.95], [33.1, 35.1],
+];
+
+const jordanPolygon: [number, number][] = [
+  [32.55, 35.57], [32.7, 36.4], [32.5, 38.5], [31.5, 39.0],
+  [29.2, 37.5], [29.18, 35.0], [30.5, 35.1], [31.48, 35.4],
+  [31.9, 35.55], [32.4, 35.55],
+];
+
 export const CoverageMap = () => {
   const { t } = useLang();
+
   return (
     <section id="coverage" className="py-20 md:py-28 bg-background">
       <div className="container">
@@ -12,57 +73,71 @@ export const CoverageMap = () => {
           <p className="mt-4 text-muted-foreground text-base md:text-lg">{t.coverage.subtitle}</p>
         </div>
 
-        <div className="mt-12 grid lg:grid-cols-5 gap-8 items-center">
-          {/* Map illustration */}
-          <div className="lg:col-span-3 rounded-3xl bg-gradient-to-br from-accent to-surface p-6 md:p-10 shadow-soft border border-border">
-            <svg viewBox="0 0 600 400" className="w-full h-auto" role="img" aria-label="Coverage map">
-              <defs>
-                <linearGradient id="land" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.85" />
-                  <stop offset="100%" stopColor="hsl(var(--primary-deep))" stopOpacity="0.95" />
-                </linearGradient>
-              </defs>
+        <div className="mt-12 grid lg:grid-cols-5 gap-8 items-stretch">
+          <div className="lg:col-span-3 overflow-hidden rounded-2xl shadow-soft border border-border">
+            <MapContainer
+              center={[31.5, 35.5]}
+              zoom={6}
+              scrollWheelZoom={false}
+              style={{ height: 500, width: "100%", borderRadius: 16 }}
+            >
+              <TileLayer
+                attribution='&copy; OpenStreetMap'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
 
-              {/* Turkey blob */}
-              <path d="M60 70 Q140 40 240 60 Q310 75 290 120 Q230 140 150 130 Q80 125 60 100 Z" fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1.5"/>
-              <text x="160" y="100" textAnchor="middle" className="fill-muted-foreground" fontSize="14" fontWeight="700">Turkey</text>
+              {/* Palestine fill */}
+              <CircleMarker center={[31.9, 35.2]} radius={0} />
+              <Polyline
+                positions={[...palestinePolygon, palestinePolygon[0]]}
+                pathOptions={{ color: "hsl(122 60% 20%)", weight: 2, fillColor: "hsl(122 39% 33%)", fillOpacity: 0.35, fill: true } as L.PolylineOptions}
+              />
+              {/* Jordan fill */}
+              <Polyline
+                positions={[...jordanPolygon, jordanPolygon[0]]}
+                pathOptions={{ color: "hsl(122 60% 20%)", weight: 2, fillColor: "hsl(122 39% 33%)", fillOpacity: 0.35, fill: true } as L.PolylineOptions}
+              />
 
-              {/* Jordan */}
-              <path d="M340 200 L470 180 L500 240 L470 320 L380 310 L350 260 Z" fill="url(#land)" stroke="hsl(var(--primary-deep))" strokeWidth="2"/>
-              <text x="420" y="255" textAnchor="middle" className="fill-white" fontSize="15" fontWeight="800">Jordan</text>
-
-              {/* Palestine */}
-              <path d="M295 195 L340 200 L350 260 L340 305 L310 320 L295 280 L290 230 Z" fill="url(#land)" stroke="hsl(var(--primary-deep))" strokeWidth="2"/>
-              <text x="318" y="260" textAnchor="middle" className="fill-white" fontSize="11" fontWeight="800">Palestine</text>
-
-              {/* Dotted lines */}
-              <path d="M160 110 Q240 160 315 200" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 6" fill="none" />
-              <path d="M460 220 Q540 200 580 150" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 6" fill="none" />
-              <path d="M310 320 Q260 360 180 360" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 6" fill="none" />
-
-              {/* International labels */}
-              <g>
-                <circle cx="580" cy="150" r="6" fill="hsl(var(--primary))" />
-                <text x="565" y="140" textAnchor="end" className="fill-foreground" fontSize="11" fontWeight="700">International</text>
-              </g>
-              <g>
-                <circle cx="180" cy="360" r="6" fill="hsl(var(--primary))" />
-                <text x="195" y="365" className="fill-foreground" fontSize="11" fontWeight="700">Worldwide</text>
-              </g>
-
-              {/* City pins */}
-              {[
-                { x: 305, y: 215, label: t.coverage.cities[0] },
-                { x: 312, y: 235, label: t.coverage.cities[1] },
-                { x: 320, y: 280, label: t.coverage.cities[2] },
-                { x: 410, y: 245, label: t.coverage.cities[5] },
-              ].map((c, i) => (
-                <g key={i}>
-                  <circle cx={c.x} cy={c.y} r="5" fill="white" stroke="hsl(var(--primary-deep))" strokeWidth="2" />
-                  <circle cx={c.x} cy={c.y} r="10" fill="hsl(var(--primary))" fillOpacity="0.25" />
-                </g>
+              {/* Palestine cities */}
+              {palestineCities.map((c) => (
+                <Marker key={c.name} position={c.pos} icon={greenIcon}>
+                  <Popup>
+                    <div style={{ textAlign: "center", fontWeight: 700, color: "hsl(122 60% 20%)" }}>{c.name}</div>
+                  </Popup>
+                </Marker>
               ))}
-            </svg>
+
+              {/* Jordan city */}
+              <Marker position={jordanCity.pos} icon={greenIcon}>
+                <Popup>
+                  <div style={{ textAlign: "center", fontWeight: 700, color: "hsl(122 60% 20%)" }}>{jordanCity.name}</div>
+                </Popup>
+              </Marker>
+
+              {/* Turkey */}
+              <Marker position={turkey} icon={flagIcon("تركيا 🇹🇷")}>
+                <Popup>
+                  <div style={{ textAlign: "center", fontWeight: 700, color: "hsl(122 60% 20%)" }}>تركيا</div>
+                </Popup>
+              </Marker>
+
+              {/* Worldwide */}
+              <Marker position={worldwide} icon={flagIcon("Worldwide 🌍")}>
+                <Popup>
+                  <div style={{ textAlign: "center", fontWeight: 700, color: "hsl(122 60% 20%)" }}>Worldwide</div>
+                </Popup>
+              </Marker>
+
+              {/* Dashed connectors */}
+              <Polyline
+                positions={[jordanCity.pos, turkey]}
+                pathOptions={{ color: "hsl(122 39% 33%)", weight: 2, dashArray: "6 8" }}
+              />
+              <Polyline
+                positions={[jordanCity.pos, worldwide]}
+                pathOptions={{ color: "hsl(122 39% 33%)", weight: 2, dashArray: "6 8" }}
+              />
+            </MapContainer>
           </div>
 
           {/* Coverage stats */}
