@@ -1,156 +1,85 @@
-import { useEffect, useRef } from "react";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import { MapPin, Plane, Ship } from "lucide-react";
+import { ArrowLeft, Package, Warehouse, Truck, Wallet, Building2, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 
-const mapCenter: [number, number] = [31.5, 35.5];
-const palestinePolygon: [number, number][] = [
-  [32.55, 35.57],
-  [32.35, 35.52],
-  [31.95, 35.53],
-  [31.5, 35.42],
-  [31.22, 34.98],
-  [31.22, 34.24],
-  [31.58, 34.22],
-  [32.12, 34.92],
-  [32.55, 35.1],
-];
-const jordanPolygon: [number, number][] = [
-  [32.67, 35.57],
-  [32.82, 36.7],
-  [32.55, 38.9],
-  [31.6, 39.2],
-  [29.2, 38.6],
-  [29.2, 34.95],
-  [30.6, 35.12],
-  [31.47, 35.42],
-  [31.95, 35.55],
-  [32.4, 35.56],
-];
-const palestineCities = [
-  { name: "رام الله", position: [31.9038, 35.2034] as [number, number] },
-  { name: "نابلس", position: [32.2211, 35.2544] as [number, number] },
-  { name: "الخليل", position: [31.5326, 35.0998] as [number, number] },
-  { name: "غزة", position: [31.5017, 34.4668] as [number, number] },
-];
-const amman = { name: "عمّان", position: [31.9539, 35.9106] as [number, number] };
-const turkey = { name: "تركيا 🇹🇷", position: [39.9334, 32.8597] as [number, number] };
-const worldwide = { name: "Worldwide 🌍", position: [48.8566, 2.3522] as [number, number] };
+type ZoneTone = "green" | "blue" | "orange" | "gray";
 
-const popupHtml = (label: string) => `
-  <div dir="rtl" style="
-    color: hsl(var(--primary-deep));
-    font-weight: 700;
-    font-family: inherit;
-    text-align: right;
-    min-width: 80px;
-  ">${label}</div>
-`;
-
-const cityIcon = L.divIcon({
-  className: "coverage-city-icon",
-  html: `
-    <div style="
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: hsl(var(--primary));
-      border: 3px solid hsl(var(--background));
-      box-shadow: 0 6px 18px hsl(var(--foreground) / 0.18);
-    "></div>
-  `,
-  iconSize: [18, 18],
-  iconAnchor: [9, 9],
-});
-
-const labelIcon = (label: string) =>
-  L.divIcon({
-    className: "coverage-label-icon",
-    html: `
-      <div dir="rtl" style="
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: hsl(var(--background));
-        color: hsl(var(--primary-deep));
-        border: 1px solid hsl(var(--border));
-        box-shadow: 0 8px 22px hsl(var(--foreground) / 0.12);
-        font-weight: 700;
-        font-size: 13px;
-        white-space: nowrap;
-      ">${label}</div>
-    `,
-    iconSize: [96, 32],
-    iconAnchor: [48, 16],
-  });
+const toneStyles: Record<ZoneTone, { badge: string; ring: string; iconBg: string }> = {
+  green: {
+    badge: "bg-primary/10 text-primary ring-1 ring-primary/20",
+    ring: "hover:ring-primary/40",
+    iconBg: "bg-primary/10 text-primary",
+  },
+  blue: {
+    badge: "bg-sky-100 text-sky-700 ring-1 ring-sky-200 dark:bg-sky-500/15 dark:text-sky-300 dark:ring-sky-400/30",
+    ring: "hover:ring-sky-400/40",
+    iconBg: "bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-300",
+  },
+  orange: {
+    badge: "bg-orange-100 text-orange-700 ring-1 ring-orange-200 dark:bg-orange-500/15 dark:text-orange-300 dark:ring-orange-400/30",
+    ring: "hover:ring-orange-400/40",
+    iconBg: "bg-orange-100 text-orange-700 dark:bg-orange-500/15 dark:text-orange-300",
+  },
+  gray: {
+    badge: "bg-muted text-muted-foreground ring-1 ring-border",
+    ring: "hover:ring-foreground/30",
+    iconBg: "bg-muted text-foreground",
+  },
+};
 
 export const CoverageMap = () => {
-  const { t } = useLang();
-  const mapElementRef = useRef<HTMLDivElement | null>(null);
-  const leafletMapRef = useRef<L.Map | null>(null);
+  const { t, lang } = useLang();
+  const isAr = lang === "ar";
 
-  useEffect(() => {
-    if (!mapElementRef.current || leafletMapRef.current) return;
+  const zones: {
+    flag: string;
+    title: string;
+    cities: string;
+    badge: string;
+    tone: ZoneTone;
+  }[] = [
+    {
+      flag: "🇵🇸",
+      title: isAr ? "فلسطين" : "Palestine",
+      cities: isAr ? "رام الله، نابلس، الخليل، غزة" : "Ramallah, Nablus, Hebron, Gaza",
+      badge: isAr ? "تغطية شاملة" : "Full coverage",
+      tone: "green",
+    },
+    {
+      flag: "🇯🇴",
+      title: isAr ? "الأردن" : "Jordan",
+      cities: isAr ? "عمّان – جبل الحسين" : "Amman – Jabal Al-Hussein",
+      badge: isAr ? "فرع نشط" : "Active branch",
+      tone: "blue",
+    },
+    {
+      flag: "🇹🇷",
+      title: isAr ? "تركيا" : "Turkey",
+      cities: isAr ? "ربط تجاري مباشر" : "Direct trade link",
+      badge: isAr ? "استيراد وتصدير" : "Import & Export",
+      tone: "orange",
+    },
+    {
+      flag: "🌍",
+      title: isAr ? "دولي" : "International",
+      cities: isAr ? "شحن من أي مكان" : "Shipping from anywhere",
+      badge: isAr ? "تخليص جمركي" : "Customs clearance",
+      tone: "gray",
+    },
+  ];
 
-    const map = L.map(mapElementRef.current, {
-      center: mapCenter,
-      zoom: 6,
-      scrollWheelZoom: false,
-      zoomControl: true,
-    });
+  const steps = [
+    { Icon: Package, label: isAr ? "استلام الشحنة" : "Pickup" },
+    { Icon: Warehouse, label: isAr ? "تخزين وتجهيز" : "Storage & Prep" },
+    { Icon: Truck, label: isAr ? "شحن وتوصيل" : "Ship & Deliver" },
+    { Icon: Wallet, label: isAr ? "تحصيل المبالغ" : "Cash Collection" },
+  ];
 
-    leafletMapRef.current = map;
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap",
-    }).addTo(map);
-
-    const polygonStyle: L.PathOptions = {
-      color: "hsl(var(--primary-deep))",
-      weight: 2,
-      fillColor: "hsl(var(--primary))",
-      fillOpacity: 0.28,
-    };
-
-    L.polygon(palestinePolygon, polygonStyle).addTo(map);
-    L.polygon(jordanPolygon, polygonStyle).addTo(map);
-
-    palestineCities.forEach((city) => {
-      L.marker(city.position, { icon: cityIcon })
-        .addTo(map)
-        .bindPopup(popupHtml(city.name), { className: "coverage-popup" });
-    });
-
-    L.marker(amman.position, { icon: cityIcon })
-      .addTo(map)
-      .bindPopup(popupHtml(amman.name), { className: "coverage-popup" });
-
-    L.marker(turkey.position, { icon: labelIcon(turkey.name) })
-      .addTo(map)
-      .bindPopup(popupHtml("تركيا"), { className: "coverage-popup" });
-
-    L.marker(worldwide.position, { icon: labelIcon(worldwide.name) })
-      .addTo(map)
-      .bindPopup(popupHtml("Worldwide"), { className: "coverage-popup" });
-
-    const routeStyle: L.PolylineOptions = {
-      color: "hsl(var(--primary))",
-      weight: 2,
-      dashArray: "8 8",
-      opacity: 0.9,
-    };
-
-    L.polyline([amman.position, turkey.position], routeStyle).addTo(map);
-    L.polyline([amman.position, worldwide.position], routeStyle).addTo(map);
-
-    return () => {
-      map.remove();
-      leafletMapRef.current = null;
-    };
-  }, []);
+  const stats = [
+    { Icon: Building2, value: "4", label: isAr ? "فروع" : "Branches" },
+    { Icon: MapPin, value: "+15", label: isAr ? "مدينة" : "Cities" },
+    { Icon: Clock, value: "24/7", label: isAr ? "دعم" : "Support" },
+    { Icon: CheckCircle2, value: "98%", label: isAr ? "توصيل" : "Delivery" },
+  ];
 
   return (
     <section id="coverage" className="py-20 md:py-28 bg-background">
@@ -161,28 +90,67 @@ export const CoverageMap = () => {
           <p className="mt-4 text-muted-foreground text-base md:text-lg">{t.coverage.subtitle}</p>
         </div>
 
-        <div className="mt-12 grid lg:grid-cols-5 gap-8 items-stretch">
-          <div className="lg:col-span-3 overflow-hidden rounded-2xl border border-border shadow-soft bg-card">
-            <div ref={mapElementRef} className="h-[500px] w-full" />
-          </div>
+        {/* Zone cards */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {zones.map((z) => {
+            const s = toneStyles[z.tone];
+            return (
+              <div
+                key={z.title}
+                className={`group rounded-2xl bg-card border border-border ring-1 ring-transparent ${s.ring} p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-start`}
+                dir={isAr ? "rtl" : "ltr"}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${s.iconBg}`}>
+                    <span aria-hidden>{z.flag}</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-foreground">{z.title}</h3>
+                </div>
+                <p className="mt-4 text-muted-foreground leading-relaxed min-h-[3rem]">{z.cities}</p>
+                <span className={`mt-4 inline-block rounded-full px-3 py-1 text-xs font-bold ${s.badge}`}>
+                  {z.badge}
+                </span>
+              </div>
+            );
+          })}
+        </div>
 
-          <div className="lg:col-span-2 space-y-4">
-            {[
-              { Icon: MapPin, label: t.coverage.regions.local, value: t.coverage.cities.slice(0, 5).join(" • ") },
-              { Icon: Ship, label: t.coverage.regions.regional, value: t.coverage.cities.slice(5).join(" • ") + " • Turkey" },
-              { Icon: Plane, label: t.coverage.regions.intl, value: "Worldwide air & sea freight" },
-            ].map(({ Icon, label, value }, i) => (
-              <div key={i} className="rounded-2xl border border-border bg-card p-5 shadow-soft flex items-start gap-4">
-                <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
-                  <Icon className="h-5 w-5" />
+        {/* Flow steps */}
+        <div
+          className="mt-12 rounded-3xl bg-accent/40 border border-border p-6 md:p-8"
+          dir={isAr ? "rtl" : "ltr"}
+        >
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-2">
+            {steps.map(({ Icon, label }, i) => (
+              <div key={label} className="flex items-center gap-3 md:gap-2">
+                <div className="flex items-center gap-3 rounded-2xl bg-card border border-border px-4 py-3 shadow-soft transition-transform hover:-translate-y-0.5">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Icon className="h-4 w-4" />
+                  </span>
+                  <span className="font-bold text-foreground text-sm md:text-base whitespace-nowrap">{label}</span>
                 </div>
-                <div>
-                  <div className="text-sm font-bold text-primary uppercase tracking-wider">{label}</div>
-                  <div className="mt-1 text-foreground font-semibold leading-snug">{value}</div>
-                </div>
+                {i < steps.length - 1 && (
+                  <ArrowLeft className="h-5 w-5 text-primary shrink-0" aria-hidden />
+                )}
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Stat boxes */}
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {stats.map(({ Icon, value, label }) => (
+            <div
+              key={label}
+              className="rounded-2xl bg-card border border-border p-5 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
+            >
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-2">
+                <Icon className="h-5 w-5" />
+              </div>
+              <div className="text-2xl md:text-3xl font-extrabold text-primary">{value}</div>
+              <div className="mt-1 text-sm text-muted-foreground font-semibold">{label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
