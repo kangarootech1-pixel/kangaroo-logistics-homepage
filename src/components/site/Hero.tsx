@@ -16,6 +16,8 @@ export const Hero = () => {
         aria-hidden="true"
         width={1920}
         height={1080}
+        decoding="async"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover -z-10"
       />
       {/* Light overlay for text legibility */}
@@ -24,7 +26,7 @@ export const Hero = () => {
       <div className="container relative z-10">
         <div dir="rtl" className="max-w-2xl ms-auto text-right animate-float-up">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-xs font-bold tracking-wide ring-1 ring-primary/20">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
             {t.hero.tagline}
           </span>
 
@@ -40,7 +42,7 @@ export const Hero = () => {
             <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow-glow h-12 px-7">
               <a href="#contact">
                 {t.hero.ctaPrimary}
-                <Arrow className="h-4 w-4" />
+                <Arrow className="h-4 w-4" aria-hidden="true" />
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full border-border bg-card hover:bg-muted font-bold h-12 px-7">

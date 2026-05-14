@@ -14,7 +14,7 @@ export const CTASection = () => {
           <Button asChild size="lg" className="mt-8 h-12 px-8 rounded-full bg-white text-primary hover:bg-white/90 font-bold shadow-glow">
             <a href="https://kangaroo-pal.olivery.io/register" target="_blank" rel="noopener noreferrer">
               {t.ctaBand.button}
-              <Arrow className="h-4 w-4" />
+              <Arrow className="h-4 w-4" aria-hidden="true" />
             </a>
           </Button>
         </div>
