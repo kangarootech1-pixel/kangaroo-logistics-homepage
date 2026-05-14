@@ -71,7 +71,7 @@ In Hero.tsx:
 - New button style: outline variant, same size as existing buttons
 
 In CTASection.tsx:
-- Update "Get Started" / "ابدأ الآن" button → https://kangaroo-pal.olivery.io/register
+- Update "Get Started" / "ابدأ الآن" button → https://kangaroo-pal.olivery.io/ar_SY/olivery/sign_up/form
 
 In translations.ts:
 - Add hero.ctaTrack key:
