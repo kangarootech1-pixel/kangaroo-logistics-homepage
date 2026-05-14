@@ -63,7 +63,8 @@ export const translations = {
     ctaBand: {
       title: "جاهز لتسريع شحناتك؟",
       subtitle: "ابدأ مع كنغارو اليوم واحصل على عرض سعر مخصص خلال ساعات.",
-      button: "ابدأ الآن",
+      buttonRegister: "سجّل كعميل جديد",
+      buttonLogin: "دخول للعملاء",
     },
     footer: {
       about: "كنغارو شركة لوجستية رائدة تقدم حلول التوصيل والتخزين والشحن الدولي في فلسطين والأردن.",
@@ -75,9 +76,11 @@ export const translations = {
       email: "البريد",
       address: "العنوان",
       addressValue: "رام الله، فلسطين",
+      whatsappDisplay: "+972 59 315 0120",
       whatsappUrl: "https://wa.me/972593150120",
       facebookUrl: "http://www.facebook.com/prokangaroo",
       instagramUrl: "https://www.instagram.com/prokangaroo",
+      tiktokUrl: "https://www.tiktok.com/@prokangaroo",
       rights: "© 2025 كنغارو للخدمات اللوجستية. جميع الحقوق محفوظة.",
     },
     chat: {
@@ -150,7 +153,8 @@ export const translations = {
     ctaBand: {
       title: "Ready to accelerate your shipments?",
       subtitle: "Start with Kangaroo today and get a custom quote within hours.",
-      button: "Get Started",
+      buttonRegister: "Register as Customer",
+      buttonLogin: "Customer Login",
     },
     footer: {
       about: "Kangaroo is a leading logistics company offering delivery, fulfillment & international shipping in Palestine & Jordan.",
@@ -162,9 +166,11 @@ export const translations = {
       email: "Email",
       address: "Address",
       addressValue: "Ramallah, Palestine",
+      whatsappDisplay: "+972 59 315 0120",
       whatsappUrl: "https://wa.me/972593150120",
       facebookUrl: "http://www.facebook.com/prokangaroo",
       instagramUrl: "https://www.instagram.com/prokangaroo",
+      tiktokUrl: "https://www.tiktok.com/@prokangaroo",
       rights: "© 2025 Kangaroo Logistics. All rights reserved.",
     },
     chat: {
