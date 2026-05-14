@@ -11,14 +11,18 @@
 - [x] TASKS.md placed in project root
 - [x] TASK-001 executed — Partners: "Coming Soon" UI
 - [x] TASK-002 executed — Hero Track Shipment + CTA Register buttons wired
-- [x] TASK-003 executed (partial) — WhatsApp + Facebook + Instagram wired into Footer; fake phone/email removed. Phone & email still pending from company
-- [ ] TASK-004 executed — SEO / favicon / og:image meta tags
+- [x] TASK-003 executed (partial) — WhatsApp + Facebook + Instagram + TikTok wired into Footer; fake phone/email removed; CTA section rebuilt with two buttons (Register / Login); Footer restructured into 4 columns with WhatsApp display. Phone & email still pending from company.
+- [ ] TASK-004 executed — SEO / favicon / og:image meta tags  **← next**
 - [ ] TASK-005 executed — WhatsApp floating chat button
 
 ## Extra work completed (outside numbered tasks)
 - [x] URL fix — corrected Olivery `register` and `track` URLs to real Olivery paths
 - [x] Design pass — Archivo + JetBrains Mono fonts, warmer ivory palette, mono numerals, sharper card edges, route-accent hover ("cargo-manifest" aesthetic)
-- [x] A11y polish — `aria-hidden="true"` on decorative icons; `decoding="async"` + `fetchPriority="high"` on hero LCP image
+- [x] A11y polish — `aria-hidden="true"` on decorative icons; `decoding="async"` + `fetchpriority="high"` on hero LCP image (lowercase to silence React warning)
+- [x] Services card visual upgrade — corner-bracket frames, circular numbered badge, gradient icon tile (ported from a discarded second design variant)
+- [x] Retired the experimental `/new-design` industrial route — deleted `IndexNew`, `industrial/` folder, `variant="industrial"` props on Navbar/ChatWidget, industrial color tokens and Bebas Neue / Playfair Display fonts in `tailwind.config.ts`
+- [x] Hero RTL fix — removed hardcoded `dir="rtl"`, swapped `ms-auto` → `me-auto`, dropped `sm:flex-row-reverse`, replaced `text-right` with `text-start`; Hero content now anchors to logical start (right in RTL, left in LTR) and the Primary CTA is rightmost in RTL
+- [x] CTA contrast bug fix — `gradient-hero` + `hero-pattern` were both using the CSS `background` shorthand and clobbering each other, leaving the section near-transparent on the cream page; switched to `gradient-cta` and dropped the pattern overlay
 
 ---
 
