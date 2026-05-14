@@ -25,7 +25,7 @@ export const Hero = () => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-l from-background/60 via-transparent to-transparent" />
 
       <div className="container relative z-10">
-        <div dir="rtl" className="max-w-2xl ms-auto text-right animate-float-up">
+        <div className="max-w-2xl me-auto text-start animate-float-up">
           <span className="inline-flex items-center gap-2 rounded-sm bg-primary/10 text-primary px-3 py-1.5 text-[11px] font-bold tracking-[0.18em] uppercase ring-1 ring-primary/25">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
             {t.hero.tagline}
@@ -35,11 +35,11 @@ export const Hero = () => {
             {t.hero.title}
           </h1>
 
-          <p className="mt-5 text-base md:text-lg text-muted-foreground text-right">
+          <p className="mt-5 text-base md:text-lg text-muted-foreground text-start">
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row-reverse items-center sm:justify-start justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row items-center sm:justify-start justify-center gap-3">
             <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow-glow h-12 px-7">
               <a href="#contact">
                 {t.hero.ctaPrimary}
