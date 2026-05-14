@@ -75,6 +75,9 @@ export const translations = {
       email: "البريد",
       address: "العنوان",
       addressValue: "رام الله، فلسطين",
+      whatsappUrl: "https://wa.me/972593150120",
+      facebookUrl: "http://www.facebook.com/prokangaroo",
+      instagramUrl: "https://www.instagram.com/prokangaroo",
       rights: "© 2025 كنغارو للخدمات اللوجستية. جميع الحقوق محفوظة.",
     },
     chat: {
@@ -159,6 +162,9 @@ export const translations = {
       email: "Email",
       address: "Address",
       addressValue: "Ramallah, Palestine",
+      whatsappUrl: "https://wa.me/972593150120",
+      facebookUrl: "http://www.facebook.com/prokangaroo",
+      instagramUrl: "https://www.instagram.com/prokangaroo",
       rights: "© 2025 Kangaroo Logistics. All rights reserved.",
     },
     chat: {

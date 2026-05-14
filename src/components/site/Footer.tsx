@@ -1,9 +1,14 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 import { KangarooLogo } from "./KangarooLogo";
 
 export const Footer = () => {
   const { t } = useLang();
+  const socials = [
+    { Icon: Facebook, url: t.footer.facebookUrl, label: "Facebook" },
+    { Icon: Instagram, url: t.footer.instagramUrl, label: "Instagram" },
+    { Icon: MessageCircle, url: t.footer.whatsappUrl, label: "WhatsApp" },
+  ];
   return (
     <footer className="bg-foreground text-background/90">
       <div className="container py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
@@ -13,8 +18,15 @@ export const Footer = () => {
           </div>
           <p className="mt-4 text-sm text-background/70 leading-relaxed">{t.footer.about}</p>
           <div className="mt-5 flex items-center gap-3">
-            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-              <a key={i} href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-primary transition-base" aria-label="social">
+            {socials.map(({ Icon, url, label }) => (
+              <a
+                key={label}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-primary transition-base"
+                aria-label={label}
+              >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
@@ -47,8 +59,6 @@ export const Footer = () => {
         <div>
           <h4 className="text-white font-bold mb-4">{t.footer.contactTitle}</h4>
           <ul className="space-y-3 text-sm text-background/75">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary-glow" /> +970 2 000 0000</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary-glow" /> hello@kangaroo.ps</li>
             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary-glow" /> {t.footer.addressValue}</li>
           </ul>
         </div>
