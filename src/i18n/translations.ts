@@ -18,6 +18,7 @@ export const translations = {
       tagline: "حلول لوجستية مخصصة وذكية",
       ctaPrimary: "تواصل معنا",
       ctaSecondary: "اكتشف خدماتنا",
+      ctaTrack: "تتبع شحنتك",
       stats: [
         { value: "+15", label: "مدينة مغطاة" },
         { value: "24/7", label: "دعم متواصل" },
@@ -101,6 +102,7 @@ export const translations = {
       tagline: "Smart & Custom Logistics Solutions",
       ctaPrimary: "Contact Us",
       ctaSecondary: "Explore Services",
+      ctaTrack: "Track Shipment",
       stats: [
         { value: "15+", label: "Cities Covered" },
         { value: "24/7", label: "Customer Support" },

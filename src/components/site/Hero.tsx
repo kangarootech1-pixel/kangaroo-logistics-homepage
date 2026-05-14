@@ -46,6 +46,9 @@ export const Hero = () => {
             <Button asChild size="lg" variant="outline" className="rounded-full border-border bg-card hover:bg-muted font-bold h-12 px-7">
               <a href="#services">{t.hero.ctaSecondary}</a>
             </Button>
+            <Button asChild size="lg" variant="outline" className="rounded-full border-border bg-card hover:bg-muted font-bold h-12 px-7">
+              <a href="https://kangaroo-pal.olivery.io/track" target="_blank" rel="noopener noreferrer">{t.hero.ctaTrack}</a>
+            </Button>
           </div>
         </div>
 

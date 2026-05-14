@@ -12,7 +12,7 @@ export const CTASection = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold">{t.ctaBand.title}</h2>
           <p className="mt-4 text-white/85 text-base md:text-lg max-w-2xl mx-auto">{t.ctaBand.subtitle}</p>
           <Button asChild size="lg" className="mt-8 h-12 px-8 rounded-full bg-white text-primary hover:bg-white/90 font-bold shadow-glow">
-            <a href="mailto:hello@kangaroo.ps">
+            <a href="https://kangaroo-pal.olivery.io/register" target="_blank" rel="noopener noreferrer">
               {t.ctaBand.button}
               <Arrow className="h-4 w-4" />
             </a>
