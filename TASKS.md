@@ -7,13 +7,18 @@
 - [x] Repo cloned locally
 - [x] npm install done
 - [x] npm run dev working
-- [ ] CLAUDE.md placed in project root
-- [ ] TASKS.md placed in project root
-- [ ] TASK-001 executed
-- [ ] TASK-002 executed
-- [ ] TASK-003 executed (needs real contact info first)
-- [ ] TASK-004 executed
-- [ ] TASK-005 executed
+- [x] CLAUDE.md placed in project root
+- [x] TASKS.md placed in project root
+- [x] TASK-001 executed — Partners: "Coming Soon" UI
+- [x] TASK-002 executed — Hero Track Shipment + CTA Register buttons wired
+- [x] TASK-003 executed (partial) — WhatsApp + Facebook + Instagram wired into Footer; fake phone/email removed. Phone & email still pending from company
+- [ ] TASK-004 executed — SEO / favicon / og:image meta tags
+- [ ] TASK-005 executed — WhatsApp floating chat button
+
+## Extra work completed (outside numbered tasks)
+- [x] URL fix — corrected Olivery `register` and `track` URLs to real Olivery paths
+- [x] Design pass — Archivo + JetBrains Mono fonts, warmer ivory palette, mono numerals, sharper card edges, route-accent hover ("cargo-manifest" aesthetic)
+- [x] A11y polish — `aria-hidden="true"` on decorative icons; `decoding="async"` + `fetchPriority="high"` on hero LCP image
 
 ---
 
@@ -67,7 +72,7 @@ Connect the main call-to-action buttons to real Olivery URLs.
 
 In Hero.tsx:
 - Keep ctaPrimary button (Contact Us / تواصل معنا) pointing to #contact (no change)
-- Add a third button: "Track Shipment" / "تتبع شحنتك" → https://kangaroo-pal.olivery.io/track
+- Add a third button: "Track Shipment" / "تتبع شحنتك" → https://kangaroo-pal.olivery.io/ar_SY/order_tracking
 - New button style: outline variant, same size as existing buttons
 
 In CTASection.tsx:
