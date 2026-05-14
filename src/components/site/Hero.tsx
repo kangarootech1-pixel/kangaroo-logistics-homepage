@@ -17,7 +17,7 @@ export const Hero = () => {
         width={1920}
         height={1080}
         decoding="async"
-        fetchPriority="high"
+        {...{ fetchpriority: "high" }}
         className="absolute inset-0 w-full h-full object-cover -z-10"
       />
       {/* Layered overlay — keeps the warehouse readable as the actual backdrop */}
