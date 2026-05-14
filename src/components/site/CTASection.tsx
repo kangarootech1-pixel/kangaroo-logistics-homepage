@@ -35,7 +35,7 @@ export const CTASection = () => {
               className="h-12 px-8 rounded-full bg-transparent border-2 border-white text-white hover:bg-white/10 hover:text-white font-bold"
             >
               <a
-                href="https://kangaroo-pal.olivery.io/ar_SY/login"
+                href="https://kangaroo-pal.olivery.io/ar_SY/web/login"
                 target="_blank"
                 rel="noopener noreferrer"
               >
