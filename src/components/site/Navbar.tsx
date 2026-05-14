@@ -50,7 +50,10 @@ export const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-3">
           <LangToggle variant={scrolled ? "dark" : "light"} />
-          <Button asChild className="rounded-full font-bold gradient-cta text-primary-foreground shadow-soft">
+          <Button
+            asChild
+            className="rounded-full font-bold shadow-lg gradient-cta text-primary-foreground shadow-soft"
+          >
             <a href="#contact">
               <Phone className="h-4 w-4" />
               {t.nav.cta}
@@ -77,14 +80,17 @@ export const Navbar = () => {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 rounded-lg text-foreground font-semibold hover:bg-secondary"
+                className="px-3 py-3 rounded-lg font-semibold hover:bg-secondary text-foreground"
               >
                 {l.label}
               </a>
             ))}
             <div className="flex items-center justify-between gap-3 pt-3 mt-2 border-t border-border">
-              <LangToggle />
-              <Button asChild className="flex-1 rounded-full gradient-cta text-primary-foreground">
+              <LangToggle variant="default" />
+              <Button
+                asChild
+                className="flex-1 rounded-full gradient-cta text-primary-foreground"
+              >
                 <a href="#contact" onClick={() => setOpen(false)}>{t.nav.cta}</a>
               </Button>
             </div>

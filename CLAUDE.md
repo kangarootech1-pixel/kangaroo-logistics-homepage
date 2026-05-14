@@ -81,9 +81,9 @@ src/
 
 ```
 Homepage:        https://kangaroo-pal.olivery.io/
-Track shipment:  https://kangaroo-pal.olivery.io/track
+Track shipment:  https://kangaroo-pal.olivery.io/ar_SY/order_tracking
 Register:        https://kangaroo-pal.olivery.io/ar_SY/olivery/sign_up/form
-Login:           https://kangaroo-pal.olivery.io/login
+Login:           https://kangaroo-pal.olivery.io/ar_SY/web/login
 ```
 
 Always add `target="_blank" rel="noopener noreferrer"` to all Olivery links.
@@ -159,7 +159,6 @@ EXPECTED OUTPUT: [diff only / full file]
 ```
 
 ---
-
 ## Stats to Verify with Company
 These numbers are currently displayed on the site — confirm they are accurate before launch:
 - 98% on-time delivery rate

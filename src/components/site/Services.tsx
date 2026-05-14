@@ -25,12 +25,26 @@ export const Services = () => {
             return (
               <div
                 key={i}
-                className="route-accent group relative rounded-md border border-border bg-card p-6 shadow-soft transition-base hover:-translate-y-1 hover:shadow-card-elevated hover:border-primary/40 overflow-hidden"
+                className="group relative rounded-md border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-elevated hover:border-primary/40"
               >
-                <span className="serial absolute top-4 end-5 text-[11px] text-muted-foreground/70 tracking-widest" aria-hidden="true">{code}</span>
+                <span aria-hidden="true" className="absolute top-0 start-0 w-4 h-4 border-t border-s border-primary/40 group-hover:border-primary transition-base"></span>
+                <span aria-hidden="true" className="absolute top-0 end-0 w-4 h-4 border-t border-e border-primary/40 group-hover:border-primary transition-base"></span>
+                <span aria-hidden="true" className="absolute bottom-0 start-0 w-4 h-4 border-b border-s border-primary/40 group-hover:border-primary transition-base"></span>
+                <span aria-hidden="true" className="absolute bottom-0 end-0 w-4 h-4 border-b border-e border-primary/40 group-hover:border-primary transition-base"></span>
+
+                <span
+                  aria-hidden="true"
+                  className="serial absolute -top-3 end-4 w-8 h-8 rounded-full bg-background border border-primary/40 flex items-center justify-center text-[11px] font-bold text-primary tracking-widest"
+                >
+                  {code}
+                </span>
+
                 <div className="flex items-start gap-4">
-                  <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-accent text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-base" aria-hidden="true">
-                    <Icon className="h-5 w-5" />
+                  <div className="relative shrink-0" aria-hidden="true">
+                    <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 to-primary-deep/10 blur-md opacity-0 group-hover:opacity-100 transition-base"></div>
+                    <div className="relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-deep text-primary-foreground shadow-soft">
+                      <Icon className="h-5 w-5" />
+                    </div>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-foreground tracking-tight">{s.title}</h3>
