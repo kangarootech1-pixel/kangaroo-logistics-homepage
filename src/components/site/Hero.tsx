@@ -20,12 +20,13 @@ export const Hero = () => {
         fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover -z-10"
       />
-      {/* Light overlay for text legibility */}
-      <div className="absolute inset-0 bg-background/75 backdrop-blur-[1px] -z-10" />
+      {/* Layered overlay — keeps the warehouse readable as the actual backdrop */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/85 via-background/55 to-background/95" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-l from-background/60 via-transparent to-transparent" />
 
       <div className="container relative z-10">
         <div dir="rtl" className="max-w-2xl ms-auto text-right animate-float-up">
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-xs font-bold tracking-wide ring-1 ring-primary/20">
+          <span className="inline-flex items-center gap-2 rounded-sm bg-primary/10 text-primary px-3 py-1.5 text-[11px] font-bold tracking-[0.18em] uppercase ring-1 ring-primary/25">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
             {t.hero.tagline}
           </span>
@@ -54,15 +55,16 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Stat chips */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        {/* Stat chips — manifest-style, mono numerals */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
           {t.hero.stats.map((s, i) => (
             <div
               key={i}
-              className="rounded-2xl bg-card/90 backdrop-blur ring-1 ring-border px-6 py-5 text-center shadow-soft"
+              className="relative rounded-md bg-card/90 backdrop-blur border border-border px-6 py-5 text-center shadow-soft overflow-hidden"
             >
-              <div className="text-3xl font-extrabold text-primary">{s.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
+              <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" aria-hidden="true" />
+              <div className="serial text-3xl md:text-4xl font-bold text-primary">{s.value}</div>
+              <div className="mt-1 text-[11px] text-muted-foreground font-semibold tracking-[0.14em] uppercase">{s.label}</div>
             </div>
           ))}
         </div>

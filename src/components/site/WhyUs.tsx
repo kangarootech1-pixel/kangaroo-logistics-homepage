@@ -19,16 +19,16 @@ export const WhyUs = () => {
             return (
               <div
                 key={i}
-                className="rounded-2xl bg-card border border-border p-6 text-center shadow-soft transition-base hover:shadow-card-elevated hover:-translate-y-1"
+                className="route-accent relative rounded-md bg-card border border-border p-6 text-center shadow-soft transition-base hover:shadow-card-elevated hover:-translate-y-1 hover:border-primary/30 overflow-hidden"
               >
-                <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl gradient-cta text-primary-foreground shadow-soft">
-                  <Icon className="h-7 w-7" />
+                <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-md gradient-cta text-primary-foreground shadow-soft" aria-hidden="true">
+                  <Icon className="h-6 w-6" />
                 </div>
-                <div className="mt-4 text-3xl md:text-4xl font-extrabold text-primary">
+                <div className="mt-4 serial text-3xl md:text-4xl font-bold text-primary">
                   {it.value}
-                  {"suffix" in it && it.suffix ? <span className="text-base text-muted-foreground font-bold">{it.suffix}</span> : null}
+                  {"suffix" in it && it.suffix ? <span className="font-sans text-base text-muted-foreground font-bold">{it.suffix}</span> : null}
                 </div>
-                <div className="mt-2 text-sm text-muted-foreground font-medium leading-snug">{it.label}</div>
+                <div className="mt-2 text-xs md:text-sm text-muted-foreground font-medium leading-snug tracking-wide">{it.label}</div>
               </div>
             );
           })}

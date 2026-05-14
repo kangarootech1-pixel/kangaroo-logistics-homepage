@@ -14,14 +14,14 @@ export const Partners = () => {
           <p className="mt-3 text-muted-foreground">{t.partners.subtitle}</p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3">
           {Array.from({ length: SLOT_COUNT }).map((_, i) => (
             <div
               key={i}
-              className="aspect-[5/2] rounded-xl bg-card border-2 border-dashed border-border flex flex-col items-center justify-center gap-1 text-muted-foreground opacity-60 hover:opacity-100 hover:border-primary hover:text-primary transition-base"
+              className="aspect-[5/2] rounded-md bg-card/50 border-2 border-dashed border-border flex flex-col items-center justify-center gap-1.5 text-muted-foreground opacity-60 hover:opacity-100 hover:border-primary hover:text-primary transition-base"
             >
-              <Building2 className="w-5 h-5" />
-              <span className="text-xs font-semibold tracking-wider">Coming Soon</span>
+              <Building2 className="w-5 h-5" aria-hidden="true" />
+              <span className="text-[10px] font-bold tracking-[0.18em] uppercase">Coming Soon</span>
             </div>
           ))}
         </div>
