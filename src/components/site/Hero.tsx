@@ -36,22 +36,22 @@ export const Hero = () => {
       <div className="container relative z-10">
         <div className="max-w-2xl me-auto text-start">
           <span
-            className="inline-flex items-center gap-2 rounded-sm bg-primary/10 text-primary px-3 py-1.5 text-[11px] font-bold tracking-[0.18em] uppercase ring-1 ring-primary/25 animate-float-up"
+            className="inline-flex items-center gap-2 rounded-sm bg-white/10 text-white px-3 py-1.5 text-[11px] font-bold tracking-[0.18em] uppercase border border-white/40 backdrop-blur-sm animate-float-up"
             style={{ animationDelay: "0ms" }}
           >
-            <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+            <Sparkles className="h-3.5 w-3.5 text-primary-glow" aria-hidden="true" />
             {t.hero.tagline}
           </span>
 
           <h1
-            className="mt-6 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] text-foreground text-balance animate-float-up"
+            className="mt-6 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] text-white text-balance animate-float-up"
             style={{ animationDelay: "100ms" }}
           >
             {t.hero.title}
           </h1>
 
           <p
-            className="mt-5 text-base md:text-lg text-muted-foreground text-start animate-float-up"
+            className="mt-5 text-base md:text-lg text-white/90 text-start animate-float-up"
             style={{ animationDelay: "200ms" }}
           >
             {t.hero.subtitle}
@@ -86,9 +86,9 @@ export const Hero = () => {
               key={i}
               className="relative rounded-md bg-white/10 backdrop-blur-sm border border-white/20 px-6 py-5 text-center shadow-soft overflow-hidden"
             >
-              <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" aria-hidden="true" />
-              <div className="serial text-3xl md:text-4xl font-bold text-primary">{s.value}</div>
-              <div className="mt-1 text-[11px] text-muted-foreground font-semibold tracking-[0.14em] uppercase">{s.label}</div>
+              <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" aria-hidden="true" />
+              <div className="serial text-3xl md:text-4xl font-bold text-white">{s.value}</div>
+              <div className="mt-1 text-[11px] text-white/80 font-semibold tracking-[0.14em] uppercase">{s.label}</div>
             </div>
           ))}
         </div>
