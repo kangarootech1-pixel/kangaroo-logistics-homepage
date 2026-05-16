@@ -92,11 +92,11 @@ export const translations = {
       rights: "© 2025 كنغارو للخدمات اللوجستية. جميع الحقوق محفوظة.",
     },
     chat: {
-      title: "كنغارو - الدعم",
-      online: "متصل الآن",
-      greeting: "مرحباً 👋 كيف يمكننا مساعدتك اليوم؟",
-      placeholder: "قريباً... اكتب رسالتك",
+      title: "مرحباً بك في كنغارو 👋",
+      greeting: "أهلاً! كيف يمكنني مساعدتك اليوم؟",
+      placeholder: "اكتب رسالتك...",
       send: "إرسال",
+      error: "عذراً، حدث خطأ. حاول مجدداً.",
     },
   },
   en: {
@@ -190,11 +190,11 @@ export const translations = {
       rights: "© 2025 Kangaroo Logistics. All rights reserved.",
     },
     chat: {
-      title: "Kangaroo Support",
-      online: "Online now",
-      greeting: "Hi 👋 How can we help you today?",
-      placeholder: "Coming soon... type a message",
+      title: "Welcome to Kangaroo 👋",
+      greeting: "Hello! How can I help you today?",
+      placeholder: "Type a message...",
       send: "Send",
+      error: "Sorry, something went wrong. Please try again.",
     },
   },
 };

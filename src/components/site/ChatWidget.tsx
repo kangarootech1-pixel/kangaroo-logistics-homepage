@@ -1,70 +1,163 @@
-import { useState } from "react";
+import { useEffect, useRef, useState, FormEvent } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 
-export const ChatWidget = () => {
-  const { t, dir } = useLang();
-  const [open, setOpen] = useState(false);
+const WEBHOOK_URL =
+  "https://n8n.srv1572689.hstgr.cloud/webhook-test/ffc07852-85c2-43ef-863f-4ea205b852ec";
 
-  // Bottom-left in RTL, bottom-right in LTR
-  const sideClass = dir === "rtl" ? "left-5" : "right-5";
+type Message = {
+  id: number;
+  role: "bot" | "user";
+  text: string;
+};
+
+export const ChatWidget = () => {
+  const { t, dir, lang } = useLang();
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [sending, setSending] = useState(false);
+  const nextId = useRef(1);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const sideClass = dir === "rtl" ? "right-5" : "left-5";
+
+  useEffect(() => {
+    if (open && messages.length === 0) {
+      setMessages([{ id: nextId.current++, role: "bot", text: t.chat.greeting }]);
+    }
+  }, [open, messages.length, t.chat.greeting]);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages, sending]);
+
+  useEffect(() => {
+    if (open) inputRef.current?.focus();
+  }, [open]);
+
+  const send = async (e: FormEvent) => {
+    e.preventDefault();
+    const text = input.trim();
+    if (!text || sending) return;
+
+    setMessages((prev) => [...prev, { id: nextId.current++, role: "user", text }]);
+    setInput("");
+    setSending(true);
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, lang }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = (await res.json()) as { reply?: string };
+      const reply = data.reply?.trim() || t.chat.error;
+      setMessages((prev) => [...prev, { id: nextId.current++, role: "bot", text: reply }]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        { id: nextId.current++, role: "bot", text: t.chat.error },
+      ]);
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <div className={`fixed bottom-5 ${sideClass} z-50`}>
       {open && (
-        <div className="mb-3 w-[320px] max-w-[calc(100vw-2.5rem)] rounded-2xl border overflow-hidden animate-float-up bg-card border-border shadow-card-elevated">
-          <div className="p-4 flex items-center justify-between gradient-cta text-primary-foreground">
+        <div className="mb-3 flex h-[400px] w-[300px] max-w-[calc(100vw-2.5rem)] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl animate-float-up">
+          <div className="gradient-cta text-primary-foreground flex items-center justify-between p-4">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full inline-flex items-center justify-center bg-white/20">
+              <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                 <MessageCircle className="h-5 w-5" />
               </div>
-              <div className="leading-tight">
-                <div className="font-bold text-sm">{t.chat.title}</div>
-                <div className="text-[11px] opacity-90 flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full inline-block bg-green-300" />
-                  {t.chat.online}
-                </div>
-              </div>
+              <div className="text-sm font-bold leading-tight">{t.chat.title}</div>
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="hover:bg-white/15 rounded-lg p-1.5"
-              aria-label="Close"
+              className="rounded-lg p-1.5 hover:bg-white/15"
+              aria-label="Close chat"
             >
               <X className="h-4 w-4" />
             </button>
           </div>
-          <div className="p-4 min-h-[140px] bg-surface">
-            <div className="inline-block max-w-[85%] rounded-2xl rounded-bl-sm border px-3.5 py-2.5 text-sm shadow-soft bg-card border-border text-foreground">
-              {t.chat.greeting}
-            </div>
+
+          <div
+            ref={scrollRef}
+            className="flex-1 space-y-2.5 overflow-y-auto bg-surface p-4"
+          >
+            {messages.map((m) => (
+              <div
+                key={m.id}
+                className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[80%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed shadow-soft ${
+                    m.role === "user"
+                      ? "bg-primary text-primary-foreground rounded-br-sm"
+                      : "bg-muted text-foreground rounded-bl-sm"
+                  }`}
+                >
+                  {m.text}
+                </div>
+              </div>
+            ))}
+            {sending && (
+              <div className="flex justify-start">
+                <div className="bg-muted text-foreground rounded-2xl rounded-bl-sm px-3.5 py-3 shadow-soft">
+                  <div className="flex items-center gap-1">
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:150ms]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:300ms]" />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-          <div className="p-3 border-t flex items-center gap-2 bg-card border-border">
+
+          <form
+            onSubmit={send}
+            className="flex items-center gap-2 border-t border-border bg-card p-3"
+          >
             <input
-              disabled
+              ref={inputRef}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
               placeholder={t.chat.placeholder}
-              className="flex-1 h-10 px-3 rounded-full text-sm outline-none bg-secondary text-foreground placeholder:text-muted-foreground"
+              disabled={sending}
+              className="bg-secondary text-foreground placeholder:text-muted-foreground h-10 flex-1 rounded-full border border-border px-4 text-sm outline-none focus:border-primary disabled:opacity-60"
             />
             <button
-              disabled
-              className="h-10 w-10 rounded-full inline-flex items-center justify-center opacity-60 cursor-not-allowed gradient-cta text-primary-foreground"
+              type="submit"
+              disabled={sending || !input.trim()}
+              className="bg-primary text-primary-foreground inline-flex h-10 w-10 items-center justify-center rounded-full transition-base hover:opacity-90 disabled:opacity-50"
               aria-label={t.chat.send}
             >
-              <Send className="h-4 w-4" />
+              <Send className={`h-4 w-4 ${dir === "rtl" ? "-scale-x-100" : ""}`} />
             </button>
-          </div>
+          </form>
         </div>
       )}
 
       <button
         onClick={() => setOpen((v) => !v)}
-        className="relative inline-flex h-14 w-14 items-center justify-center rounded-full shadow-glow hover:scale-105 transition-base gradient-cta text-primary-foreground"
-        aria-label="Open chat"
+        className="gradient-cta text-primary-foreground shadow-glow transition-base relative inline-flex h-14 w-14 items-center justify-center rounded-full hover:scale-105"
+        aria-label={open ? "Close chat" : "Open chat"}
       >
         {!open && (
-          <span className="absolute inset-0 rounded-full animate-pulse-ring bg-primary" />
+          <span className="bg-primary animate-pulse-ring absolute inset-0 rounded-full" />
         )}
-        {open ? <X className="h-6 w-6 relative" /> : <MessageCircle className="h-6 w-6 relative" />}
+        {open ? (
+          <X className="relative h-6 w-6" />
+        ) : (
+          <MessageCircle className="relative h-6 w-6" />
+        )}
       </button>
     </div>
   );
