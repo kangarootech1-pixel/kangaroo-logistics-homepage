@@ -11,6 +11,23 @@ type Message = {
   text: string;
 };
 
+const extractReply = (raw: string): string | null => {
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    const node = Array.isArray(parsed) ? parsed[0] : parsed;
+    if (node && typeof node === "object") {
+      const obj = node as Record<string, unknown>;
+      const candidate = obj.reply ?? obj.output ?? obj.text ?? obj.message;
+      if (typeof candidate === "string" && candidate.trim()) return candidate.trim();
+    }
+    if (typeof parsed === "string" && parsed.trim()) return parsed.trim();
+  } catch {
+    // Not JSON — fall through to plain-text handling.
+  }
+  const trimmed = raw.trim();
+  return trimmed || null;
+};
+
 export const ChatWidget = () => {
   const { t, dir, lang } = useLang();
   const [open, setOpen] = useState(false);
@@ -63,10 +80,11 @@ export const ChatWidget = () => {
         body: JSON.stringify({ message: text, lang, session_id: sessionId }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = (await res.json()) as { reply?: string };
-      const reply = data.reply?.trim() || t.chat.error;
+      const raw = await res.text();
+      const reply = extractReply(raw) ?? t.chat.error;
       setMessages((prev) => [...prev, { id: nextId.current++, role: "bot", text: reply }]);
-    } catch {
+    } catch (err) {
+      console.error("Webhook error:", err);
       setMessages((prev) => [
         ...prev,
         { id: nextId.current++, role: "bot", text: t.chat.error },
