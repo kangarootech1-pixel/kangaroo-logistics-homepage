@@ -44,7 +44,7 @@ export const Hero = () => {
           </span>
 
           <h1
-            className="mt-6 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] text-white text-balance animate-float-up"
+            className="mt-6 text-3xl md:text-5xl lg:text-6xl font-extrabold leading-snug text-white text-balance animate-float-up"
             style={{ animationDelay: "100ms" }}
           >
             {t.hero.title}
