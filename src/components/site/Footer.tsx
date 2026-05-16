@@ -32,11 +32,16 @@ export const Footer = () => {
 
         <div>
           <h4 className="text-white font-bold mb-4">{t.footer.branchesTitle}</h4>
-          <ul className="space-y-2 text-sm text-background/75">
+          <ul className="space-y-4 text-sm text-background/75">
             {t.footer.branches.map((b) => (
-              <li key={b} className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary-glow" />
-                {b}
+              <li key={b.city}>
+                <div className="flex items-center gap-2 font-bold text-background/90">
+                  <MapPin className="h-4 w-4 text-primary-glow shrink-0" />
+                  {b.city}
+                </div>
+                <p className="mt-1 ms-6 text-xs text-background/55 font-normal leading-relaxed">
+                  {b.address}
+                </p>
               </li>
             ))}
           </ul>

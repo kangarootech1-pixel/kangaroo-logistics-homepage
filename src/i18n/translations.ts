@@ -69,7 +69,12 @@ export const translations = {
     footer: {
       about: "كنغارو شركة لوجستية رائدة تقدم حلول التوصيل والتخزين والشحن الدولي في فلسطين والأردن.",
       branchesTitle: "فروعنا",
-      branches: ["رام الله", "نابلس", "الخليل", "عمّان"],
+      branches: [
+        { city: "رام الله", address: "رام الله والبيرة - شارع الميدان - عمارة بيسان الطابق الأرضي" },
+        { city: "نابلس", address: "دوار زواتا - مركز فحص كورونا السابق" },
+        { city: "الخليل", address: "رأس الجورة - مقابل حلويات برادايس" },
+        { city: "عمّان", address: "جبل الحسين" },
+      ],
       linksTitle: "روابط سريعة",
       contactTitle: "تواصل معنا",
       phone: "هاتف",
@@ -159,7 +164,12 @@ export const translations = {
     footer: {
       about: "Kangaroo is a leading logistics company offering delivery, fulfillment & international shipping in Palestine & Jordan.",
       branchesTitle: "Our Branches",
-      branches: ["Ramallah", "Nablus", "Hebron", "Amman"],
+      branches: [
+        { city: "Ramallah", address: "Ramallah & Al-Bireh - Al-Maydan St - Bisan Building, Ground Floor" },
+        { city: "Nablus", address: "Zawata Roundabout - Former Corona Testing Center" },
+        { city: "Hebron", address: "Ras Al-Jawra - Opposite Paradise Sweets" },
+        { city: "Amman", address: "Jabal Al-Hussein" },
+      ],
       linksTitle: "Quick Links",
       contactTitle: "Contact Us",
       phone: "Phone",
