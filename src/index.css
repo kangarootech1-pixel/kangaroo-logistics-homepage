@@ -101,12 +101,12 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Cairo', 'Archivo', system-ui, sans-serif;
+    font-family: 'Tajawal', 'Cairo', 'Archivo', system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
   }
 
   html[lang="en"] body {
-    font-family: 'Archivo', 'Cairo', system-ui, sans-serif;
+    font-family: 'Archivo', 'Tajawal', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
