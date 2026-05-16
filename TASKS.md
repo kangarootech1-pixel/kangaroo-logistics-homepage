@@ -12,8 +12,8 @@
 - [x] TASK-001 executed — Partners: "Coming Soon" UI
 - [x] TASK-002 executed — Hero Track Shipment + CTA Register buttons wired
 - [x] TASK-003 executed (partial) — WhatsApp + Facebook + Instagram + TikTok wired into Footer; fake phone/email removed; CTA section rebuilt with two buttons (Register / Login); Footer restructured into 4 columns with WhatsApp display. Phone & email still pending from company.
-- [~] TASK-004 — SEO / favicon / og:image meta tags  **(skipped for now — current meta info is sufficient)**
-- [ ] TASK-005 executed — WhatsApp floating chat button
+- [~] TASK-004 — SEO / favicon / og:image meta tags  **(skipped for now — current meta info is sufficient; favicon replaced separately, see commit d06438f)**
+- [~] TASK-005 — WhatsApp floating chat button  **(skipped — will be replaced by a custom n8n chatbot widget later)**
 
 ## Extra work completed (outside numbered tasks)
 - [x] URL fix — corrected Olivery `register` and `track` URLs to real Olivery paths
