@@ -60,6 +60,9 @@ export const translations = {
       title: "شركاؤنا وعملاؤنا",
       subtitle: "نفخر بثقة كبرى الشركات والمتاجر الإلكترونية في المنطقة.",
     },
+    statsMarquee: {
+      items: ["+500 عميل", "4 فروع", "+15 مدينة", "24/7 دعم", "98% توصيل"],
+    },
     ctaBand: {
       title: "جاهز لتسريع شحناتك؟",
       subtitle: "ابدأ مع كنغارو اليوم واحصل على عرض سعر مخصص خلال ساعات.",
@@ -154,6 +157,9 @@ export const translations = {
       eyebrow: "Partners",
       title: "Our Partners & Clients",
       subtitle: "Trusted by leading brands and e-commerce stores across the region.",
+    },
+    statsMarquee: {
+      items: ["500+ Clients", "4 Branches", "15+ Cities", "24/7 Support", "98% On-Time"],
     },
     ctaBand: {
       title: "Ready to accelerate your shipments?",
