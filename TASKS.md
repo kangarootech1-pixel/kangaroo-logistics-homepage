@@ -14,9 +14,9 @@
 - [x] TASK-003 executed (partial) — WhatsApp + Facebook + Instagram + TikTok wired into Footer; fake phone/email removed; CTA section rebuilt with two buttons (Register / Login); Footer restructured into 4 columns with WhatsApp display. Phone & email still pending from company.
 - [~] TASK-004 — SEO / favicon / og:image meta tags  **(skipped for now — current meta info is sufficient; favicon replaced separately, see commit d06438f)**
 - [~] TASK-005 — WhatsApp floating chat button  **(skipped — will be replaced by a custom n8n chatbot widget later)**
-- [ ] TASK-006 — Switch Arabic UI font to Tajawal  **← next session**
-- [ ] TASK-007 — Sticky-stack services section (SMSA-style scroll behaviour)
-- [ ] TASK-008 — Stats marquee strip (horizontal scrolling key numbers)
+- [x] TASK-006 executed — Tajawal swapped in as primary Arabic font; Cairo retained as fallback (commit c8eddac)
+- [x] TASK-007 executed — Sticky-stack services section: 5 cards with progressive sticky tops (120/140/160/180/200px) and growing heights (+20px each), sticky pill column (٠١-٠٥ AR / 01-05 EN) with IntersectionObserver-driven active state, flat list on mobile (commits 1627187, e056337)
+- [x] TASK-008 executed — Stats marquee strip mounted between CTASection and Footer, reuses existing animate-marquee keyframe, items localized AR/EN (commit 6aa93a2)
 
 ## Extra work completed (outside numbered tasks)
 - [x] URL fix — corrected Olivery `register` and `track` URLs to real Olivery paths
@@ -26,6 +26,7 @@
 - [x] Retired the experimental `/new-design` industrial route — deleted `IndexNew`, `industrial/` folder, `variant="industrial"` props on Navbar/ChatWidget, industrial color tokens and Bebas Neue / Playfair Display fonts in `tailwind.config.ts`
 - [x] Hero RTL fix — removed hardcoded `dir="rtl"`, swapped `ms-auto` → `me-auto`, dropped `sm:flex-row-reverse`, replaced `text-right` with `text-start`; Hero content now anchors to logical start (right in RTL, left in LTR) and the Primary CTA is rightmost in RTL
 - [x] CTA contrast bug fix — `gradient-hero` + `hero-pattern` were both using the CSS `background` shorthand and clobbering each other, leaving the section near-transparent on the cream page; switched to `gradient-cta` and dropped the pattern overlay
+- [x] RTL/LTR numerals + arrow polish — Services pill numbers now switch between Arabic-Indic (٠١-٠٥) and Western (01-05) digits via `dir`; card CTA arrow flips between ArrowLeft (RTL) and ArrowRight (LTR) via inline conditional (commit e056337)
 
 ---
 
