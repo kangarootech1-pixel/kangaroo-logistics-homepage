@@ -14,6 +14,9 @@
 - [x] TASK-003 executed (partial) — WhatsApp + Facebook + Instagram + TikTok wired into Footer; fake phone/email removed; CTA section rebuilt with two buttons (Register / Login); Footer restructured into 4 columns with WhatsApp display. Phone & email still pending from company.
 - [~] TASK-004 — SEO / favicon / og:image meta tags  **(skipped for now — current meta info is sufficient; favicon replaced separately, see commit d06438f)**
 - [~] TASK-005 — WhatsApp floating chat button  **(skipped — will be replaced by a custom n8n chatbot widget later)**
+- [ ] TASK-006 — Switch Arabic UI font to Tajawal  **← next session**
+- [ ] TASK-007 — Sticky-stack services section (SMSA-style scroll behaviour)
+- [ ] TASK-008 — Stats marquee strip (horizontal scrolling key numbers)
 
 ## Extra work completed (outside numbered tasks)
 - [x] URL fix — corrected Olivery `register` and `track` URLs to real Olivery paths
@@ -217,6 +220,105 @@ RULES:
 
 EXPECTED OUTPUT:
 Full file content (this is a complete rewrite)
+```
+
+---
+
+## TASK-006 — Switch Arabic UI font to Tajawal
+
+**Priority:** Important
+**OpenCode mode:** Edit two files
+**Source:** SMSA Express uses Tajawal — currently we use Cairo
+
+```
+TASK: TASK-006 Switch to Tajawal font
+
+GOAL:
+Replace Cairo with Tajawal as the primary Arabic font across the site,
+matching the SMSA Express look. Keep Archivo for Latin/English. The
+goal is a more SMSA-style modern logistics feel, not a full type system
+overhaul.
+
+FILES (planned):
+  - index.html              (add Google Fonts <link> for Tajawal weights)
+  - tailwind.config.ts      (swap "Cairo" → "Tajawal" in fontFamily.sans
+                             and any other place Cairo is referenced)
+
+NOTES:
+- Tajawal has weights 200, 300, 400, 500, 700, 800, 900. Pull the same
+  weight set Cairo currently uses (check tailwind.config.ts).
+- Verify visual change in Chrome RTL + LTR — Tajawal renders Latin too,
+  but we keep Archivo as the display font for English headings.
+- Don't touch translations.ts — purely a font swap.
+
+EXPECTED OUTPUT:
+Diff for both files + a screenshot comparison.
+```
+
+---
+
+## TASK-007 — Sticky-stack services section
+
+**Priority:** Nice-to-have
+**Source:** SMSA Express scroll pattern — service cards stack with the
+heading sticking on scroll, creating a sense of progression.
+
+```
+TASK: TASK-007 Sticky-stack services section
+
+GOAL:
+Reshape the Services section so the section heading (h2 + subtitle)
+stays visible at the top while the service cards scroll past or stack
+underneath. Should preserve all current cards and translations.
+
+FILE: src/components/site/Services.tsx (plus minor CSS if needed)
+
+OPEN QUESTIONS for spec time:
+- Sticky heading only, or do cards also stick one-by-one in a stack
+  reveal pattern? (Decide by reviewing SMSA reference live.)
+- How does the section coexist with the existing scroll-in fade? May
+  need to remove the use-in-view fade on this section since stickiness
+  conflicts visually.
+
+EXPECTED OUTPUT:
+Diff + screencast / screenshots of the scroll behaviour.
+```
+
+---
+
+## TASK-008 — Stats marquee strip
+
+**Priority:** Nice-to-have
+**Source:** Common SMSA-style band — a thin strip of key numbers
+auto-scrolling horizontally.
+
+```
+TASK: TASK-008 Stats marquee strip
+
+GOAL:
+Add a slim horizontal strip somewhere between Hero and Services (or
+between WhyUs and Coverage — pick at spec time) that scrolls headline
+stats sideways in a loop. Should reuse the existing animate-marquee
+keyframe already defined in src/index.css line ~208.
+
+CONTENT (planned, finalise at spec time):
+- "+15 مدينة مغطاة"
+- "24/7 دعم متواصل"
+- "98% توصيل في الوقت"
+- "4 فروع نشطة"
+- (repeat to fill the strip)
+
+FILE: new component, e.g. src/components/site/StatsMarquee.tsx, mounted
+in src/pages/Index.tsx between two sections.
+
+RULES at spec time:
+- Translations in src/i18n/translations.ts (new key block)
+- Marquee direction respects dir (RTL vs LTR)
+- pause-on-hover
+- No new packages — use the existing animate-marquee keyframe
+
+EXPECTED OUTPUT:
+New file + Index.tsx insertion + translations diff.
 ```
 
 ---
