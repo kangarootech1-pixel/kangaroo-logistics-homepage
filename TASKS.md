@@ -4,19 +4,24 @@
 ---
 
 ## Status Tracker
-- [x] Repo cloned locally
-- [x] npm install done
-- [x] npm run dev working
-- [x] CLAUDE.md placed in project root
-- [x] TASKS.md placed in project root
-- [x] TASK-001 executed — Partners: "Coming Soon" UI
-- [x] TASK-002 executed — Hero Track Shipment + CTA Register buttons wired
-- [x] TASK-003 executed (partial) — WhatsApp + Facebook + Instagram + TikTok wired into Footer; fake phone/email removed; CTA section rebuilt with two buttons (Register / Login); Footer restructured into 4 columns with WhatsApp display. Phone & email still pending from company.
-- [~] TASK-004 — SEO / favicon / og:image meta tags  **(skipped for now — current meta info is sufficient; favicon replaced separately, see commit d06438f)**
-- [~] TASK-005 — WhatsApp floating chat button  **(skipped — will be replaced by a custom n8n chatbot widget later)**
-- [x] TASK-006 executed — Tajawal swapped in as primary Arabic font; Cairo retained as fallback (commit c8eddac)
-- [x] TASK-007 executed — Sticky-stack services section: 5 cards with progressive sticky tops (120/140/160/180/200px) and growing heights (+20px each), sticky pill column (٠١-٠٥ AR / 01-05 EN) with IntersectionObserver-driven active state, flat list on mobile (commits 1627187, e056337)
-- [x] TASK-008 executed — Stats marquee strip mounted between CTASection and Footer, reuses existing animate-marquee keyframe, items localized AR/EN (commit 6aa93a2)
+- [x] ✅ Repo cloned locally
+- [x] ✅ npm install done
+- [x] ✅ npm run dev working
+- [x] ✅ CLAUDE.md placed in project root
+- [x] ✅ TASKS.md placed in project root
+- [x] ✅ TASK-001 — Partners: "Coming Soon" UI
+- [x] ✅ TASK-002 — Hero Track Shipment + CTA Register buttons wired
+- [x] ✅ TASK-003 (partial) — WhatsApp + Facebook + Instagram + TikTok wired into Footer; fake phone/email removed; CTA section rebuilt with two buttons (Register / Login); Footer restructured into 4 columns with WhatsApp display. Phone & email still pending from company.
+- [~] TASK-004 — SEO / favicon / og:image meta tags  **(skipped earlier — see TASK-019 below for revival)**
+- [~] TASK-005 — WhatsApp floating chat button  **(skipped — replaced by n8n chatbot, see TASK-016)**
+- [x] ✅ TASK-006 — Tajawal swapped in as primary Arabic font; Cairo retained as fallback (commit c8eddac)
+- [x] ✅ TASK-007 — Sticky-stack services section: 5 cards with progressive sticky tops (120/140/160/180/200px) and growing heights (+20px each), sticky pill column (٠١-٠٥ AR / 01-05 EN) with IntersectionObserver-driven active state, flat list on mobile (commits 1627187, e056337)
+- [x] ✅ TASK-008 — Stats marquee strip mounted between CTASection and Footer, reuses existing animate-marquee keyframe, items localized AR/EN (commit 6aa93a2)
+- [ ] 🔄 TASK-016 — n8n chatbot widget — **in progress** (response shape issue pending). Widget UI, session ID, fetch logic shipped (commits 67d969d, bb893a2). Plain-text parser added in bd2e73c — works on localhost but production reliability not yet verified. See TASK-017.
+- [ ] TASK-017 — Fix chatbot response display (debug webhook response shape — production verification)
+- [ ] TASK-018 — Deploy to Vercel (production URL)
+- [ ] TASK-019 — SEO meta tags (was skipped earlier as TASK-004 — revisit)
+- [ ] TASK-020 — Performance audit (image optimization, Lighthouse score)
 
 ## Extra work completed (outside numbered tasks)
 - [x] URL fix — corrected Olivery `register` and `track` URLs to real Olivery paths
@@ -320,6 +325,172 @@ RULES at spec time:
 
 EXPECTED OUTPUT:
 New file + Index.tsx insertion + translations diff.
+```
+
+---
+
+## TASK-016 — n8n chatbot widget (in progress)
+
+**Priority:** Important
+**Status:** 🔄 In progress — UI + session ID shipped; response parsing fix landed in `bd2e73c`; production deployment + reliability checks still pending.
+
+```
+TASK: TASK-016 n8n chatbot widget
+FILES:
+  - src/components/site/ChatWidget.tsx
+  - src/i18n/translations.ts
+
+DONE:
+- Floating button (bottom-left LTR / bottom-right RTL), round green, w-14 h-14.
+- Panel 300x400, header / messages / input, RTL-aware.
+- Auto bot greeting on first open.
+- Typing indicator (3-dot animate-bounce with [animation-delay:150ms]/[300ms]).
+- POST to webhook with body { message, lang, session_id }.
+- crypto.randomUUID() session_id persisted in sessionStorage.kangaroo_chat_id.
+- Plain-text or JSON reply parser: handles {reply}, {output}, {text},
+  {message}, arrays, and bare plain-text bodies (n8n's current shape).
+
+OUTSTANDING:
+- See TASK-017 for verification once the site is on a public domain.
+```
+
+---
+
+## TASK-017 — Verify chatbot response display in production
+
+**Priority:** Important
+**Blocker:** Needs the site live (TASK-018) so the n8n webhook can be hit from the real origin, not localhost.
+
+```
+TASK: TASK-017 Production chatbot verification
+GOAL:
+After Vercel deploy, send a real message from the production URL and
+confirm:
+- CORS: n8n returns Access-Control-Allow-Origin matching the prod origin
+  (kangaroo.ps or vercel domain). Add allowlist if needed.
+- Webhook URL: swap /webhook-test/... → /webhook/... once n8n workflow is
+  activated (the test URL is single-shot and expires).
+- Reply shape: confirm extractReply() handles whatever the production
+  workflow emits. If n8n is updated to return { "reply": "..." } JSON,
+  no client change needed — parser already covers that shape.
+- Mobile: verify the panel + keyboard behaviour on a real phone, not just
+  Chrome devtools.
+
+If reply still doesn't display:
+- Open DevTools → Network → click the webhook POST → inspect raw response.
+- Compare to the shapes covered in extractReply (ChatWidget.tsx).
+- Extend the parser if a new shape is seen.
+
+EXPECTED OUTPUT:
+- Network screenshot of a successful POST + 200 with valid body.
+- Screenshot of a working bot reply rendered in the panel on prod.
+- Updated parser if a new response shape is encountered.
+```
+
+---
+
+## TASK-018 — Deploy to Vercel
+
+**Priority:** Critical (blocks every other production task)
+
+```
+TASK: TASK-018 Deploy site to Vercel
+GOAL:
+Stand up a public production URL for the homepage. Default plan is Vercel
+(Vite + React deploys natively). Hostinger/cPanel is an alternative if
+preferred but Vercel keeps the dev story simple.
+
+STEPS:
+1. Create a Vercel project pointing at the GitHub repo, default branch =
+   main. Build command: `npm run build`. Output dir: `dist`.
+2. Set env vars if needed (none currently — site is fully client-side).
+3. Confirm the auto-detected framework preset is "Vite".
+4. First deploy → grab the *.vercel.app preview URL → smoke-test all
+   sections in both AR and EN.
+5. Connect the company domain (kangaroo.ps or whichever) when DNS is ready.
+6. Ensure HTTPS, www→apex redirect, and 200 OK on /.
+
+POST-DEPLOY:
+- Run TASK-017 (chatbot prod verify).
+- Run TASK-020 (Lighthouse) against the prod URL.
+
+EXPECTED OUTPUT:
+- Vercel project URL + custom domain.
+- Smoke-test screenshots (hero, services scroll, marquee, footer) AR + EN.
+```
+
+---
+
+## TASK-019 — SEO meta tags (revival of TASK-004)
+
+**Priority:** Important
+**Note:** Originally TASK-004 was skipped. Bring it back now that we're
+about to deploy.
+
+```
+TASK: TASK-019 SEO and Open Graph meta
+FILE: index.html
+
+GOAL:
+Replace the leftover lovable.dev og:image and the generic description
+with real Kangaroo content. Add Twitter card tags.
+
+WHAT'S THERE NOW (audit before editing):
+- description: "كنغارو - الشريك اللوجستي الأول في فلسطين والأردن..."
+- og:image: still points to lovable.dev/opengraph-image-p98pqg.png ← FIX
+- og:type, og:title, og:description: present
+- twitter:card: summary_large_image (present)
+- twitter:title / twitter:description / og:locale: missing
+
+ADD / FIX:
+- og:image → /og-image.png (1200x630 PNG) — needs a designed image, not the logo.
+  Interim: use a screenshot of the hero, or a branded card.
+- og:url → final prod URL
+- og:locale → ar_PS (and og:locale:alternate → en_US)
+- twitter:title, twitter:description, twitter:image (same as og:image)
+- meta name="theme-color" content="#1f6b3c" (primary green for mobile chrome)
+- canonical link
+
+RULES:
+- index.html only.
+- Don't drop existing tags unless replacing them.
+
+EXPECTED OUTPUT:
+Diff of index.html + the new /public/og-image.png file.
+```
+
+---
+
+## TASK-020 — Performance audit (Lighthouse)
+
+**Priority:** Important
+**Blocker:** Easier to run against the production URL after TASK-018.
+
+```
+TASK: TASK-020 Performance + accessibility audit
+
+GOAL:
+Get the site into a healthy Lighthouse range (target ≥90 across Perf,
+A11y, Best Practices, SEO).
+
+CHECKS:
+- LCP: hero warehouse image is 378 KB jpeg — convert to AVIF/WebP + add
+  responsive srcset. Keep a small jpeg fallback.
+- Logo: kangaroo-logo.png is 306 KB — should be < 30 KB. Compress or
+  convert to SVG.
+- Total JS: ~349 KB. Consider route-splitting if more pages get added,
+  but for a single-page site this is acceptable.
+- Fonts: 4 Google Fonts requested (Tajawal, Cairo, Archivo, JetBrains Mono).
+  Decide whether Cairo is still needed (now that Tajawal is primary) and
+  drop it if not. Self-host if perf budget tight.
+- A11y: run axe DevTools — fix any colour-contrast / aria issues.
+- Console: should remain clean (current state: 0 errors, just 2 React
+  Router future-flag warnings — harmless).
+
+EXPECTED OUTPUT:
+- Before/after Lighthouse reports on prod URL.
+- Diff for image swaps + font cleanup.
+- Note remaining items that need design input (e.g., new hero image).
 ```
 
 ---
