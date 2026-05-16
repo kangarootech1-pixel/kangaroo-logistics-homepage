@@ -1,5 +1,6 @@
 import { ArrowLeft, Package, Warehouse, Truck, Wallet, Building2, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
+import { useInView } from "@/hooks/use-in-view";
 
 type ZoneTone = "green" | "blue" | "orange" | "gray";
 
@@ -29,6 +30,7 @@ const toneStyles: Record<ZoneTone, { badge: string; ring: string; iconBg: string
 export const CoverageMap = () => {
   const { t, lang } = useLang();
   const isAr = lang === "ar";
+  const { ref, inView } = useInView<HTMLElement>();
 
   const zones: {
     flag: string;
@@ -82,7 +84,13 @@ export const CoverageMap = () => {
   ];
 
   return (
-    <section id="coverage" className="py-20 md:py-28 bg-background">
+    <section
+      ref={ref}
+      id="coverage"
+      className={`py-20 md:py-28 bg-background transition-all duration-700 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+    >
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
           <span className="inline-block text-primary text-sm font-bold tracking-widest uppercase">{t.coverage.eyebrow}</span>
@@ -91,23 +99,23 @@ export const CoverageMap = () => {
         </div>
 
         {/* Zone cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {zones.map((z) => {
             const s = toneStyles[z.tone];
             return (
               <div
                 key={z.title}
-                className={`group rounded-2xl bg-card border border-border ring-1 ring-transparent ${s.ring} p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-start`}
+                className={`group rounded-md bg-card border border-border ring-1 ring-transparent ${s.ring} p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-elevated text-start`}
                 dir={isAr ? "rtl" : "ltr"}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${s.iconBg}`}>
-                    <span aria-hidden>{z.flag}</span>
+                  <div className={`inline-flex h-11 w-11 items-center justify-center rounded-md text-2xl ${s.iconBg}`}>
+                    <span aria-hidden="true">{z.flag}</span>
                   </div>
-                  <h3 className="text-xl font-extrabold text-foreground">{z.title}</h3>
+                  <h3 className="text-xl font-extrabold text-foreground tracking-tight">{z.title}</h3>
                 </div>
                 <p className="mt-4 text-muted-foreground leading-relaxed min-h-[3rem]">{z.cities}</p>
-                <span className={`mt-4 inline-block rounded-full px-3 py-1 text-xs font-bold ${s.badge}`}>
+                <span className={`mt-4 inline-block rounded-sm px-2.5 py-1 text-[11px] font-bold tracking-[0.14em] uppercase ${s.badge}`}>
                   {z.badge}
                 </span>
               </div>
@@ -137,18 +145,18 @@ export const CoverageMap = () => {
           </div>
         </div>
 
-        {/* Stat boxes */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Stat boxes — mono numerals, sharper edges */}
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
           {stats.map(({ Icon, value, label }) => (
             <div
               key={label}
-              className="rounded-2xl bg-card border border-border p-5 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
+              className="route-accent relative rounded-md bg-card border border-border p-5 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 overflow-hidden"
             >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-2">
-                <Icon className="h-5 w-5" />
+              <div className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 text-primary mb-2" aria-hidden="true">
+                <Icon className="h-4 w-4" />
               </div>
-              <div className="text-2xl md:text-3xl font-extrabold text-primary">{value}</div>
-              <div className="mt-1 text-sm text-muted-foreground font-semibold">{label}</div>
+              <div className="serial text-2xl md:text-3xl font-bold text-primary">{value}</div>
+              <div className="mt-1 text-[11px] md:text-xs text-muted-foreground font-semibold tracking-[0.14em] uppercase">{label}</div>
             </div>
           ))}
         </div>

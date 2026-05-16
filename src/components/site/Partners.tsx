@@ -1,6 +1,7 @@
+import { Building2 } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 
-const placeholders = ["AURA", "NOVA", "ORBIT", "PEAK", "ZENITH", "PULSE", "ATLAS", "ECHO"];
+const SLOT_COUNT = 8;
 
 export const Partners = () => {
   const { t } = useLang();
@@ -13,13 +14,14 @@ export const Partners = () => {
           <p className="mt-3 text-muted-foreground">{t.partners.subtitle}</p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {placeholders.map((p, i) => (
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {Array.from({ length: SLOT_COUNT }).map((_, i) => (
             <div
               key={i}
-              className="aspect-[5/2] rounded-xl bg-card border border-border shadow-soft flex items-center justify-center text-muted-foreground font-extrabold tracking-[0.25em] grayscale opacity-70 hover:opacity-100 hover:grayscale-0 hover:text-primary transition-base"
+              className="aspect-[5/2] rounded-md bg-card/50 border-2 border-dashed border-border flex flex-col items-center justify-center gap-1.5 text-muted-foreground opacity-60 hover:opacity-100 hover:border-primary hover:text-primary transition-base"
             >
-              {p}
+              <Building2 className="w-5 h-5" aria-hidden="true" />
+              <span className="text-[10px] font-bold tracking-[0.18em] uppercase">Coming Soon</span>
             </div>
           ))}
         </div>

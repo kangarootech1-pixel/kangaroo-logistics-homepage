@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Cairo", "Inter", "system-ui", "sans-serif"],
-        display: ["Cairo", "Inter", "system-ui", "sans-serif"],
-        latin: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Cairo", "Archivo", "system-ui", "sans-serif"],
+        display: ["Archivo", "Cairo", "system-ui", "sans-serif"],
+        latin: ["Archivo", "system-ui", "sans-serif"],
+        mono: ["'JetBrains Mono'", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
