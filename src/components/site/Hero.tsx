@@ -6,9 +6,16 @@ import warehouseImg from "@/assets/warehouse-hero.jpg";
 export const Hero = () => {
   const { t, dir } = useLang();
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
+  const sideGradient =
+    dir === "rtl"
+      ? "bg-gradient-to-l from-black/60 to-transparent"
+      : "bg-gradient-to-r from-black/60 to-transparent";
 
   return (
-    <section id="home" className="relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 min-h-[90vh] flex items-center">
+    <section
+      id="home"
+      className="relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 min-h-[90vh] flex items-center"
+    >
       {/* Background image */}
       <img
         src={warehouseImg}
@@ -23,23 +30,37 @@ export const Hero = () => {
       {/* Layered overlay — keeps the warehouse readable as the actual backdrop */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/85 via-background/55 to-background/95" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-l from-background/60 via-transparent to-transparent" />
+      {/* Dramatic side scrim on the content side (SMSA-style depth) */}
+      <div className={`absolute inset-0 -z-10 ${sideGradient}`} aria-hidden="true" />
 
       <div className="container relative z-10">
-        <div className="max-w-2xl me-auto text-start animate-float-up">
-          <span className="inline-flex items-center gap-2 rounded-sm bg-primary/10 text-primary px-3 py-1.5 text-[11px] font-bold tracking-[0.18em] uppercase ring-1 ring-primary/25">
+        <div className="max-w-2xl me-auto text-start">
+          <span
+            className="inline-flex items-center gap-2 rounded-sm bg-primary/10 text-primary px-3 py-1.5 text-[11px] font-bold tracking-[0.18em] uppercase ring-1 ring-primary/25 animate-float-up"
+            style={{ animationDelay: "0ms" }}
+          >
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
             {t.hero.tagline}
           </span>
 
-          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold leading-[1.2] text-foreground text-balance">
+          <h1
+            className="mt-6 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] text-foreground text-balance animate-float-up"
+            style={{ animationDelay: "100ms" }}
+          >
             {t.hero.title}
           </h1>
 
-          <p className="mt-5 text-base md:text-lg text-muted-foreground text-start">
+          <p
+            className="mt-5 text-base md:text-lg text-muted-foreground text-start animate-float-up"
+            style={{ animationDelay: "200ms" }}
+          >
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center sm:justify-start justify-center gap-3">
+          <div
+            className="mt-8 flex flex-col sm:flex-row items-center sm:justify-start justify-center gap-3 animate-float-up"
+            style={{ animationDelay: "300ms" }}
+          >
             <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow-glow h-12 px-7">
               <a href="#contact">
                 {t.hero.ctaPrimary}
@@ -55,12 +76,15 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Stat chips — manifest-style, mono numerals */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
+        {/* Stat chips — glassmorphism over the warehouse */}
+        <div
+          className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto animate-float-up"
+          style={{ animationDelay: "400ms" }}
+        >
           {t.hero.stats.map((s, i) => (
             <div
               key={i}
-              className="relative rounded-md bg-card/90 backdrop-blur border border-border px-6 py-5 text-center shadow-soft overflow-hidden"
+              className="relative rounded-md bg-white/10 backdrop-blur-sm border border-white/20 px-6 py-5 text-center shadow-soft overflow-hidden"
             >
               <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" aria-hidden="true" />
               <div className="serial text-3xl md:text-4xl font-bold text-primary">{s.value}</div>

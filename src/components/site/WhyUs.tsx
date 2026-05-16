@@ -1,12 +1,21 @@
 import { MapPinned, Zap, BadgePercent, ShoppingBag } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
+import { useInView } from "@/hooks/use-in-view";
 
 const icons = [MapPinned, Zap, BadgePercent, ShoppingBag];
 
 export const WhyUs = () => {
   const { t } = useLang();
+  const { ref, inView } = useInView<HTMLElement>();
+
   return (
-    <section id="why" className="py-20 md:py-28 bg-surface">
+    <section
+      ref={ref}
+      id="why"
+      className={`py-20 md:py-28 bg-surface transition-all duration-700 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+    >
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
           <span className="inline-block text-primary text-sm font-bold tracking-widest uppercase">{t.why.eyebrow}</span>
@@ -19,10 +28,12 @@ export const WhyUs = () => {
             return (
               <div
                 key={i}
-                className="route-accent relative rounded-md bg-card border border-border p-6 text-center shadow-soft transition-base hover:shadow-card-elevated hover:-translate-y-1 hover:border-primary/30 overflow-hidden"
+                className="group relative rounded-md bg-card border border-border border-t-2 border-t-transparent p-6 text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] hover:border-primary/30 hover:border-t-primary"
               >
-                <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-md gradient-cta text-primary-foreground shadow-soft" aria-hidden="true">
-                  <Icon className="h-6 w-6" />
+                <div className="mx-auto inline-flex p-2 rounded-lg bg-primary/10" aria-hidden="true">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-md gradient-cta text-primary-foreground shadow-soft">
+                    <Icon className="h-6 w-6" />
+                  </div>
                 </div>
                 <div className="mt-4 serial text-3xl md:text-4xl font-bold text-primary">
                   {it.value}

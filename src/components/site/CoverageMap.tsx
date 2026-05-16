@@ -1,5 +1,6 @@
 import { ArrowLeft, Package, Warehouse, Truck, Wallet, Building2, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
+import { useInView } from "@/hooks/use-in-view";
 
 type ZoneTone = "green" | "blue" | "orange" | "gray";
 
@@ -29,6 +30,7 @@ const toneStyles: Record<ZoneTone, { badge: string; ring: string; iconBg: string
 export const CoverageMap = () => {
   const { t, lang } = useLang();
   const isAr = lang === "ar";
+  const { ref, inView } = useInView<HTMLElement>();
 
   const zones: {
     flag: string;
@@ -82,7 +84,13 @@ export const CoverageMap = () => {
   ];
 
   return (
-    <section id="coverage" className="py-20 md:py-28 bg-background">
+    <section
+      ref={ref}
+      id="coverage"
+      className={`py-20 md:py-28 bg-background transition-all duration-700 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+    >
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
           <span className="inline-block text-primary text-sm font-bold tracking-widest uppercase">{t.coverage.eyebrow}</span>
