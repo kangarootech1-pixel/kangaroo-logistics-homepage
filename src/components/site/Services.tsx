@@ -5,7 +5,8 @@ import { useInView } from "@/hooks/use-in-view";
 
 const icons = [Truck, Warehouse, MoveRight, Plane, Globe2];
 
-const codes = ["٠١", "٠٢", "٠٣", "٠٤", "٠٥"];
+const codesAr = ["٠١", "٠٢", "٠٣", "٠٤", "٠٥"];
+const codesEn = ["01", "02", "03", "04", "05"];
 
 const stickyTops = [
   "top-[120px]",
@@ -24,9 +25,9 @@ const cardHeights = [
 
 export const Services = () => {
   const { t, dir } = useLang();
-  const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
   const { ref, inView } = useInView<HTMLElement>();
   const items = t.services.items.slice(0, 5);
+  const codes = dir === "rtl" ? codesAr : codesEn;
 
   const [activeIndex, setActiveIndex] = useState(0);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -172,7 +173,11 @@ export const Services = () => {
                     </p>
                     <div className="mt-auto pt-8 flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-[0.14em]">
                       <span>{t.hero.ctaSecondary}</span>
-                      <Arrow className="h-3.5 w-3.5" aria-hidden="true" />
+                      {dir === "rtl" ? (
+                        <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
+                      ) : (
+                        <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      )}
                     </div>
                   </div>
                 </div>
