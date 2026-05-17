@@ -20,7 +20,7 @@
 - [ ] 🔄 TASK-016 — n8n chatbot widget — **in progress** (response shape issue pending). Widget UI, session ID, fetch logic shipped (commits 67d969d, bb893a2). Plain-text parser added in bd2e73c — works on localhost but production reliability not yet verified. See TASK-017.
 - [ ] TASK-017 — Fix chatbot response display (debug webhook response shape — production verification)
 - [ ] TASK-018 — Deploy to Vercel (production URL)
-- [ ] TASK-019 — SEO meta tags (was skipped earlier as TASK-004 — revisit)
+- [x] ✅ TASK-019 — SEO meta tags shipped (commits 288789c, 01cffe8, 92b378d). Deferred: `og:url` + `canonical` (need final prod URL from TASK-018); designed 1200×630 `/og-image.png` (using `/kangaroo-logo.png` for now).
 - [ ] TASK-020 — Performance audit (image optimization, Lighthouse score)
 
 ## Extra work completed (outside numbered tasks)
@@ -32,6 +32,7 @@
 - [x] Hero RTL fix — removed hardcoded `dir="rtl"`, swapped `ms-auto` → `me-auto`, dropped `sm:flex-row-reverse`, replaced `text-right` with `text-start`; Hero content now anchors to logical start (right in RTL, left in LTR) and the Primary CTA is rightmost in RTL
 - [x] CTA contrast bug fix — `gradient-hero` + `hero-pattern` were both using the CSS `background` shorthand and clobbering each other, leaving the section near-transparent on the cream page; switched to `gradient-cta` and dropped the pattern overlay
 - [x] RTL/LTR numerals + arrow polish — Services pill numbers now switch between Arabic-Indic (٠١-٠٥) and Western (01-05) digits via `dir`; card CTA arrow flips between ArrowLeft (RTL) and ArrowRight (LTR) via inline conditional (commit e056337)
+- [x] Services sticky cards visual polish — soft `from-primary/5 to-primary/10` gradient layer, large faded service icon (`h-56 w-56 text-primary/10`) anchored at `-bottom-10 -end-10` (RTL-aware), 3-pill stats row per card (`bg-primary/10 text-primary rounded-full px-3 py-1`), padding tightened to `p-6 md:p-10 lg:p-[44px]`; translations gained `stats: string[]` on all 6 services AR + EN (commit 403e112; commit message labeled `task-020`, which collides with the file's TASK-020 perf-audit slot — kept the commit for history and logged the work here instead)
 
 ---
 
@@ -424,8 +425,20 @@ EXPECTED OUTPUT:
 ## TASK-019 — SEO meta tags (revival of TASK-004)
 
 **Priority:** Important
+**Status:** ✅ Shipped on `feature/pre-launch` in commits `288789c`, `01cffe8`, `92b378d`.
 **Note:** Originally TASK-004 was skipped. Bring it back now that we're
 about to deploy.
+
+### What shipped
+- `<title>` and `description` rewritten to "الشريك اللوجستي الأول…" copy.
+- `og:title`, `og:description` refreshed; `og:locale=ar_PS`; added `og:locale:alternate=en_US`.
+- Replaced the lovable.dev `og:image` placeholder. First commit used `/src/assets/kangaroo-logo.png` (which Vite does not serve in prod), fixed in `01cffe8` to `/kangaroo-logo.png` (the file already present in `public/` and used as favicon).
+- `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image` mirroring og:image.
+- `robots=index, follow`, `theme-color=#1f6b3c` (spec value; actual primary computes to ~`#1e6736` from `hsl(140 55% 26%)` — close enough for mobile chrome).
+
+### Deferred (intentionally)
+- `og:url` and `<link rel="canonical">` — both need the final prod URL; revisit after TASK-018 Vercel deploy.
+- Designed 1200×630 `/og-image.png` — current `og:image` and `twitter:image` point at the logo, which is square (not the 1200×630 SMSA-style social card the spec calls for). Crawlers will render the logo until a real card is dropped into `public/og-image.png`.
 
 ```
 TASK: TASK-019 SEO and Open Graph meta
