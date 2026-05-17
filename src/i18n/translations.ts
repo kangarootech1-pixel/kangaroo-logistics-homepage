@@ -30,12 +30,36 @@ export const translations = {
       title: "حلول لوجستية متكاملة لنمو أعمالك",
       subtitle: "من الميل الأول إلى الميل الأخير، نحن نتولى كل التفاصيل لتركز أنت على عملائك.",
       items: [
-        { title: "التوصيل المحلي", desc: "توصيل سريع وموثوق داخل فلسطين والأردن خلال 24 ساعة." },
-        { title: "التخزين والتجهيز", desc: "مستودعات مجهزة بالكامل مع خدمات التجهيز والتغليف." },
-        { title: "نقل الأردن - فلسطين", desc: "خط مباشر آمن وسريع بين البلدين بإجراءات مبسطة." },
-        { title: "الشحن من تركيا", desc: "خط شحن منتظم من إسطنبول إلى المنطقة بأسعار تنافسية." },
-        { title: "الشحن الدولي", desc: "شحن جوي وبحري إلى جميع أنحاء العالم بشراكات موثوقة." },
-        { title: "تتبع الشحنات", desc: "تتبع لحظي لشحناتك عبر منصة ذكية ومتقدمة." },
+        {
+          title: "التوصيل المحلي",
+          desc: "توصيل سريع وموثوق داخل فلسطين والأردن خلال 24 ساعة.",
+          stats: ["24 ساعة توصيل", "+15 مدينة", "98% دقة"],
+        },
+        {
+          title: "التخزين والتجهيز",
+          desc: "مستودعات مجهزة بالكامل مع خدمات التجهيز والتغليف.",
+          stats: ["تخزين آمن", "تجهيز سريع", "تغليف احترافي"],
+        },
+        {
+          title: "نقل الأردن - فلسطين",
+          desc: "خط مباشر آمن وسريع بين البلدين بإجراءات مبسطة.",
+          stats: ["خط مباشر", "تخليص مبسط", "شحنات يومية"],
+        },
+        {
+          title: "الشحن من تركيا",
+          desc: "خط شحن منتظم من إسطنبول إلى المنطقة بأسعار تنافسية.",
+          stats: ["شحنات منتظمة", "أسعار تنافسية", "إسطنبول"],
+        },
+        {
+          title: "الشحن الدولي",
+          desc: "شحن جوي وبحري إلى جميع أنحاء العالم بشراكات موثوقة.",
+          stats: ["جوي وبحري", "تغطية عالمية", "شركاء موثوقون"],
+        },
+        {
+          title: "تتبع الشحنات",
+          desc: "تتبع لحظي لشحناتك عبر منصة ذكية ومتقدمة.",
+          stats: ["تتبع لحظي", "منصة ذكية", "تنبيهات فورية"],
+        },
       ],
     },
     why: {
@@ -128,12 +152,36 @@ export const translations = {
       title: "End-to-end logistics to grow your business",
       subtitle: "From first mile to last mile, we handle the details so you can focus on customers.",
       items: [
-        { title: "Local Delivery", desc: "Fast, reliable delivery across Palestine & Jordan within 24 hours." },
-        { title: "Fulfillment", desc: "Fully equipped warehouses with pick, pack & prep services." },
-        { title: "Cross Border", desc: "Direct, secure Jordan–Palestine line with simplified clearance." },
-        { title: "Turkey Shipping", desc: "Regular shipping line from Istanbul at competitive rates." },
-        { title: "International Shipping", desc: "Air & sea freight worldwide via trusted partners." },
-        { title: "Shipment Tracking", desc: "Real-time tracking through our smart logistics platform." },
+        {
+          title: "Local Delivery",
+          desc: "Fast, reliable delivery across Palestine & Jordan within 24 hours.",
+          stats: ["24h Delivery", "15+ Cities", "98% Accuracy"],
+        },
+        {
+          title: "Fulfillment",
+          desc: "Fully equipped warehouses with pick, pack & prep services.",
+          stats: ["Secure Storage", "Fast Prep", "Pro Packing"],
+        },
+        {
+          title: "Cross Border",
+          desc: "Direct, secure Jordan–Palestine line with simplified clearance.",
+          stats: ["Direct Line", "Easy Clearance", "Daily Shipments"],
+        },
+        {
+          title: "Turkey Shipping",
+          desc: "Regular shipping line from Istanbul at competitive rates.",
+          stats: ["Regular Line", "Competitive Rates", "Istanbul Hub"],
+        },
+        {
+          title: "International Shipping",
+          desc: "Air & sea freight worldwide via trusted partners.",
+          stats: ["Air & Sea", "Global Reach", "Trusted Partners"],
+        },
+        {
+          title: "Shipment Tracking",
+          desc: "Real-time tracking through our smart logistics platform.",
+          stats: ["Real-time", "Smart Platform", "Instant Alerts"],
+        },
       ],
     },
     why: {

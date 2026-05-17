@@ -135,8 +135,17 @@ export const Services = () => {
                     cardRefs.current[i] = el;
                   }}
                   data-index={i}
-                  className={`group relative rounded-xl border border-border bg-card p-8 md:p-10 shadow-card-elevated sticky ${stickyTops[i]} ${cardHeights[i]}`}
+                  className={`group relative overflow-hidden rounded-xl border border-border bg-card p-6 md:p-10 lg:p-[44px] shadow-card-elevated sticky ${stickyTops[i]} ${cardHeights[i]}`}
                 >
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10"
+                  />
+                  <Icon
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -bottom-10 -end-10 h-56 w-56 text-primary/10"
+                  />
+
                   <span
                     aria-hidden="true"
                     className="absolute top-0 start-0 w-4 h-4 border-t border-s border-primary/40"
@@ -154,7 +163,7 @@ export const Services = () => {
                     className="absolute bottom-0 end-0 w-4 h-4 border-b border-e border-primary/40"
                   ></span>
 
-                  <div className="flex flex-col h-full">
+                  <div className="relative flex flex-col h-full">
                     <div className="flex items-start gap-6">
                       <div className="inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-deep text-primary-foreground shadow-soft">
                         <Icon className="h-8 w-8" />
@@ -171,6 +180,16 @@ export const Services = () => {
                     <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                       {s.desc}
                     </p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {s.stats.map((stat) => (
+                        <span
+                          key={stat}
+                          className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary"
+                        >
+                          {stat}
+                        </span>
+                      ))}
+                    </div>
                     <div className="mt-auto pt-8 flex items-center gap-1.5 text-primary text-xs font-bold uppercase tracking-[0.14em]">
                       <span>{t.hero.ctaSecondary}</span>
                       {dir === "rtl" ? (
