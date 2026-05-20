@@ -21,7 +21,8 @@
 - [ ] TASK-017 — Fix chatbot response display (debug webhook response shape — production verification)
 - [ ] TASK-018 — Deploy to Vercel (production URL)
 - [x] ✅ TASK-019 — SEO meta tags shipped (commits 288789c, 01cffe8, 92b378d). Deferred: `og:url` + `canonical` (need final prod URL from TASK-018); designed 1200×630 `/og-image.png` (using `/kangaroo-logo.png` for now).
-- [ ] TASK-020 — Performance audit (image optimization, Lighthouse score)
+- [ ] TASK-020 — Performance audit (image optimization, Lighthouse score) — image-weight portion partly addressed by TASK-021; Lighthouse run + WebP/AVIF + srcset still pending
+- [x] ✅ TASK-021 — Compress hero + logo via `scripts/compress-images.js` (sharp). `warehouse-hero.jpg` 369 KB → 168 KB (1600px @ q60, mozjpeg, behind overlays); `kangaroo-logo.png` 299 KB → 27 KB (palette PNG, 512px). 100 KB hero target not met at JPEG — would need WebP/AVIF, deferred to TASK-020's srcset work.
 
 ## Extra work completed (outside numbered tasks)
 - [x] URL fix — corrected Olivery `register` and `track` URLs to real Olivery paths
