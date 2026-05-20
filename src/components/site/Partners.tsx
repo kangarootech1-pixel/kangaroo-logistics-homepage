@@ -6,7 +6,7 @@ const SLOT_COUNT = 8;
 export const Partners = () => {
   const { t } = useLang();
   return (
-    <section className="py-20 md:py-24 bg-surface">
+    <section className="py-20 md:py-24 bg-primary/5">
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
