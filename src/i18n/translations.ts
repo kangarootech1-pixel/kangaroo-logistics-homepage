@@ -9,7 +9,7 @@ export const translations = {
       about: "من نحن",
       coverage: "التغطية",
       contact: "تواصل",
-      cta: "انضم إلينا",
+      cta: "تواصل معنا",
     },
     hero: {
       eyebrow: "كنغارو • Kangaroo",
@@ -132,7 +132,7 @@ export const translations = {
       about: "About",
       coverage: "Coverage",
       contact: "Contact",
-      cta: "Join Us",
+      cta: "Contact Us",
     },
     hero: {
       eyebrow: "Kangaroo • كنغارو",
