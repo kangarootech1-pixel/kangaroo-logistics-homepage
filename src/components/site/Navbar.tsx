@@ -54,7 +54,11 @@ export const Navbar = () => {
             asChild
             className="rounded-full font-bold shadow-lg gradient-cta text-primary-foreground shadow-soft"
           >
-            <a href="#contact">
+            <a
+              href="https://wa.me/972593150120"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Phone className="h-4 w-4" />
               {t.nav.cta}
             </a>
@@ -91,7 +95,14 @@ export const Navbar = () => {
                 asChild
                 className="flex-1 rounded-full gradient-cta text-primary-foreground"
               >
-                <a href="#contact" onClick={() => setOpen(false)}>{t.nav.cta}</a>
+                <a
+                  href="https://wa.me/972593150120"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                >
+                  {t.nav.cta}
+                </a>
               </Button>
             </div>
           </div>
