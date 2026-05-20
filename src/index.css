@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    /* warm ivory paper rather than clinical white */
-    --background: 38 25% 97%;
+    /* warm reading-paper cream, softer than near-white */
+    --background: 38 30% 93%;
     --foreground: 145 25% 12%;
 
     --card: 0 0% 100%;
@@ -40,7 +40,7 @@
     --input: 145 15% 86%;
     --ring: 118 52% 44%;
 
-    --surface: 40 35% 95%;
+    --surface: 38 30% 93%;
 
     --radius: 0.5rem;
 
