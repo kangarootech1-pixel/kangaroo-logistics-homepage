@@ -8,8 +8,8 @@ export const Hero = () => {
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
   const sideGradient =
     dir === "rtl"
-      ? "bg-gradient-to-l from-black/75 to-transparent"
-      : "bg-gradient-to-r from-black/75 to-transparent";
+      ? "bg-gradient-to-l from-black/55 to-transparent"
+      : "bg-gradient-to-r from-black/55 to-transparent";
 
   return (
     <section
@@ -27,9 +27,9 @@ export const Hero = () => {
         {...{ fetchpriority: "high" }}
         className="absolute inset-0 w-full h-full object-cover -z-10"
       />
-      {/* Darkening overlay — black wash so the warehouse stays visible but recedes */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/50 to-black/75" />
-      <div className="absolute inset-0 -z-10 bg-black/25" />
+      {/* Darkening overlay — balanced black wash, warehouse stays clearly visible */}
+      <div className="absolute inset-0 -z-10 bg-black/50" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-black/25" />
       {/* Dramatic side scrim on the content side (SMSA-style depth) */}
       <div className={`absolute inset-0 -z-10 ${sideGradient}`} aria-hidden="true" />
 
