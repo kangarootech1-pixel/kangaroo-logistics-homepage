@@ -9,7 +9,7 @@ export const translations = {
       about: "من نحن",
       coverage: "التغطية",
       contact: "تواصل",
-      cta: "تواصل معنا",
+      cta: "انضم إلينا",
     },
     hero: {
       eyebrow: "كنغارو • Kangaroo",
@@ -89,7 +89,7 @@ export const translations = {
     },
     ctaBand: {
       eyebrow: "تواصل",
-      title: "جاهز لتسريع شحناتك؟",
+      title: "كن جزءاً من عائلة كنغارو",
       subtitle: "ابدأ مع كنغارو اليوم واحصل على عرض سعر مخصص خلال ساعات.",
       buttonRegister: "سجّل كعميل جديد",
       buttonLogin: "دخول للعملاء",
@@ -132,7 +132,7 @@ export const translations = {
       about: "About",
       coverage: "Coverage",
       contact: "Contact",
-      cta: "Contact Us",
+      cta: "Join Us",
     },
     hero: {
       eyebrow: "Kangaroo • كنغارو",
@@ -212,7 +212,7 @@ export const translations = {
     },
     ctaBand: {
       eyebrow: "Contact",
-      title: "Ready to accelerate your shipments?",
+      title: "Be Part of the Kangaroo Family",
       subtitle: "Start with Kangaroo today and get a custom quote within hours.",
       buttonRegister: "Register as Customer",
       buttonLogin: "Customer Login",
