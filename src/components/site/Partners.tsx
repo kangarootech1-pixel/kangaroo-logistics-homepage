@@ -1,4 +1,4 @@
-import { Building2 } from "lucide-react";
+import { Building2, Handshake } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 
 const SLOT_COUNT = 8;
@@ -9,7 +9,10 @@ export const Partners = () => {
     <section className="py-20 md:py-24 bg-surface">
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
-          <span className="inline-block text-primary text-sm font-bold tracking-widest uppercase">{t.partners.eyebrow}</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+            <Handshake size={14} aria-hidden="true" />
+            {t.partners.eyebrow}
+          </span>
           <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-foreground">{t.partners.title}</h2>
           <p className="mt-3 text-muted-foreground">{t.partners.subtitle}</p>
         </div>

@@ -88,6 +88,7 @@ export const translations = {
       items: ["+500 عميل", "4 فروع", "+15 مدينة", "24/7 دعم", "98% توصيل"],
     },
     ctaBand: {
+      eyebrow: "تواصل",
       title: "جاهز لتسريع شحناتك؟",
       subtitle: "ابدأ مع كنغارو اليوم واحصل على عرض سعر مخصص خلال ساعات.",
       buttonRegister: "سجّل كعميل جديد",
@@ -210,6 +211,7 @@ export const translations = {
       items: ["500+ Clients", "4 Branches", "15+ Cities", "24/7 Support", "98% On-Time"],
     },
     ctaBand: {
+      eyebrow: "Contact",
       title: "Ready to accelerate your shipments?",
       subtitle: "Start with Kangaroo today and get a custom quote within hours.",
       buttonRegister: "Register as Customer",

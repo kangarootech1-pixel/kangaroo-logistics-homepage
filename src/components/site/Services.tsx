@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Truck, Warehouse, MoveRight, Plane, Globe2, ArrowLeft, ArrowRight } from "lucide-react";
+import { Truck, Warehouse, MoveRight, Plane, Globe2, ArrowLeft, ArrowRight, Package } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 import { useInView } from "@/hooks/use-in-view";
 
@@ -58,7 +58,8 @@ export const Services = () => {
     >
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
-          <span className="inline-block text-primary text-sm font-bold tracking-widest uppercase">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+            <Package size={14} aria-hidden="true" />
             {t.services.eyebrow}
           </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-extrabold text-foreground">

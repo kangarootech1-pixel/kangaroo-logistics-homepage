@@ -1,6 +1,6 @@
 import { useLang } from "@/i18n/LangProvider";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 
 export const CTASection = () => {
   const { t, dir } = useLang();
@@ -9,7 +9,11 @@ export const CTASection = () => {
     <section id="contact" className="py-20 md:py-24">
       <div className="container">
         <div className="relative overflow-hidden rounded-3xl gradient-cta p-10 md:p-16 text-center text-primary-foreground shadow-card-elevated">
-          <h2 className="text-3xl md:text-5xl font-extrabold">{t.ctaBand.title}</h2>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm font-semibold text-white">
+            <Phone size={14} aria-hidden="true" />
+            {t.ctaBand.eyebrow}
+          </span>
+          <h2 className="mt-4 text-3xl md:text-5xl font-extrabold">{t.ctaBand.title}</h2>
           <p className="mt-4 text-primary-foreground/85 text-base md:text-lg max-w-2xl mx-auto">
             {t.ctaBand.subtitle}
           </p>

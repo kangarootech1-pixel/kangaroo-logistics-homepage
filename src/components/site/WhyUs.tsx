@@ -1,4 +1,4 @@
-import { MapPinned, Zap, BadgePercent, ShoppingBag } from "lucide-react";
+import { MapPinned, Zap, BadgePercent, ShoppingBag, Star } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 import { useInView } from "@/hooks/use-in-view";
 
@@ -18,7 +18,10 @@ export const WhyUs = () => {
     >
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
-          <span className="inline-block text-primary text-sm font-bold tracking-widest uppercase">{t.why.eyebrow}</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+            <Star size={14} aria-hidden="true" />
+            {t.why.eyebrow}
+          </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-extrabold text-foreground">{t.why.title}</h2>
         </div>
 

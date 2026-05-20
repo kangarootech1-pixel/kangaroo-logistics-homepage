@@ -93,7 +93,10 @@ export const CoverageMap = () => {
     >
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
-          <span className="inline-block text-primary text-sm font-bold tracking-widest uppercase">{t.coverage.eyebrow}</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+            <MapPin size={14} aria-hidden="true" />
+            {t.coverage.eyebrow}
+          </span>
           <h2 className="mt-3 text-3xl md:text-5xl font-extrabold text-foreground">{t.coverage.title}</h2>
           <p className="mt-4 text-muted-foreground text-base md:text-lg">{t.coverage.subtitle}</p>
         </div>
