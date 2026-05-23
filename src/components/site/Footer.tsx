@@ -53,7 +53,7 @@ export const Footer = () => {
           <ul className="space-y-2 text-sm text-background/75">
             <li><Link className="hover:text-white transition-base" to="/">{t.nav.home}</Link></li>
             <li><Link className="hover:text-white transition-base" to="/#services">{t.nav.services}</Link></li>
-            <li><Link className="hover:text-white transition-base" to="/#why">{t.nav.about}</Link></li>
+            <li><Link className="hover:text-white transition-base" to="/about">{t.nav.about}</Link></li>
             <li><Link className="hover:text-white transition-base" to="/#coverage">{t.nav.coverage}</Link></li>
             <li><Link className="hover:text-white transition-base" to="/#contact">{t.nav.contact}</Link></li>
           </ul>
