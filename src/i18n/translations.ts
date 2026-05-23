@@ -32,33 +32,28 @@ export const translations = {
       items: [
         {
           title: "التوصيل المحلي",
-          desc: "توصيل سريع وموثوق داخل فلسطين والأردن خلال 24 ساعة.",
-          stats: ["24 ساعة توصيل", "+15 مدينة", "98% دقة"],
+          desc: "تقدم Kangaroo خدمات توصيل محلي متكاملة مصممة لتلبية احتياجات الأفراد والشركات والمتاجر الإلكترونية، عبر شبكة تشغيل احترافية تغطي مختلف المدن والمناطق في فلسطين والأردن بكفاءة وسرعة عالية، مع خدمات تحصيل نقدي وإدارة مرتجعات وتتبع لحظي.",
+          stats: ["تحصيل نقدي", "إدارة مرتجعات", "تتبع لحظي"],
         },
         {
-          title: "التخزين والتجهيز",
-          desc: "مستودعات مجهزة بالكامل مع خدمات التجهيز والتغليف.",
-          stats: ["تخزين آمن", "تجهيز سريع", "تغليف احترافي"],
+          title: "خدمات الإنجاز المضاف وحلول التخزين",
+          desc: "تُعدّ Kangaroo أول وأبرز شركة متخصصة في Fulfillment وحلول التخزين المتكاملة في فلسطين، وتقدم منظومة تشغيل لوجستية متطورة تشمل إدارة المخزون وتجهيز الطلبات والتغليف والشحن، مع حلول قابلة للتوسع لمختلف أحجام الأعمال.",
+          stats: ["إدارة المخزون", "تجهيز الطلبات", "تغليف وشحن"],
         },
         {
           title: "نقل الأردن - فلسطين",
-          desc: "خط مباشر آمن وسريع بين البلدين بإجراءات مبسطة.",
-          stats: ["خط مباشر", "تخليص مبسط", "شحنات يومية"],
+          desc: "تقدم Kangaroo حلول نقل متخصصة بين الأردن وفلسطين تضمن الكفاءة والسرعة والموثوقية في عمليات النقل العابرة للحدود، مع أنظمة تتبع حديثة وإجراءات تشغيل احترافية تخدم الشركات والمتاجر والأفراد.",
+          stats: ["نقل عابر للحدود", "تتبع لحظي", "إدارة احترافية"],
         },
         {
-          title: "الشحن من تركيا",
-          desc: "خط شحن منتظم من إسطنبول إلى المنطقة بأسعار تنافسية.",
-          stats: ["شحنات منتظمة", "أسعار تنافسية", "إسطنبول"],
+          title: "الشحن والتخليص الجمركي",
+          desc: "تقدم Kangaroo خدمات شحن وتخليص جمركي متكاملة تشمل الشحن الجوي والبحري والبري، مع إدارة كاملة لإجراءات الاستيراد والتخليص الجمركي والتسليم النهائي، لتبسيط عمليات الاستيراد للشركات والتجار من مختلف دول العالم.",
+          stats: ["جوي · بحري · بري", "تخليص جمركي", "تسليم نهائي"],
         },
         {
-          title: "الشحن الدولي",
-          desc: "شحن جوي وبحري إلى جميع أنحاء العالم بشراكات موثوقة.",
-          stats: ["جوي وبحري", "تغطية عالمية", "شركاء موثوقون"],
-        },
-        {
-          title: "تتبع الشحنات",
-          desc: "تتبع لحظي لشحناتك عبر منصة ذكية ومتقدمة.",
-          stats: ["تتبع لحظي", "منصة ذكية", "تنبيهات فورية"],
+          title: "الاستشارات اللوجستية",
+          desc: "تقدم Kangaroo خدمات استشارية متخصصة في الخدمات اللوجستية وسلاسل التوريد، تساعد الشركات على تطوير كفاءتها التشغيلية وتحسين نماذج العمل اللوجستي، بناءً على خبرة ميدانية حقيقية وليس الطرح النظري فقط.",
+          stats: ["سلاسل التوريد", "تطوير العمليات", "خبرة ميدانية"],
         },
       ],
     },
@@ -85,7 +80,7 @@ export const translations = {
       subtitle: "نفخر بثقة كبرى الشركات والمتاجر الإلكترونية في المنطقة.",
     },
     statsMarquee: {
-      items: ["+500 عميل", "4 فروع", "+15 مدينة", "24/7 دعم", "98% توصيل"],
+      items: ["+500 عميل", "6 فروع", "+15 مدينة", "24/7 دعم", "98% توصيل"],
     },
     ctaBand: {
       eyebrow: "انضم إلينا",
@@ -95,7 +90,7 @@ export const translations = {
       buttonLogin: "دخول للعملاء",
     },
     footer: {
-      about: "كنغارو شركة لوجستية رائدة تقدم حلول التوصيل والتخزين والشحن الدولي في فلسطين والأردن.",
+      about: "كنغارو هي إحدى شركات Toureidco Investment، تأسست عام 2018، وتُعدّ من أبرز الشركات المتخصصة في الحلول اللوجستية المتكاملة وخدمات التوصيل في فلسطين والمنطقة.",
       branchesTitle: "فروعنا",
       branches: [
         { city: "رام الله", address: "رام الله والبيرة - شارع الميدان - عمارة بيسان الطابق الأرضي" },
@@ -109,6 +104,9 @@ export const translations = {
       email: "البريد",
       address: "العنوان",
       addressValue: "رام الله، فلسطين",
+      phoneValue: "0593150120",
+      emailValue: "info@kangaroopro.com",
+      websiteValue: "www.kangaroopro.com",
       whatsappDisplay: "+972 59 315 0120",
       whatsappUrl: "https://wa.me/972593150120",
       facebookUrl: "http://www.facebook.com/prokangaroo",
@@ -155,33 +153,28 @@ export const translations = {
       items: [
         {
           title: "Local Delivery",
-          desc: "Fast, reliable delivery across Palestine & Jordan within 24 hours.",
-          stats: ["24h Delivery", "15+ Cities", "98% Accuracy"],
+          desc: "Kangaroo provides comprehensive local delivery solutions for individuals, businesses, and e-commerce stores through a professional network covering Palestine and Jordan, with cash collection, returns management, and real-time tracking.",
+          stats: ["Cash Collection", "Returns Mgmt", "Real-time Tracking"],
         },
         {
-          title: "Fulfillment",
-          desc: "Fully equipped warehouses with pick, pack & prep services.",
-          stats: ["Secure Storage", "Fast Prep", "Pro Packing"],
+          title: "Fulfillment & Storage Solutions",
+          desc: "Kangaroo is Palestine's first and leading fulfillment provider, offering advanced warehousing, inventory management, order processing, packing, and final-mile delivery under one integrated logistics ecosystem tailored for e-commerce and businesses of all sizes.",
+          stats: ["Inventory Mgmt", "Order Processing", "Pack & Ship"],
         },
         {
-          title: "Cross Border",
-          desc: "Direct, secure Jordan–Palestine line with simplified clearance.",
-          stats: ["Direct Line", "Easy Clearance", "Daily Shipments"],
+          title: "Jordan–Palestine Transport",
+          desc: "Kangaroo delivers specialized cross-border transport between Jordan and Palestine with full operational efficiency, real-time tracking, and professional logistics management for businesses, e-commerce stores, and individuals.",
+          stats: ["Cross-Border", "Real-time Tracking", "Pro Logistics"],
         },
         {
-          title: "Turkey Shipping",
-          desc: "Regular shipping line from Istanbul at competitive rates.",
-          stats: ["Regular Line", "Competitive Rates", "Istanbul Hub"],
+          title: "Freight Forwarding & Clearance",
+          desc: "Kangaroo provides integrated freight forwarding and customs clearance services including air, sea, and land freight, managing the full import process from origin to final delivery with professional customs handling and real-time shipment tracking.",
+          stats: ["Air · Sea · Land", "Customs Clearance", "Final Delivery"],
         },
         {
-          title: "International Shipping",
-          desc: "Air & sea freight worldwide via trusted partners.",
-          stats: ["Air & Sea", "Global Reach", "Trusted Partners"],
-        },
-        {
-          title: "Shipment Tracking",
-          desc: "Real-time tracking through our smart logistics platform.",
-          stats: ["Real-time", "Smart Platform", "Instant Alerts"],
+          title: "Logistics Consulting",
+          desc: "Kangaroo offers specialized logistics and supply chain consulting services, helping businesses optimize their operations, improve efficiency, and build scalable logistics models based on real operational expertise and proven industry experience.",
+          stats: ["Supply Chains", "Process Optimization", "Field Expertise"],
         },
       ],
     },
@@ -208,7 +201,7 @@ export const translations = {
       subtitle: "Trusted by leading brands and e-commerce stores across the region.",
     },
     statsMarquee: {
-      items: ["500+ Clients", "4 Branches", "15+ Cities", "24/7 Support", "98% On-Time"],
+      items: ["500+ Clients", "6 Branches", "15+ Cities", "24/7 Support", "98% On-Time"],
     },
     ctaBand: {
       eyebrow: "Join Us",
@@ -218,7 +211,7 @@ export const translations = {
       buttonLogin: "Customer Login",
     },
     footer: {
-      about: "Kangaroo is a leading logistics company offering delivery, fulfillment & international shipping in Palestine & Jordan.",
+      about: "Kangaroo is part of Toureidco Investment, established in 2018, and is one of the leading providers of integrated logistics and delivery solutions in Palestine and the region.",
       branchesTitle: "Our Branches",
       branches: [
         { city: "Ramallah", address: "Ramallah & Al-Bireh - Al-Maydan St - Bisan Building, Ground Floor" },
@@ -232,6 +225,9 @@ export const translations = {
       email: "Email",
       address: "Address",
       addressValue: "Ramallah, Palestine",
+      phoneValue: "0593150120",
+      emailValue: "info@kangaroopro.com",
+      websiteValue: "www.kangaroopro.com",
       whatsappDisplay: "+972 59 315 0120",
       whatsappUrl: "https://wa.me/972593150120",
       facebookUrl: "http://www.facebook.com/prokangaroo",

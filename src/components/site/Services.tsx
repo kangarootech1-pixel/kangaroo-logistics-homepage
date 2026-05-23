@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { Truck, Warehouse, MoveRight, Plane, Globe2, ArrowLeft, ArrowRight, Package } from "lucide-react";
+import { Truck, Warehouse, MoveRight, Plane, Briefcase, ArrowLeft, ArrowRight, Package } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 import { useInView } from "@/hooks/use-in-view";
 
-const icons = [Truck, Warehouse, MoveRight, Plane, Globe2];
+const icons = [Truck, Warehouse, MoveRight, Plane, Briefcase];
 
 const codesAr = ["٠١", "٠٢", "٠٣", "٠٤", "٠٥"];
 const codesEn = ["01", "02", "03", "04", "05"];
