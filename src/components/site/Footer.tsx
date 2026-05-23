@@ -1,4 +1,5 @@
 import { MapPin, MessageCircle, Facebook, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LangProvider";
 import { KangarooLogo } from "./KangarooLogo";
 
@@ -50,11 +51,11 @@ export const Footer = () => {
         <div>
           <h4 className="text-white font-bold mb-4">{t.footer.linksTitle}</h4>
           <ul className="space-y-2 text-sm text-background/75">
-            <li><a className="hover:text-white transition-base" href="#home">{t.nav.home}</a></li>
-            <li><a className="hover:text-white transition-base" href="#services">{t.nav.services}</a></li>
-            <li><a className="hover:text-white transition-base" href="#why">{t.nav.about}</a></li>
-            <li><a className="hover:text-white transition-base" href="#coverage">{t.nav.coverage}</a></li>
-            <li><a className="hover:text-white transition-base" href="#contact">{t.nav.contact}</a></li>
+            <li><Link className="hover:text-white transition-base" to="/">{t.nav.home}</Link></li>
+            <li><Link className="hover:text-white transition-base" to="/#services">{t.nav.services}</Link></li>
+            <li><Link className="hover:text-white transition-base" to="/#why">{t.nav.about}</Link></li>
+            <li><Link className="hover:text-white transition-base" to="/#coverage">{t.nav.coverage}</Link></li>
+            <li><Link className="hover:text-white transition-base" to="/#contact">{t.nav.contact}</Link></li>
           </ul>
         </div>
 
