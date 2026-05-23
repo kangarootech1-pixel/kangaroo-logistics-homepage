@@ -47,7 +47,7 @@ export const Services = () => {
 
         return (
           <div key={service.slug} className={bgClass}>
-            <div className="container py-14 md:py-20 lg:py-24">
+            <div className="container py-10 md:py-14 lg:py-16">
               <div className="grid gap-10 md:gap-16 md:grid-cols-2 items-center">
                 <div className={textOrderClass}>
                   <span className="serial text-sm font-bold text-primary tracking-widest">
