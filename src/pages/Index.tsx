@@ -1,4 +1,3 @@
-import { LangProvider } from "@/i18n/LangProvider";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
@@ -12,22 +11,20 @@ import { ChatWidget } from "@/components/site/ChatWidget";
 
 const Index = () => {
   return (
-    <LangProvider>
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <main>
-          <Hero />
-          <Services />
-          <WhyUs />
-          <CoverageMap />
-          <Partners />
-          <CTASection />
-        </main>
-        <StatsMarquee />
-        <Footer />
-        <ChatWidget />
-      </div>
-    </LangProvider>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <WhyUs />
+        <CoverageMap />
+        <Partners />
+        <CTASection />
+      </main>
+      <StatsMarquee />
+      <Footer />
+      <ChatWidget />
+    </div>
   );
 };
 
