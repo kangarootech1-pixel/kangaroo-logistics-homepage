@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LangProvider";
 import { KangarooLogo } from "./KangarooLogo";
 import { LangToggle } from "./LangToggle";
@@ -18,11 +19,11 @@ export const Navbar = () => {
   }, []);
 
   const links = [
-    { href: "#home", label: t.nav.home },
-    { href: "#services", label: t.nav.services },
-    { href: "#why", label: t.nav.about },
-    { href: "#coverage", label: t.nav.coverage },
-    { href: "#contact", label: t.nav.contact },
+    { to: "/", label: t.nav.home },
+    { to: "/#services", label: t.nav.services },
+    { to: "/#why", label: t.nav.about },
+    { to: "/#coverage", label: t.nav.coverage },
+    { to: "/#contact", label: t.nav.contact },
   ];
 
   return (
@@ -36,15 +37,15 @@ export const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-7">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link
+              key={l.to}
+              to={l.to}
               className={`text-sm font-semibold transition-base hover:text-primary ${
                 scrolled ? "text-foreground" : "text-white/90"
               }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -80,14 +81,14 @@ export const Navbar = () => {
         <div className="md:hidden bg-background border-t border-border shadow-card-elevated">
           <div className="container flex flex-col gap-1 py-4">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <Link
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="px-3 py-3 rounded-lg font-semibold hover:bg-secondary text-foreground"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <div className="flex items-center justify-between gap-3 pt-3 mt-2 border-t border-border">
               <LangToggle variant="default" />

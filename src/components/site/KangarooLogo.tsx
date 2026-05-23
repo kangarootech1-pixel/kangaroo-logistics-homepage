@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import logoSrc from "@/assets/kangaroo-logo.png";
 
 export const KangarooLogo = ({ variant = "dark" }: { variant?: "dark" | "light" }) => {
   return (
-    <a href="#home" className="flex items-center group" aria-label="Kangaroo">
+    <Link to="/" className="flex items-center group" aria-label="Kangaroo">
       <img
         src={logoSrc}
         alt="Kangaroo - خدمات لوجستية متكاملة"
@@ -10,6 +11,6 @@ export const KangarooLogo = ({ variant = "dark" }: { variant?: "dark" | "light" 
           variant === "light" ? "brightness-0 invert" : ""
         }`}
       />
-    </a>
+    </Link>
   );
 };
