@@ -107,6 +107,33 @@ export const translations = {
       back: "العودة",
       highlightsTitle: "أبرز ما نقدمه",
     },
+    about: {
+      hero: {
+        eyebrow: "من نحن",
+        title: "نبني مستقبل اللوجستيات في فلسطين",
+        subtitle:
+          "شركة لوجستية رائدة تأسست عام 2018، جزء من مجموعة Toureidco Investment",
+      },
+      story: {
+        foundedLabel: "تأسست",
+        title: "قصتنا",
+        body: "كنغارو هي إحدى شركات Toureidco Investment، تأسست عام 2018 بهدف تطوير مفهوم الخدمات اللوجستية في فلسطين والمنطقة. منذ انطلاقها، عملت على بناء منظومة لوجستية متكاملة تخدم التجارة الإلكترونية، الشركات التجارية، والأفراد، عبر باقة واسعة من الخدمات تغطي التوصيل المحلي والدولي، التخزين، تجهيز الطلبات، وخدمات Fulfillment المتكاملة.",
+      },
+      mission: {
+        title: "رسالتنا",
+        body: "تقديم حلول لوجستية متكاملة وذكية تساعد الشركات والأفراد على النمو، تقليل التكاليف التشغيلية، وتحقيق أعلى مستويات الكفاءة والجودة.",
+      },
+      vision: {
+        title: "رؤيتنا",
+        body: "أن نكون الشريك اللوجستي الأول والأكثر ثقة في فلسطين والمنطقة، من خلال الابتكار المستمر والتميز التشغيلي.",
+      },
+      ceo: {
+        placeholder: "كلمة المدير التنفيذي — قريباً",
+      },
+      team: {
+        placeholder: "فريق الإدارة — قريباً",
+      },
+    },
     why: {
       eyebrow: "لماذا كنغارو",
       title: "نصنع الفرق في كل شحنة",
@@ -277,6 +304,33 @@ export const translations = {
     serviceDetail: {
       back: "Back",
       highlightsTitle: "Key Highlights",
+    },
+    about: {
+      hero: {
+        eyebrow: "About Us",
+        title: "Building the Future of Logistics in Palestine",
+        subtitle:
+          "A leading logistics company founded in 2018, part of Toureidco Investment Group",
+      },
+      story: {
+        foundedLabel: "Founded",
+        title: "Our Story",
+        body: "Kangaroo is part of Toureidco Investment, established in 2018 with the vision of transforming logistics in Palestine and the region. Since its founding, the company has built a comprehensive logistics ecosystem serving e-commerce businesses, commercial companies, and individuals through a wide range of services covering local and international delivery, warehousing, order fulfillment, and integrated logistics solutions.",
+      },
+      mission: {
+        title: "Our Mission",
+        body: "To provide integrated and smart logistics solutions that help businesses and individuals grow, reduce operational costs, and achieve the highest levels of efficiency and quality.",
+      },
+      vision: {
+        title: "Our Vision",
+        body: "To be the first and most trusted logistics partner in Palestine and the region through continuous innovation and operational excellence.",
+      },
+      ceo: {
+        placeholder: "CEO Message — Coming Soon",
+      },
+      team: {
+        placeholder: "Management Team — Coming Soon",
+      },
     },
     why: {
       eyebrow: "Why Kangaroo",
