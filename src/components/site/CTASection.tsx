@@ -6,7 +6,7 @@ export const CTASection = () => {
   const { t, dir } = useLang();
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
   return (
-    <section id="contact" className="py-20 md:py-24">
+    <section id="contact" className="scroll-mt-20 md:scroll-mt-24 py-20 md:py-24">
       <div className="container">
         <div className="relative overflow-hidden rounded-3xl gradient-cta p-10 md:p-16 text-center text-primary-foreground shadow-card-elevated">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm font-semibold text-white">

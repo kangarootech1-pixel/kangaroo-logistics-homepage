@@ -14,7 +14,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 min-h-[90vh] flex items-center"
+      className="scroll-mt-20 md:scroll-mt-24 relative isolate overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 min-h-[90vh] flex items-center"
     >
       {/* Background image */}
       <img

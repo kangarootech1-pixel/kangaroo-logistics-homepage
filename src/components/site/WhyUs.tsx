@@ -12,7 +12,7 @@ export const WhyUs = () => {
     <section
       ref={ref}
       id="why"
-      className={`py-20 md:py-28 bg-primary/5 transition-all duration-700 ${
+      className={`scroll-mt-20 md:scroll-mt-24 py-20 md:py-28 bg-primary/5 transition-all duration-700 ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >

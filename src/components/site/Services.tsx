@@ -19,7 +19,7 @@ export const Services = () => {
     <section
       ref={ref}
       id="services"
-      className={`bg-background transition-all duration-700 ${
+      className={`scroll-mt-20 md:scroll-mt-24 bg-background transition-all duration-700 ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
