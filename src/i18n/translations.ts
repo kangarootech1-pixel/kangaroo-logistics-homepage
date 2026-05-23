@@ -34,26 +34,66 @@ export const translations = {
           title: "التوصيل المحلي",
           desc: "تقدم Kangaroo خدمات توصيل محلي متكاملة مصممة لتلبية احتياجات الأفراد والشركات والمتاجر الإلكترونية، عبر شبكة تشغيل احترافية تغطي مختلف المدن والمناطق في فلسطين والأردن بكفاءة وسرعة عالية، مع خدمات تحصيل نقدي وإدارة مرتجعات وتتبع لحظي.",
           stats: ["تحصيل نقدي", "إدارة مرتجعات", "تتبع لحظي"],
+          fullDesc:
+            "تقدم Kangaroo خدمات توصيل محلي متكاملة مصممة لتلبية احتياجات الأفراد، الشركات، والمتاجر الإلكترونية، من خلال شبكة تشغيل احترافية تغطي مختلف المدن والمناطق في فلسطين والأردن. تعتمد الشركة على بنية لوجستية متطورة وفرق ميدانية مدربة وأنظمة تشغيل ذكية تضمن تنفيذ عمليات الاستلام والتسليم بأعلى درجات الدقة والموثوقية. توفر كنغارو حلول توصيل مرنة تناسب طبيعة أعمال العملاء، مع إمكانية جدولة عمليات الاستلام والتسليم بما يتوافق مع احتياجات النشاط التجاري. تشمل الخدمات التحصيل النقدي، إدارة المرتجعات، تأكيد الطلبات، وأنظمة تتبع مباشرة تتيح متابعة حالة الشحنة لحظة بلحظة.",
+          highlights: [
+            "توصيل خلال 24 ساعة",
+            "تحصيل نقدي COD",
+            "إدارة المرتجعات",
+            "تتبع لحظي",
+          ],
         },
         {
           title: "خدمات الإنجاز المضاف وحلول التخزين",
           desc: "تُعدّ Kangaroo أول وأبرز شركة متخصصة في Fulfillment وحلول التخزين المتكاملة في فلسطين، وتقدم منظومة تشغيل لوجستية متطورة تشمل إدارة المخزون وتجهيز الطلبات والتغليف والشحن، مع حلول قابلة للتوسع لمختلف أحجام الأعمال.",
           stats: ["إدارة المخزون", "تجهيز الطلبات", "تغليف وشحن"],
+          fullDesc:
+            "تُعدّ Kangaroo أول وأبرز شركة متخصصة في Fulfillment وحلول التخزين المتكاملة في فلسطين. توفر الشركة مساحات تخزين منظمة وآمنة مجهزة وفق معايير تشغيل حديثة، مع أنظمة ذكية لإدارة المخزون والطلبات تتيح التتبع المباشر وتوفير تقارير تشغيلية دقيقة. تشمل الخدمات جميع مراحل إدارة الطلبات: استلام البضائع وفحصها، التخزين، إدارة المخزون، تجهيز الطلبات، التغليف، الطباعة، وإعداد الشحنات للتسليم النهائي. كما تقدم الشركة خدمات داعمة تشمل إعادة التغليف، فرز المنتجات، إعداد العروض الترويجية، إدارة المرتجعات، ومراقبة الجودة.",
+          highlights: [
+            "أول شركة Fulfillment في فلسطين",
+            "تخزين منظم وآمن",
+            "إدارة ذكية للمخزون",
+            "تغليف وتجهيز احترافي",
+          ],
         },
         {
           title: "نقل الأردن - فلسطين",
           desc: "تقدم Kangaroo حلول نقل متخصصة بين الأردن وفلسطين تضمن الكفاءة والسرعة والموثوقية في عمليات النقل العابرة للحدود، مع أنظمة تتبع حديثة وإجراءات تشغيل احترافية تخدم الشركات والمتاجر والأفراد.",
           stats: ["نقل عابر للحدود", "تتبع لحظي", "إدارة احترافية"],
+          fullDesc:
+            "تقدم Kangaroo حلول نقل متخصصة بين الأردن وفلسطين تُدار وفق منظومة تشغيل لوجستية متكاملة تضمن الكفاءة والسرعة والموثوقية في عمليات النقل العابرة للحدود. توفر كنغارو خدمات نقل مرنة تشمل نقل الطرود، الشحنات التجارية، البضائع، والطلبات الخاصة للأفراد والشركات. تعتمد الشركة على أنظمة تتبع ومراقبة حديثة توفر للعملاء تحديثات مستمرة حول حالة الشحنات، مما يعزز الشفافية ويمنح العملاء رؤية واضحة لكامل العملية التشغيلية. تخدم هذه الحلول المتاجر الإلكترونية، الشركات التجارية، شركات الاستيراد والتوزيع، والمؤسسات.",
+          highlights: [
+            "نقل يومي منتظم",
+            "تتبع مستمر للشحنات",
+            "خدمة الأفراد والشركات",
+            "إجراءات تشغيل احترافية",
+          ],
         },
         {
           title: "الشحن والتخليص الجمركي",
           desc: "تقدم Kangaroo خدمات شحن وتخليص جمركي متكاملة تشمل الشحن الجوي والبحري والبري، مع إدارة كاملة لإجراءات الاستيراد والتخليص الجمركي والتسليم النهائي، لتبسيط عمليات الاستيراد للشركات والتجار من مختلف دول العالم.",
           stats: ["جوي · بحري · بري", "تخليص جمركي", "تسليم نهائي"],
+          fullDesc:
+            "تقدم Kangaroo خدمات شحن وتخليص جمركي متكاملة تشمل الشحن الجوي والبحري والبري، مع إدارة كاملة لجميع مراحل العملية اللوجستية بدءاً من استلام الشحنة من بلد المنشأ وصولاً إلى التخليص الجمركي والتسليم النهائي. تتميز كنغارو بخبرتها في إدارة إجراءات التخليص الجمركي ومتابعة المستندات والتنسيق مع الجهات ذات العلاقة. تخدم هذه الحلول شركات التجارة الإلكترونية، المستوردين، الموزعين، والشركات التجارية التي تعتمد على حركة استيراد وتوريد مستمرة.",
+          highlights: [
+            "شحن جوي وبحري وبري",
+            "تخليص جمركي متكامل",
+            "متابعة المستندات",
+            "تسليم من الباب للباب",
+          ],
         },
         {
           title: "الاستشارات اللوجستية",
           desc: "تقدم Kangaroo خدمات استشارية متخصصة في الخدمات اللوجستية وسلاسل التوريد، تساعد الشركات على تطوير كفاءتها التشغيلية وتحسين نماذج العمل اللوجستي، بناءً على خبرة ميدانية حقيقية وليس الطرح النظري فقط.",
           stats: ["سلاسل التوريد", "تطوير العمليات", "خبرة ميدانية"],
+          fullDesc:
+            "تقدم Kangaroo خدمات استشارية متخصصة في قطاع الخدمات اللوجستية وسلاسل التوريد، تهدف إلى مساعدة الشركات على تطوير كفاءتها التشغيلية وفق أفضل الممارسات الحديثة. تشمل الخدمات الاستشارية دراسة وتحليل العمليات التشغيلية، تقييم سلاسل التوريد، تطوير نماذج العمل اللوجستي، وتحسين إجراءات التخزين والتوزيع والتوصيل. توفر الشركة استشارات متخصصة للمشاريع الجديدة والتوسعات التشغيلية، بما يشمل تخطيط البنية اللوجستية وتصميم مراكز التشغيل. وما يميز كنغارو هو تقديم استشارات عملية مبنية على تجربة حقيقية في إدارة العمليات اللوجستية.",
+          highlights: [
+            "تحليل العمليات التشغيلية",
+            "تطوير نماذج العمل",
+            "استشارات مبنية على تجربة حقيقية",
+            "دعم التحول الرقمي",
+          ],
         },
       ],
     },
@@ -155,26 +195,66 @@ export const translations = {
           title: "Local Delivery",
           desc: "Kangaroo provides comprehensive local delivery solutions for individuals, businesses, and e-commerce stores through a professional network covering Palestine and Jordan, with cash collection, returns management, and real-time tracking.",
           stats: ["Cash Collection", "Returns Mgmt", "Real-time Tracking"],
+          fullDesc:
+            "Kangaroo provides comprehensive local delivery solutions designed to meet the needs of individuals, businesses, and e-commerce stores through a professional operational network covering Palestine and Jordan. The company relies on advanced logistics infrastructure, specialized field teams, and smart operational systems to ensure accurate and reliable pickup and delivery. Kangaroo offers flexible delivery solutions including cash collection (COD), returns management, order confirmation, and real-time tracking systems that provide full shipment visibility throughout the delivery journey.",
+          highlights: [
+            "24-hour delivery",
+            "Cash on Delivery (COD)",
+            "Returns management",
+            "Real-time tracking",
+          ],
         },
         {
           title: "Fulfillment & Storage Solutions",
           desc: "Kangaroo is Palestine's first and leading fulfillment provider, offering advanced warehousing, inventory management, order processing, packing, and final-mile delivery under one integrated logistics ecosystem tailored for e-commerce and businesses of all sizes.",
           stats: ["Inventory Mgmt", "Order Processing", "Pack & Ship"],
+          fullDesc:
+            "Kangaroo is Palestine's first and leading fulfillment company, providing advanced warehousing and integrated fulfillment solutions for businesses and e-commerce stores. The company offers secure, organized storage facilities with smart inventory management systems providing real-time tracking and detailed operational reporting. Services cover the complete order lifecycle: goods receiving and inspection, warehousing, inventory management, order picking, packing, labeling, and final shipment preparation. Additional value-added services include repackaging, product sorting, promotional bundle preparation, returns management, and quality control.",
+          highlights: [
+            "Palestine's first fulfillment company",
+            "Secure organized storage",
+            "Smart inventory management",
+            "Professional packing & preparation",
+          ],
         },
         {
           title: "Jordan–Palestine Transport",
           desc: "Kangaroo delivers specialized cross-border transport between Jordan and Palestine with full operational efficiency, real-time tracking, and professional logistics management for businesses, e-commerce stores, and individuals.",
           stats: ["Cross-Border", "Real-time Tracking", "Pro Logistics"],
+          fullDesc:
+            "Kangaroo provides specialized transport solutions between Jordan and Palestine through a fully integrated logistics operation ensuring efficiency, speed, and reliability in cross-border transportation. Services cover parcels, commercial shipments, goods, and customized logistics requests for both individuals and businesses. The company utilizes advanced tracking and monitoring systems providing real-time shipment updates and full operational visibility. These solutions support e-commerce businesses, retailers, import and distribution companies, and organizations requiring stable logistics operations between Jordan and Palestine.",
+          highlights: [
+            "Daily regular transport",
+            "Continuous shipment tracking",
+            "Serves individuals & businesses",
+            "Professional operational procedures",
+          ],
         },
         {
           title: "Freight Forwarding & Clearance",
           desc: "Kangaroo provides integrated freight forwarding and customs clearance services including air, sea, and land freight, managing the full import process from origin to final delivery with professional customs handling and real-time shipment tracking.",
           stats: ["Air · Sea · Land", "Customs Clearance", "Final Delivery"],
+          fullDesc:
+            "Kangaroo provides integrated freight forwarding and customs clearance services including air, sea, and land freight, managing the complete logistics process from origin pickup to customs clearance and final delivery. The company is experienced in managing customs clearance procedures, documentation, and coordination with relevant authorities. These solutions serve e-commerce companies, importers, distributors, and commercial businesses that rely on continuous import and supply chain operations.",
+          highlights: [
+            "Air, sea & land freight",
+            "Full customs clearance",
+            "Documentation handling",
+            "Door-to-door delivery",
+          ],
         },
         {
           title: "Logistics Consulting",
           desc: "Kangaroo offers specialized logistics and supply chain consulting services, helping businesses optimize their operations, improve efficiency, and build scalable logistics models based on real operational expertise and proven industry experience.",
           stats: ["Supply Chains", "Process Optimization", "Field Expertise"],
+          fullDesc:
+            "Kangaroo provides specialized consulting services in logistics and supply chain management, helping businesses improve operational efficiency according to modern best practices. Services include operational analysis, supply chain assessment, logistics strategy development, warehouse optimization, and order management improvement. The company offers consulting for new projects and operational expansions including logistics infrastructure planning and fulfillment center setup. What distinguishes Kangaroo is providing practical consulting based on real operational experience rather than purely theoretical recommendations.",
+          highlights: [
+            "Operational analysis",
+            "Business model development",
+            "Experience-based consulting",
+            "Digital transformation support",
+          ],
         },
       ],
     },
