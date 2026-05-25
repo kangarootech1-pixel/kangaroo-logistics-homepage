@@ -1,4 +1,4 @@
-import { MapPin, MessageCircle, Facebook, Instagram } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LangProvider";
 import { KangarooLogo } from "./KangarooLogo";
@@ -77,6 +77,26 @@ export const Footer = () => {
                 dir="ltr"
               >
                 {t.footer.whatsappDisplay}
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-primary-glow shrink-0" />
+              <a
+                href={`tel:+972${t.footer.phoneValue.slice(1)}`}
+                className="hover:text-white transition-base"
+                dir="ltr"
+              >
+                {t.footer.phoneValue}
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-primary-glow shrink-0" />
+              <a
+                href={`mailto:${t.footer.emailValue}`}
+                className="hover:text-white transition-base"
+                dir="ltr"
+              >
+                {t.footer.emailValue}
               </a>
             </li>
           </ul>
