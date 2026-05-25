@@ -113,12 +113,22 @@ const ServiceDetail = () => {
                   size="lg"
                   className="rounded-full bg-white text-primary hover:bg-white/90 font-bold h-12 px-7"
                 >
+                  <Link to={`/support?service=${service.slug}`}>
+                    {t.serviceDetail.getQuote}
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-white/70 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold h-12 px-7"
+                >
                   <a
                     href={REGISTER_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {t.ctaBand.buttonRegister}
+                    {t.serviceDetail.register}
                   </a>
                 </Button>
               </div>
