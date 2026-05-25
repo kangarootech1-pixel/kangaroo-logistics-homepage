@@ -134,6 +134,54 @@ export const translations = {
         placeholder: "فريق الإدارة — قريباً",
       },
     },
+    policies: {
+      navLabel: "السياسة والأحكام",
+      hero: {
+        eyebrow: "الشروط والأحكام",
+        title: "السياسة والأحكام العامة",
+        subtitle: "سياسة شركة كنغارو للتوصيل والخدمات اللوجستية في فلسطين",
+      },
+      sections: [
+        {
+          title: "أحكام عامة",
+          bullets: [
+            "يقر العميل بأنه المالك الأصلي لحسابه في تطبيق كنغارو، والمستفيد الحقيقي منه، وأن كافة العمليات تتم بطريقة توافق القانون والشرع.",
+            "يقر العميل بأنه مستوفي إجراءاته القانونية المتعلقة بالضرائب والجمارك الفلسطينية، ولا تتحمل الشركة أدنى مسؤولية عن أي إخلال بهذا الشرط.",
+            "يحق للشركة رفض أي طرد باهظ الثمن أو حساس أو مخالف للشروط، ويشمل ذلك: النقد والحوالات، المجوهرات والذهب، الأجهزة الذكية باهظة الثمن، منتجات الأدوية غير المرخصة، الأدوات الحادة والقتالية.",
+            "تغليف الطرود مسؤولية العميل، وعليه أن يغلف منتجه بما يتناسب وطبيعته بما يضمن سلامته خلال النقل.",
+          ],
+        },
+        {
+          title: "سياسة التعويض",
+          bullets: [
+            "في حالة فقدان الشركة أحد الطرود دون تقصير متعمد (خلال 5 أيام فقط)، يحق للعميل المطالبة بتعويض مباشر بمقدار 60% من قيمة الطرد.",
+            "يعوض التاجر بمقدار لا يزيد عن 65% للطرد الواحد بحد أعلى 2000 شيكل من قيمة الطرد أو قيمته السوقية.",
+            "للشركة الحق في رفض استلام أي طرد تزيد قيمته السوقية عن 2000 شيكل.",
+          ],
+        },
+        {
+          title: "الطرود الراجعة والمرفوضة والبدل",
+          bullets: [
+            "في حالة طرود البدل، يتوجب وجود وصف دقيق للطرد مع تحديد قيمته على ألا تتجاوز 2000 شيكل.",
+            "في حالة الطرد الراجع، يتوجب على العميل متابعة استلامه وتوثيق ذلك خلال 7 أيام من إرجاع الطرد.",
+            "لا تتحمل الشركة مسؤولية أي طرد يحتوي على شيك بنكي أو سندات مالية أو وثائق رسمية.",
+          ],
+        },
+        {
+          title: "سياسة تحجيم الطرود",
+          bullets: [
+            "السعر المتفق عليه يشمل الطرد ضمن الحد الطبيعي: 30×30×40 سم، أو ما لا يزيد وزنه عن 10 كيلوغرام، أو قيمته عن 2000 شيكل.",
+            "إذا تضاعف أي بعد بمقدار ضعف واحد، يتم إضافة قيمة طرد واحد إلى سعر الطرد الأصلي.",
+            "إذا تضاعف أي بعد بمقدار ضعفين، أو تضاعف بعدان بمقدار ضعف واحد لكل منهما، يتم إضافة قيمة طردين.",
+            "زيادة أقل من 50% في الحجم: إضافة نصف قيمة الطرد. زيادة بين 50% إلى 100%: إضافة طرد كامل. زيادة بين 100% إلى 200%: إضافة طرد ونصف. زيادة أكثر من 200%: إضافة طردين أو أكثر.",
+          ],
+        },
+      ],
+      notice: {
+        title: "إشعار خاص",
+        body: "أي أضرار أو خسائر تتعرض لها طرود التاجر نتيجة أوضاع خارجة عن الإرادة مثل الكوارث الطبيعية واعتداءات الاحتلال، فإن الشركة تعتذر عن أي تعويض للطرود في هذه الحالات.",
+      },
+    },
     why: {
       eyebrow: "لماذا كنغارو",
       title: "نصنع الفرق في كل شحنة",
@@ -330,6 +378,54 @@ export const translations = {
       },
       team: {
         placeholder: "Management Team — Coming Soon",
+      },
+    },
+    policies: {
+      navLabel: "Policies",
+      hero: {
+        eyebrow: "Policies",
+        title: "General Rules & Policies",
+        subtitle: "Kangaroo Delivery & Logistics Services Policy in Palestine",
+      },
+      sections: [
+        {
+          title: "General Terms",
+          bullets: [
+            "The client acknowledges that they are the original owner of their Kangaroo account and that all operations comply with applicable laws and regulations.",
+            "The client confirms compliance with all Palestinian tax and customs requirements. The company bears no responsibility for any violation of this condition.",
+            "The company reserves the right to refuse any high-value, sensitive, or non-compliant shipments, including: cash and money orders, jewelry and gold, high-value smart devices, unlicensed medications, and sharp or combat tools.",
+            "Packaging is the client's responsibility. Items must be packed appropriately to ensure safety during transport.",
+          ],
+        },
+        {
+          title: "Compensation Policy",
+          bullets: [
+            "In case of parcel loss without intentional negligence (within 5 days only), the client may claim direct compensation of 60% of the parcel value.",
+            "Compensation shall not exceed 65% per parcel with a maximum of 2,000 NIS of the parcel value or market value.",
+            "The company reserves the right to refuse parcels whose market value exceeds 2,000 NIS.",
+          ],
+        },
+        {
+          title: "Returns & Replacements",
+          bullets: [
+            "For replacement parcels, an accurate description and value must be provided, not exceeding 2,000 NIS.",
+            "For returned parcels, the client must follow up and document receipt within 7 days of return.",
+            "The company bears no responsibility for parcels containing bank checks, financial instruments, or official documents.",
+          ],
+        },
+        {
+          title: "Parcel Sizing Policy",
+          bullets: [
+            "The agreed price covers parcels within standard dimensions: 30×30×40 cm, weight not exceeding 10 kg, or value not exceeding 2,000 NIS.",
+            "If any dimension doubles once, one additional parcel fee is added to the original price.",
+            "If any dimension doubles twice, or two dimensions each double once, two additional parcel fees are added.",
+            "Volume increase less than 50%: add half parcel fee. 50-100%: add one full parcel fee. 100-200%: add one and a half. Over 200%: add two or more.",
+          ],
+        },
+      ],
+      notice: {
+        title: "Special Notice",
+        body: "Any damages or losses to client parcels resulting from circumstances beyond control, such as natural disasters or occupation aggressions, the company regrets that no compensation can be provided in such cases.",
       },
     },
     why: {
