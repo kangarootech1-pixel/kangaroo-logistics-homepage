@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useLang } from "@/i18n/LangProvider";
+import { translations } from "@/i18n/translations";
 
 const WHATSAPP_NUMBER = "972593150120";
 
@@ -70,15 +71,18 @@ const Support = () => {
     if (Object.values(nextErrors).some(Boolean)) return;
 
     setSubmitting(true);
-    const wa = t.support.wa;
+    // WhatsApp message is always sent in Arabic regardless of UI language —
+    // it lands in the team's inbox, which operates in Arabic.
+    const wa = translations.ar.support.wa;
+    const arForm = translations.ar.support.form;
     const lines = [
       wa.header,
       "------------------------",
       `${wa.name} ${name.trim()}`,
       `${wa.phone} ${phone.trim()}`,
       `${wa.email} ${email.trim() || wa.notSpecified}`,
-      `${wa.requestType} ${t.support.form.requestTypeOptions[requestType as number]}`,
-      `${wa.service} ${t.support.form.serviceOptions[service]}`,
+      `${wa.requestType} ${arForm.requestTypeOptions[requestType as number]}`,
+      `${wa.service} ${arForm.serviceOptions[service]}`,
       "------------------------",
       wa.details,
       message.trim(),

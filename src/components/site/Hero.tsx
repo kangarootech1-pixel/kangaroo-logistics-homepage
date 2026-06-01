@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LangProvider";
 import { Button } from "@/components/ui/button";
 import warehouseImg from "@/assets/warehouse-hero.jpg";
@@ -62,10 +63,10 @@ export const Hero = () => {
             style={{ animationDelay: "300ms" }}
           >
             <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow-glow h-12 px-7">
-              <a href="#contact">
+              <Link to="/support">
                 {t.hero.ctaPrimary}
                 <Arrow className="h-4 w-4" aria-hidden="true" />
-              </a>
+              </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full border-border bg-card hover:bg-muted font-bold h-12 px-7">
               <a href="#services">{t.hero.ctaSecondary}</a>
