@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LangProvider } from "@/i18n/LangProvider";
 import { ScrollToHash } from "@/components/site/ScrollToHash";
 import About from "./pages/About.tsx";
+import Careers from "./pages/Careers.tsx";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Policies from "./pages/Policies.tsx";
@@ -25,6 +26,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/policies" element={<Policies />} />
             <Route path="/support" element={<Support />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />

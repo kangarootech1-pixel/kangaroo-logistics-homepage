@@ -56,6 +56,7 @@ export const Footer = () => {
             <li><Link className="hover:text-white transition-base" to="/about">{t.nav.about}</Link></li>
             <li><Link className="hover:text-white transition-base" to="/#coverage">{t.nav.coverage}</Link></li>
             <li><Link className="hover:text-white transition-base" to="/support">{t.nav.contact}</Link></li>
+            <li><Link className="hover:text-white transition-base" to="/careers">{t.careers.navLabel}</Link></li>
             <li><Link className="hover:text-white transition-base" to="/policies">{t.policies.navLabel}</Link></li>
           </ul>
         </div>
