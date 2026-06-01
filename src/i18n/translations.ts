@@ -237,6 +237,7 @@ export const translations = {
         submitting: "جاري الإرسال...",
         required: "هذا الحقل مطلوب",
         success: "تم إرسال طلبك بنجاح! سنتواصل معك قريباً.",
+        error: "حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى.",
       },
       wa: {
         header: "*طلب جديد من موقع كنغارو*",
@@ -590,6 +591,7 @@ export const translations = {
         submitting: "Sending...",
         required: "This field is required",
         success: "Your request has been sent! We'll contact you soon.",
+        error: "An error occurred. Please try again.",
       },
       wa: {
         header: "*New request from Kangaroo website*",

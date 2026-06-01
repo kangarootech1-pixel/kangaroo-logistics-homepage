@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import {
+  AlertCircle,
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
@@ -18,7 +19,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useLang } from "@/i18n/LangProvider";
-import { translations } from "@/i18n/translations";
 
 const WHATSAPP_NUMBER = "972593150120";
 const WEBHOOK_URL =
@@ -50,6 +50,7 @@ const Support = () => {
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   // Pre-fill the related service from ?service=<slug> on mount / param change.
   useEffect(() => {
@@ -72,30 +73,6 @@ const Support = () => {
     setErrors({});
   };
 
-  // Always-Arabic WhatsApp fallback message — fires when the n8n webhook
-  // fails, times out, or returns non-OK. Mirrors the inbox-side template:
-  // header / fields / details / source. No website line.
-  const openWhatsAppFallback = () => {
-    const wa = translations.ar.support.wa;
-    const arForm = translations.ar.support.form;
-    const lines = [
-      wa.header,
-      "------------------------",
-      `${wa.name} ${name.trim()}`,
-      `${wa.phone} ${phone.trim()}`,
-      `${wa.email} ${email.trim() || wa.notSpecified}`,
-      `${wa.requestType} ${arForm.requestTypeOptions[requestType as number]}`,
-      `${wa.service} ${arForm.serviceOptions[service]}`,
-      "------------------------",
-      wa.details,
-      message.trim(),
-      "------------------------",
-      wa.source,
-    ];
-    const encoded = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
-  };
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const nextErrors = {
@@ -109,6 +86,7 @@ const Support = () => {
 
     setSubmitting(true);
     setSuccess(false);
+    setSubmitError(false);
 
     const payload = {
       name: name.trim(),
@@ -136,15 +114,15 @@ const Support = () => {
         signal: controller.signal,
       });
       if (!res.ok) throw new Error(`webhook responded ${res.status}`);
+      setSuccess(true);
+      resetForm();
     } catch {
-      openWhatsAppFallback();
+      // Form data is intentionally preserved so the user can retry.
+      setSubmitError(true);
     } finally {
       window.clearTimeout(timeoutId);
+      setSubmitting(false);
     }
-
-    setSuccess(true);
-    setSubmitting(false);
-    resetForm();
   };
 
   const ErrorText = () => (
@@ -256,6 +234,12 @@ const Support = () => {
                     <div className="mt-5 flex items-start gap-3 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary">
                       <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden="true" />
                       <span>{t.support.form.success}</span>
+                    </div>
+                  )}
+                  {submitError && (
+                    <div className="mt-5 flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-semibold text-destructive">
+                      <AlertCircle className="h-5 w-5 shrink-0" aria-hidden="true" />
+                      <span>{t.support.form.error}</span>
                     </div>
                   )}
 
