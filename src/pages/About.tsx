@@ -89,18 +89,44 @@ const About = () => {
           </div>
         </section>
 
-        {/* TODO: Replace with real CEO photo, name, title, and message */}
-        <section className="bg-background">
+        {/* TODO: Replace UserCircle placeholder with real CEO photo */}
+        <section className="bg-primary/5">
           <div className="container py-16 md:py-20">
-            <div className="rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 p-12 flex flex-col items-center justify-center text-center min-h-[280px]">
-              <UserCircle
-                size={48}
-                className="text-primary/40"
-                aria-hidden="true"
-              />
-              <p className="mt-4 text-base md:text-lg font-bold text-muted-foreground">
-                {t.about.ceo.placeholder}
-              </p>
+            <div className="grid gap-10 md:gap-12 md:grid-cols-[auto_1fr] items-start">
+              <div className="flex flex-col items-center md:items-start">
+                <div className="w-48 h-48 rounded-full bg-primary/10 flex items-center justify-center">
+                  <UserCircle
+                    size={80}
+                    className="text-primary/40"
+                    aria-hidden="true"
+                  />
+                </div>
+                <p className="mt-3 text-xs text-muted-foreground text-center">
+                  {t.about.ceo.photoNote}
+                </p>
+              </div>
+
+              <div className="border-s-4 border-primary ps-6 md:ps-8">
+                <span
+                  className="block font-serif text-6xl md:text-7xl text-primary leading-none"
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <div className="mt-2 space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                  {t.about.ceo.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                <div className="mt-8">
+                  <div className="text-xl font-bold text-foreground">
+                    {t.about.ceo.name}
+                  </div>
+                  <div className="mt-1 text-sm text-primary">
+                    {t.about.ceo.title}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

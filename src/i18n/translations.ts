@@ -130,7 +130,16 @@ export const translations = {
         body: "أن نكون الشريك اللوجستي الأول والأكثر ثقة في فلسطين والمنطقة، من خلال الابتكار المستمر والتميز التشغيلي.",
       },
       ceo: {
-        placeholder: "كلمة المدير التنفيذي — قريباً",
+        name: "محمود ناصر",
+        title: "الرئيس التنفيذي",
+        photoNote: "(صورة المدير التنفيذي قريباً)",
+        paragraphs: [
+          "مرحباً بكم في كنغارو، منذ تأسيس الشركة عام 2018، انطلقنا برؤية واضحة تقوم على أن الخدمات اللوجستية ليست مجرد نقل للطرود أو إدارة للمخزون، بل هي منظومة متكاملة تُسهم في تمكين الأعمال، وتسريع النمو، وتعزيز قدرة المؤسسات على الوصول إلى أسواقها وعملائها بكفاءة واستدامة.",
+          "على مدار السنوات الماضية، عملنا على بناء بنية تشغيلية متطورة تجمع بين الخبرة الميدانية، والتقنيات الحديثة، والفهم العميق لاحتياجات الأسواق المحلية والإقليمية، لنقدم حلولاً لوجستية متكاملة تشمل النقل، والتوزيع، والتخزين، والتجهيز، وخدمات التجارة الإلكترونية، والشحن الدولي، والاستشارات اللوجستية.",
+          "في كنغارو، نؤمن بأن نجاح عملائنا هو المقياس الحقيقي لنجاحنا. ولذلك نحرص على تطوير خدماتنا باستمرار، والاستثمار في كوادرنا وأنظمتنا وشبكاتنا التشغيلية، لضمان تقديم حلول موثوقة ومرنة تواكب تطور الأعمال وتحديات سلاسل الإمداد الحديثة.",
+          "لقد أصبح القطاع اللوجستي اليوم أحد أهم المكونات الاقتصادية في العالم، وركيزة أساسية في التجارة والصناعة والخدمات. ومن هذا المنطلق، نواصل العمل على ترسيخ مكانة كنغارو كشريك لوجستي موثوق يقدم قيمة حقيقية لعملائه، ويساهم في تطوير البيئة التجارية والاقتصادية التي نعمل ضمنها.",
+          "أشكركم على ثقتكم، ونتطلع دائماً إلى بناء شراكات طويلة الأمد تحقق النجاح والنمو المشترك.",
+        ],
       },
       team: {
         placeholder: "فريق الإدارة — قريباً",
@@ -436,7 +445,17 @@ export const translations = {
         body: "To be the first and most trusted logistics partner in Palestine and the region through continuous innovation and operational excellence.",
       },
       ceo: {
-        placeholder: "CEO Message — Coming Soon",
+        name: "Mahmoud Nasser",
+        title: "Chief Executive Officer (CEO)",
+        photoNote: "(CEO photo coming soon)",
+        paragraphs: [
+          "Welcome to Kangaroo, Since our establishment in 2018, we have been driven by a clear vision: logistics is far more than the movement of goods. It is the infrastructure that enables businesses to grow, markets to connect, and economies to thrive.",
+          "At Kangaroo, we have built our organization around this belief. Through continuous investment in our people, technology, operational networks, and industry expertise, we have developed integrated logistics solutions that support businesses across a wide range of sectors. From transportation and delivery to fulfillment, warehousing, cross-border commerce, freight forwarding, and specialized logistics projects, our goal is to create efficient, reliable, and scalable supply chain solutions for our clients.",
+          "Today, the logistics industry plays a critical role in shaping modern commerce. As customer expectations continue to evolve and supply chains become increasingly complex, businesses require partners who can provide more than operational support—they need strategic logistics capabilities that create measurable value and sustainable competitive advantage.",
+          "Our commitment has always been to help our clients focus on what they do best while we manage the complexity of logistics behind the scenes. Every service we provide is guided by our dedication to operational excellence, innovation, transparency, and long-term partnership.",
+          "As we look toward the future, we remain focused on advancing logistics standards, expanding our capabilities, and contributing to the growth of the businesses and communities we serve.",
+          "Thank you for your trust and confidence in Kangaroo. We look forward to continuing our journey together and delivering solutions that move businesses forward.",
+        ],
       },
       team: {
         placeholder: "Management Team — Coming Soon",
