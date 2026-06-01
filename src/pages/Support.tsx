@@ -21,6 +21,9 @@ import { useLang } from "@/i18n/LangProvider";
 import { translations } from "@/i18n/translations";
 
 const WHATSAPP_NUMBER = "972593150120";
+const WEBHOOK_URL =
+  "https://n8n.srv1572689.hstgr.cloud/webhook-test/23e4b58b-96fb-4810-be38-ed31ad4437e0";
+const WEBHOOK_TIMEOUT_MS = 10_000;
 
 // Maps a service slug (from ?service=) to its index in form.serviceOptions.
 // Anything unknown falls back to the last option ("Not Specified").
@@ -34,7 +37,7 @@ const SERVICE_SLUG_TO_INDEX: Record<string, number> = {
 const NOT_SPECIFIED_INDEX = 5;
 
 const Support = () => {
-  const { t, dir } = useLang();
+  const { t, dir, lang } = useLang();
   const [searchParams] = useSearchParams();
   const ArrowBack = dir === "rtl" ? ArrowRight : ArrowLeft;
 
@@ -59,20 +62,20 @@ const Support = () => {
   const selectClass =
     "h-10 w-full rounded-md border border-input bg-background px-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const nextErrors = {
-      name: !name.trim(),
-      phone: !phone.trim(),
-      requestType: requestType === "",
-      message: !message.trim(),
-    };
-    setErrors(nextErrors);
-    if (Object.values(nextErrors).some(Boolean)) return;
+  const resetForm = () => {
+    setName("");
+    setPhone("");
+    setEmail("");
+    setRequestType("");
+    setService(NOT_SPECIFIED_INDEX);
+    setMessage("");
+    setErrors({});
+  };
 
-    setSubmitting(true);
-    // WhatsApp message is always sent in Arabic regardless of UI language —
-    // it lands in the team's inbox, which operates in Arabic.
+  // Always-Arabic WhatsApp fallback message — fires when the n8n webhook
+  // fails, times out, or returns non-OK. Mirrors the inbox-side template:
+  // header / fields / details / source. No website line.
+  const openWhatsAppFallback = () => {
     const wa = translations.ar.support.wa;
     const arForm = translations.ar.support.form;
     const lines = [
@@ -88,24 +91,60 @@ const Support = () => {
       message.trim(),
       "------------------------",
       wa.source,
-      wa.website,
     ];
     const encoded = encodeURIComponent(lines.join("\n"));
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
+  };
 
-    // Brief delay so the button's loading state is visible before the
-    // WhatsApp tab opens.
-    window.setTimeout(() => {
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
-      setSuccess(true);
-      setSubmitting(false);
-      setName("");
-      setPhone("");
-      setEmail("");
-      setRequestType("");
-      setService(NOT_SPECIFIED_INDEX);
-      setMessage("");
-      setErrors({});
-    }, 600);
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const nextErrors = {
+      name: !name.trim(),
+      phone: !phone.trim(),
+      requestType: requestType === "",
+      message: !message.trim(),
+    };
+    setErrors(nextErrors);
+    if (Object.values(nextErrors).some(Boolean)) return;
+
+    setSubmitting(true);
+    setSuccess(false);
+
+    const payload = {
+      name: name.trim(),
+      phone: phone.trim(),
+      email: email.trim(),
+      requestType: t.support.form.requestTypeOptions[requestType as number],
+      service: t.support.form.serviceOptions[service],
+      message: message.trim(),
+      lang,
+      source: "kangaroo-website",
+      timestamp: new Date().toISOString(),
+    };
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(
+      () => controller.abort(),
+      WEBHOOK_TIMEOUT_MS,
+    );
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      if (!res.ok) throw new Error(`webhook responded ${res.status}`);
+    } catch {
+      openWhatsAppFallback();
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
+
+    setSuccess(true);
+    setSubmitting(false);
+    resetForm();
   };
 
   const ErrorText = () => (
