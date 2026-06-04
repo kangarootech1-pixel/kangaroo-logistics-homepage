@@ -38,7 +38,10 @@ export const ChatWidget = () => {
     const KEY = "kangaroo_chat_id";
     const existing = sessionStorage.getItem(KEY);
     if (existing) return existing;
-    const id = crypto.randomUUID();
+    const id =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `sess-${Date.now()}-${Math.random().toString(36).slice(2)}`;
     sessionStorage.setItem(KEY, id);
     return id;
   });
