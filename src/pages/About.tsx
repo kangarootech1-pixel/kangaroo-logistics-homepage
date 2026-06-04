@@ -1,9 +1,10 @@
-import { ArrowLeft, ArrowRight, Eye, Target, UserCircle, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Eye, Target, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CTASection } from "@/components/site/CTASection";
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
 import { useLang } from "@/i18n/LangProvider";
+import ceoPhoto from "@/assets/ceo-mahmoud-nasser.jpg";
 
 const About = () => {
   const { t, dir } = useLang();
@@ -89,21 +90,19 @@ const About = () => {
           </div>
         </section>
 
-        {/* TODO: Replace UserCircle placeholder with real CEO photo */}
         <section className="bg-primary/5">
           <div className="container py-16 md:py-20">
             <div className="grid gap-10 md:gap-12 md:grid-cols-[auto_1fr] items-start">
               <div className="flex flex-col items-center md:items-start">
-                <div className="w-48 h-48 rounded-full bg-primary/10 flex items-center justify-center">
-                  <UserCircle
-                    size={80}
-                    className="text-primary/40"
-                    aria-hidden="true"
-                  />
-                </div>
-                <p className="mt-3 text-xs text-muted-foreground text-center">
-                  {t.about.ceo.photoNote}
-                </p>
+                <img
+                  src={ceoPhoto}
+                  alt={
+                    dir === "rtl"
+                      ? "محمود ناصر - الرئيس التنفيذي"
+                      : "Mahmoud Nasser - CEO"
+                  }
+                  className="w-48 h-48 rounded-full object-cover object-top shadow-lg"
+                />
               </div>
 
               <div className="border-s-4 border-primary ps-6 md:ps-8">
