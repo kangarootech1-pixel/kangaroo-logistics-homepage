@@ -4,9 +4,22 @@ import { Button } from "@/components/ui/button";
 import { useLang } from "@/i18n/LangProvider";
 import { useInView } from "@/hooks/use-in-view";
 import { SERVICE_ICONS } from "./serviceIcons";
+import serviceLocalDelivery from "@/assets/services/service-local-delivery.jpg";
+import serviceFulfillmentStorage from "@/assets/services/service-fulfillment-storage.jpg";
+import serviceJordanPalestine from "@/assets/services/service-jordan-palestine.jpg";
+import serviceFreightClearance from "@/assets/services/service-freight-clearance.jpg";
+import serviceConsulting from "@/assets/services/service-consulting.jpg";
 
 const codesAr = ["٠١", "٠٢", "٠٣", "٠٤", "٠٥"];
 const codesEn = ["01", "02", "03", "04", "05"];
+
+const SERVICE_IMAGES: Record<string, string> = {
+  "local-delivery": serviceLocalDelivery,
+  "fulfillment-storage": serviceFulfillmentStorage,
+  "jordan-palestine": serviceJordanPalestine,
+  "freight-clearance": serviceFreightClearance,
+  consulting: serviceConsulting,
+};
 
 export const Services = () => {
   const { t, dir } = useLang();
@@ -41,6 +54,7 @@ export const Services = () => {
       {items.map((service, i) => {
         const isOddRow = i % 2 === 0;
         const Icon = SERVICE_ICONS[service.slug];
+        const image = SERVICE_IMAGES[service.slug];
         const bgClass = isOddRow ? "bg-background" : "bg-primary/5";
         const textOrderClass = isOddRow ? "md:order-1" : "md:order-2";
         const visualOrderClass = isOddRow ? "md:order-2" : "md:order-1";
@@ -87,15 +101,24 @@ export const Services = () => {
                 </div>
 
                 <div className={visualOrderClass}>
-                  <div className="w-full h-full min-h-[280px] rounded-3xl bg-primary/10 flex items-center justify-center p-8">
-                    {Icon && (
-                      <Icon
-                        size={96}
-                        className="text-primary"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </div>
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={service.title}
+                      className="w-full h-full min-h-[280px] rounded-3xl object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full min-h-[280px] rounded-3xl bg-primary/10 flex items-center justify-center p-8">
+                      {Icon && (
+                        <Icon
+                          size={96}
+                          className="text-primary"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
