@@ -5,22 +5,9 @@ import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
 import { SERVICE_ICONS } from "@/components/site/serviceIcons";
 import { useLang } from "@/i18n/LangProvider";
-import serviceLocalDelivery from "@/assets/services/service-local-delivery.jpg";
-import serviceFulfillmentStorage from "@/assets/services/service-fulfillment-storage.jpg";
-import serviceJordanPalestine from "@/assets/services/service-jordan-palestine.jpg";
-import serviceFreightClearance from "@/assets/services/service-freight-clearance.jpg";
-import serviceConsulting from "@/assets/services/service-consulting.jpg";
 
 const REGISTER_URL =
   "https://kangaroo-pal.olivery.io/ar_SY/olivery/sign_up/form";
-
-const SERVICE_IMAGES: Record<string, string> = {
-  "local-delivery": serviceLocalDelivery,
-  "fulfillment-storage": serviceFulfillmentStorage,
-  "jordan-palestine": serviceJordanPalestine,
-  "freight-clearance": serviceFreightClearance,
-  consulting: serviceConsulting,
-};
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -32,7 +19,6 @@ const ServiceDetail = () => {
   }
 
   const Icon = SERVICE_ICONS[service.slug];
-  const image = SERVICE_IMAGES[service.slug];
   const ArrowBack = dir === "rtl" ? ArrowRight : ArrowLeft;
   const paragraphs = service.fullDesc
     .split("\n")
@@ -73,14 +59,6 @@ const ServiceDetail = () => {
                 </p>
               </div>
             </div>
-            {image && (
-              <img
-                src={image}
-                alt={service.title}
-                className="mt-8 w-full max-h-64 object-cover rounded-2xl"
-                loading="lazy"
-              />
-            )}
           </div>
         </section>
 
