@@ -2,8 +2,7 @@ import { useEffect, useRef, useState, FormEvent } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
 
-const WEBHOOK_URL =
-  "https://n8n.srv1572689.hstgr.cloud/webhook-test/ffc07852-85c2-43ef-863f-4ea205b852ec";
+const WEBHOOK_URL: string = import.meta.env.VITE_CHAT_WEBHOOK_URL;
 
 type Message = {
   id: number;

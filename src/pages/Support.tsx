@@ -21,8 +21,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLang } from "@/i18n/LangProvider";
 
 const WHATSAPP_NUMBER = "972593150120";
-const WEBHOOK_URL =
-  "https://n8n.srv1572689.hstgr.cloud/webhook-test/23e4b58b-96fb-4810-be38-ed31ad4437e0";
+const WEBHOOK_URL: string = import.meta.env.VITE_FORMS_WEBHOOK_URL;
 const WEBHOOK_TIMEOUT_MS = 10_000;
 
 // Maps a service slug (from ?service=) to its index in form.serviceOptions.
