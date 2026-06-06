@@ -31,4 +31,5 @@ dist-ssr
 # Local agent / Claude Code tooling — not project code
 .claude/
 .agents/
+.lovable/
 skills-lock.json
