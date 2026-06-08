@@ -1,6 +1,9 @@
 import {
   ArrowLeftRight,
+  Building2,
+  Globe,
   Lightbulb,
+  Settings2,
   Ship,
   Truck,
   Warehouse,
@@ -13,4 +16,7 @@ export const SERVICE_ICONS: Record<string, LucideIcon> = {
   "jordan-palestine": ArrowLeftRight,
   "freight-clearance": Ship,
   consulting: Lightbulb,
+  "cross-border": Globe,
+  "customized-logistics": Settings2,
+  projects: Building2,
 };

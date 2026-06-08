@@ -101,6 +101,48 @@ export const translations = {
             "دعم التحول الرقمي",
           ],
         },
+        {
+          slug: "cross-border",
+          title: "حلول إدارة وتمثيل التجارة الإلكترونية العابرة للحدود",
+          desc: "تقدم Kangaroo حلولاً متكاملة لإدارة وتمثيل عمليات التجارة الإلكترونية العابرة للحدود، تهدف إلى تمكين الشركات والعلامات التجارية والمتاجر الإلكترونية العالمية من الوصول إلى الأسواق المحلية والإقليمية بكفاءة ومرونة عالية.",
+          stats: ["تمثيل تجاري", "إدارة الطلبات", "توصيل وتحصيل"],
+          fullDesc:
+            "تقدم Kangaroo حلولاً متكاملة لإدارة وتمثيل عمليات التجارة الإلكترونية العابرة للحدود، تهدف إلى تمكين الشركات والعلامات التجارية والمتاجر الإلكترونية العالمية من الوصول إلى الأسواق المحلية والإقليمية بكفاءة ومرونة عالية. وتوفر الشركة منظومة تشغيل متكاملة تشمل التمثيل التجاري والتشغيلي، إدارة الطلبات، التخزين، الإنجاز اللوجستي، التوصيل، والتحصيل، بما يتيح للعملاء إدارة أعمالهم في المنطقة من خلال شريك لوجستي وتشغيلي موثوق يمتلك خبرة واسعة في طبيعة الأسواق المحلية ومتطلباتها التشغيلية. تعتمد كنغارو على بنية تشغيلية متطورة وشبكة لوجستية متكاملة تساعد الشركات الدولية والإقليمية على تأسيس وإدارة عملياتها التجارية داخل فلسطين والمنطقة دون الحاجة إلى بناء بنية تشغيلية مستقلة. وتشمل الخدمات إدارة عمليات الاستيراد، التخزين، تجهيز الطلبات، التوزيع، إدارة المرتجعات، وخدمة العملاء، إضافة إلى تقديم حلول مرنة تُمكّن العلامات التجارية من توسيع نطاق أعمالها والوصول إلى العملاء بكفاءة أعلى وتكاليف تشغيلية أقل. كما توفر الشركة حلول تمثيل تجاري وتشغيلي تساعد المتاجر والمنصات الإلكترونية الدولية على إدارة عمليات البيع والتوزيع محلياً من خلال فريق متخصص وأنظمة تشغيل حديثة تضمن متابعة الطلبات، تنظيم العمليات اللوجستية، وتحسين تجربة العملاء في جميع مراحل دورة الطلب. وتعتمد كنغارو على تقنيات متقدمة لإدارة العمليات والتتبع وتوفير تقارير تشغيلية دقيقة تمنح العملاء رؤية واضحة وشاملة حول أداء أعمالهم داخل الأسواق المستهدفة. وتخدم هذه الحلول مختلف القطاعات التجارية، بما في ذلك شركات التجارة الإلكترونية، العلامات التجارية العالمية، شركات التوزيع، والمتاجر الرقمية التي تسعى إلى التوسع في أسواق جديدة عبر نموذج تشغيل مرن وقابل للتوسع. كما تتميز كنغارو بقدرتها على إدارة العمليات التشغيلية المعقدة المرتبطة بالتجارة العابرة للحدود، بما يشمل التنسيق اللوجستي، إدارة سلسلة التوريد، والتعامل مع المتطلبات التشغيلية والتنظيمية المختلفة بكفاءة عالية. وما يميز الشركة هو قدرتها على تقديم شراكة تشغيلية متكاملة تجمع بين التمثيل التجاري، الإدارة التشغيلية، والخدمات اللوجستية ضمن منظومة واحدة تساعد العملاء على النمو والتوسع بثقة واستقرار.",
+          highlights: [
+            "تمثيل تجاري وتشغيلي متكامل",
+            "إدارة الطلبات والتوزيع المحلي",
+            "تخزين وإنجاز لوجستي",
+            "حلول قابلة للتوسع والتخصيص",
+          ],
+        },
+        {
+          slug: "customized-logistics",
+          title: "حلول لوجستية مخصصة",
+          desc: "تقدم Kangaroo حلولاً لوجستية مصممة خصيصاً لتتناسب مع طبيعة أعمال كل عميل ومتطلبات قطاعه التشغيلي، انطلاقاً من فهم عميق لاختلاف احتياجات الصناعات والأسواق.",
+          stats: ["تصميم مخصص", "مرونة تشغيلية", "تكامل تقني"],
+          fullDesc:
+            "تقدم Kangaroo حلولاً لوجستية مصممة خصيصاً لتتناسب مع طبيعة أعمال كل عميل ومتطلبات قطاعه التشغيلي، انطلاقاً من فهم عميق لاختلاف احتياجات الصناعات والأسواق. وتعمل الشركة على تطوير نماذج تشغيل مرنة تُبنى وفق حجم الأعمال، طبيعة المنتجات، آلية التوزيع، والمستوى التشغيلي المطلوب، بما يضمن تحقيق أعلى درجات الكفاءة والاستقرار في العمليات اليومية. تعتمد كنغارو على دراسة تفصيلية لاحتياجات العملاء قبل تصميم الحلول المناسبة، سواء للشركات التجارية، المتاجر الإلكترونية، المؤسسات، أو المشاريع ذات الطبيعة التشغيلية الخاصة. وتشمل هذه الحلول إدارة النقل والتوزيع، التخزين، إدارة المخزون، التوصيل، التحصيلات، الربط التقني، وتنظيم تدفقات العمل التشغيلية بما ينسجم مع أهداف العميل وطبيعة نشاطه التجاري. كما توفر الشركة القدرة على بناء عمليات تشغيل مخصصة للقطاعات التي تتطلب معايير خاصة في المناولة أو التوزيع أو إدارة الطلبات، بما في ذلك القطاعات التجارية، الصناعية، الطبية، الغذائية، والتجارة الإلكترونية. ويتم تنفيذ هذه الحلول من خلال فرق تشغيل متخصصة وأنظمة تقنية حديثة تساعد على رفع كفاءة الأداء، تقليل الهدر التشغيلي، وتحسين سرعة الاستجابة لمتغيرات السوق. وتتميز كنغارو بمرونتها العالية في التعامل مع التحديات التشغيلية المختلفة، حيث تستطيع تطوير حلول قابلة للتوسع والتعديل بما يتناسب مع نمو الأعمال أو تغير احتياجات العملاء مع الوقت. كما تتيح الشركة إمكانية دمج خدماتها اللوجستية مع الأنظمة التشغيلية الخاصة بالعملاء، بما يشمل أنظمة إدارة الطلبات، المخزون، وخدمة العملاء، لتوفير تجربة تشغيلية مترابطة وأكثر فعالية.",
+          highlights: [
+            "تحليل احتياجات مخصص لكل عميل",
+            "نماذج تشغيل مرنة وقابلة للتوسع",
+            "دمج مع الأنظمة التشغيلية للعملاء",
+            "حلول متخصصة لمختلف القطاعات",
+          ],
+        },
+        {
+          slug: "projects",
+          title: "المشاريع اللوجستية",
+          desc: "تقدم Kangaroo خدمات متخصصة في تخطيط وتنفيذ المشاريع اللوجستية وتطوير البنية التحتية التشغيلية المرتبطة بسلاسل التوريد والتخزين والتوزيع، من خلال حلول متكاملة تُصمم بما يتناسب مع طبيعة كل مشروع ومتطلباته.",
+          stats: ["تخطيط وتنفيذ", "بنية تحتية", "إدارة مشاريع"],
+          fullDesc:
+            "تقدم Kangaroo خدمات متخصصة في تخطيط وتنفيذ المشاريع اللوجستية وتطوير البنية التحتية التشغيلية المرتبطة بسلاسل التوريد والتخزين والتوزيع، من خلال حلول متكاملة تُصمم بما يتناسب مع طبيعة كل مشروع ومتطلباته التشغيلية والفنية. وتعمل الشركة على دعم المؤسسات والشركات في إنشاء وتطوير بيئات تشغيل لوجستية فعالة تساهم في رفع الكفاءة التشغيلية وتحسين إدارة العمليات اليومية. تشمل خدمات المشاريع لدى كنغارو دراسة الاحتياجات التشغيلية، إعداد التصورات والحلول اللوجستية، تخطيط المساحات التشغيلية، وتطوير نماذج العمل الخاصة بالمخازن ومراكز التوزيع بما يضمن تحقيق أعلى استفادة ممكنة من البنية التحتية والموارد المتاحة. كما توفر الشركة خدمات توريد وتجهيز وتطبيق أنظمة التخزين والمخازن وفق معايير تشغيل حديثة تدعم سهولة الحركة، تنظيم المخزون، وكفاءة عمليات الاستلام والتسليم. وتتمتع كنغارو بخبرة في تنفيذ مشاريع لوجستية متنوعة تشمل تجهيز المخازن، إنشاء مراكز تشغيل وتوزيع، تطوير حلول Fulfillment، وإدارة المشاريع التشغيلية المرتبطة بالنقل والتخزين والتجارة الإلكترونية. كما تعتمد الشركة على فرق متخصصة في التخطيط والتشغيل والإدارة الميدانية لضمان تنفيذ المشاريع بكفاءة عالية وضمن الجداول الزمنية المحددة. وما يميز الشركة هو قدرتها على تقديم حلول تنفيذية متكاملة تبدأ من مرحلة التخطيط والدراسة وحتى التطبيق والتشغيل الفعلي، بما يضمن تحقيق نتائج تشغيلية مستدامة وفعالة على المدى الطويل.",
+          highlights: [
+            "تخطيط وتصميم مراكز التوزيع",
+            "توريد وتجهيز أنظمة التخزين",
+            "إدارة مشاريع لوجستية متكاملة",
+            "حلول قابلة للتوسع والتطوير",
+          ],
+        },
       ],
     },
     serviceDetail: {
@@ -452,6 +494,48 @@ export const translations = {
             "Business model development",
             "Experience-based consulting",
             "Digital transformation support",
+          ],
+        },
+        {
+          slug: "cross-border",
+          title: "Cross-Border E-Commerce Operations & Representation",
+          desc: "Kangaroo provides integrated cross-border e-commerce operations and representation solutions designed to help international brands, e-commerce businesses, and online retailers efficiently enter and operate within local and regional markets.",
+          stats: ["Commercial Representation", "Order Management", "Delivery & Collection"],
+          fullDesc:
+            "Kangaroo provides integrated cross-border e-commerce operations and representation solutions designed to help international brands, e-commerce businesses, and online retailers efficiently enter and operate within local and regional markets. The company offers a fully managed operational ecosystem that includes commercial and operational representation, order management, warehousing, fulfillment, delivery, and cash collection services, enabling businesses to manage their regional operations through a reliable logistics and operational partner with deep expertise in local market dynamics and operational requirements. Kangaroo relies on a strong logistics infrastructure and advanced operational network that allows international and regional businesses to establish and manage their operations in Palestine and the region without the need to build independent operational structures. The company provides comprehensive solutions covering import coordination, warehousing, inventory management, order fulfillment, distribution, returns management, and customer service, helping brands expand their market reach while maintaining operational efficiency and reducing overhead costs. In addition, Kangaroo offers commercial and operational representation services that support international e-commerce platforms and brands in managing local sales and distribution activities through specialized operational teams and technology-driven systems. Advanced tracking systems and operational reporting tools provide clients with full visibility and control over their regional operations and business performance. What distinguishes the company is its ability to combine commercial representation, operational management, and logistics services within one unified ecosystem, enabling clients to expand confidently into new markets while maintaining operational stability, efficiency, and long-term growth potential.",
+          highlights: [
+            "Integrated commercial & operational representation",
+            "Local order management & distribution",
+            "Warehousing & fulfillment services",
+            "Scalable & customizable solutions",
+          ],
+        },
+        {
+          slug: "customized-logistics",
+          title: "Customised Logistics Solutions",
+          desc: "Kangaroo provides tailored logistics solutions designed to match the unique operational requirements, business models, and industry-specific demands of each client, ensuring optimized performance and operational consistency.",
+          stats: ["Custom Design", "Operational Flexibility", "System Integration"],
+          fullDesc:
+            "Kangaroo provides tailored logistics solutions designed to match the unique operational requirements, business models, and industry-specific demands of each client. By understanding the distinct challenges faced by different sectors, the company develops flexible operational frameworks that align with shipment volumes, product nature, distribution methods, and service expectations, ensuring optimized performance and operational consistency. Kangaroo works closely with clients to analyze their operational needs and build customized logistics strategies that support their business objectives efficiently. These solutions may include transportation management, warehousing, inventory control, distribution planning, delivery operations, cash collection services, technical integrations, and workflow optimization, all structured to fit the customer's operational environment and long-term growth plans. The company is highly experienced in developing logistics models for businesses that require specialized handling, customized delivery structures, or industry-focused operational processes. This includes solutions for retail businesses, e-commerce platforms, industrial operations, healthcare-related logistics, FMCG distribution, and other sectors with complex supply chain requirements. Kangaroo is also recognized for its operational flexibility and ability to adapt quickly to changing market conditions and evolving customer needs, providing scalable logistics structures that can grow alongside businesses while maintaining operational control and service quality.",
+          highlights: [
+            "Tailored analysis for each client",
+            "Flexible & scalable operational models",
+            "Integration with client systems",
+            "Industry-specific logistics solutions",
+          ],
+        },
+        {
+          slug: "projects",
+          title: "Logistics Projects",
+          desc: "Kangaroo provides specialized project solutions focused on the planning, development, and execution of logistics infrastructure and operational environments related to supply chain management, warehousing, distribution, and fulfillment activities.",
+          stats: ["Planning & Execution", "Infrastructure", "Project Management"],
+          fullDesc:
+            "Kangaroo provides specialized project solutions focused on the planning, development, and execution of logistics infrastructure and operational environments related to supply chain management, warehousing, distribution, and fulfillment activities. The company delivers fully integrated project management solutions tailored to the operational, technical, and commercial requirements of each client, helping businesses establish efficient and scalable logistics operations that support long-term growth and operational excellence. Kangaroo's project services include operational needs assessment, logistics planning, workflow design, warehouse layout optimization, and the development of customized operational models for warehouses and distribution centers. The company also provides supply, setup, and implementation of warehousing infrastructure and storage systems based on modern logistics standards that improve inventory organization, operational flow, and overall facility productivity. The company has extensive experience in executing a wide range of logistics-related projects, including warehouse development, fulfillment center setup, operational facility preparation, and distribution infrastructure projects. What distinguishes the company is its ability to provide end-to-end project execution services, starting from initial planning and operational consulting all the way to implementation, deployment, and operational launch, ensuring long-term operational stability and measurable business value.",
+          highlights: [
+            "Distribution center planning & design",
+            "Warehousing infrastructure & setup",
+            "End-to-end project management",
+            "Scalable & future-ready solutions",
           ],
         },
       ],

@@ -9,9 +9,12 @@ import serviceFulfillmentStorage from "@/assets/services/service-fulfillment-sto
 import serviceJordanPalestine from "@/assets/services/service-jordan-palestine.jpg";
 import serviceFreightClearance from "@/assets/services/service-freight-clearance.jpg";
 import serviceConsulting from "@/assets/services/service-consulting.jpg";
+import serviceCrossBorder from "@/assets/services/service-cross-border.jpg";
+import serviceCustomized from "@/assets/services/service-customized.jpg";
+import serviceProjects from "@/assets/services/service-projects.jpg";
 
-const codesAr = ["٠١", "٠٢", "٠٣", "٠٤", "٠٥"];
-const codesEn = ["01", "02", "03", "04", "05"];
+const codesAr = ["٠١", "٠٢", "٠٣", "٠٤", "٠٥", "٠٦", "٠٧", "٠٨"];
+const codesEn = ["01", "02", "03", "04", "05", "06", "07", "08"];
 
 const SERVICE_IMAGES: Record<string, string> = {
   "local-delivery": serviceLocalDelivery,
@@ -19,12 +22,15 @@ const SERVICE_IMAGES: Record<string, string> = {
   "jordan-palestine": serviceJordanPalestine,
   "freight-clearance": serviceFreightClearance,
   consulting: serviceConsulting,
+  "cross-border": serviceCrossBorder,
+  "customized-logistics": serviceCustomized,
+  projects: serviceProjects,
 };
 
 export const Services = () => {
   const { t, dir } = useLang();
   const { ref, inView } = useInView<HTMLElement>();
-  const items = t.services.items.slice(0, 5);
+  const items = t.services.items;
   const codes = dir === "rtl" ? codesAr : codesEn;
   const ArrowGo = dir === "rtl" ? ArrowLeft : ArrowRight;
 
