@@ -29,7 +29,9 @@ const SERVICE_IMAGES: Record<string, string> = {
 
 export const Services = () => {
   const { t, dir } = useLang();
-  const { ref, inView } = useInView<HTMLElement>();
+  // threshold:0 because this section wraps all services and can be taller than
+  // ~6 viewports — a ratio-based threshold (e.g. 0.15) could never be reached.
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0 });
   const items = t.services.items;
   const codes = dir === "rtl" ? codesAr : codesEn;
   const ArrowGo = dir === "rtl" ? ArrowLeft : ArrowRight;
