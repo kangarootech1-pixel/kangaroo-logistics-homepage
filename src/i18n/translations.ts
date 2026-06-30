@@ -301,6 +301,11 @@ export const translations = {
         title: "انضم إلى فريق كنغارو",
         subtitle: "نبحث دائماً عن كفاءات متميزة تشاركنا رحلة النمو",
       },
+      jobs: {
+        title: "الوظائف الشاغرة",
+        apply: "قدم الآن",
+        empty: "لا توجد وظائف شاغرة حالياً",
+      },
       form: {
         title: "نموذج التقديم الوظيفي",
         fullName: "الاسم الرباعي",
@@ -697,6 +702,11 @@ export const translations = {
         title: "Join the Kangaroo Team",
         subtitle:
           "We are always looking for talented people to join our growth journey",
+      },
+      jobs: {
+        title: "Open Positions",
+        apply: "Apply Now",
+        empty: "No open positions currently",
       },
       form: {
         title: "Job Application Form",

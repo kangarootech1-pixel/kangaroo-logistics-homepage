@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import {
   AlertCircle,
@@ -6,7 +6,9 @@ import {
   ArrowRight,
   Briefcase,
   CheckCircle2,
+  Clock,
   Loader2,
+  MapPin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/site/Footer";
@@ -22,6 +24,16 @@ const WEBHOOK_URL: string = import.meta.env.VITE_FORMS_WEBHOOK_URL;
 const WEBHOOK_TIMEOUT_MS = 10_000;
 const MIN_AGE = 18;
 const MAX_AGE = 60;
+
+// Shape returned by the /api/jobs serverless proxy (see api/jobs.ts).
+interface Job {
+  title: string;
+  city: string | null;
+  type: string | null;
+  description: string;
+  formUrl: string | null;
+  publishedDate: string | null;
+}
 
 const Careers = () => {
   const { t, dir } = useLang();
@@ -39,6 +51,33 @@ const Careers = () => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [jobsLoading, setJobsLoading] = useState(true);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    let active = true;
+
+    (async () => {
+      try {
+        const res = await fetch("/api/jobs", { signal: controller.signal });
+        if (!res.ok) throw new Error(`jobs responded ${res.status}`);
+        const data = (await res.json()) as Job[];
+        if (active) setJobs(Array.isArray(data) ? data : []);
+      } catch {
+        // Network/CORS/404 (e.g. plain `vite dev` without the serverless
+        // function) — fall back to the empty state rather than crashing.
+      } finally {
+        if (active) setJobsLoading(false);
+      }
+    })();
+
+    return () => {
+      active = false;
+      controller.abort();
+    };
+  }, []);
 
   const selectClass =
     "h-10 w-full rounded-md border border-input bg-background px-3 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
@@ -153,6 +192,93 @@ const Careers = () => {
               <p className="mt-4 text-base md:text-lg text-primary-foreground/90 leading-relaxed">
                 {t.careers.hero.subtitle}
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-muted/30">
+          <div className="container py-14 md:py-20">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight text-center">
+              {t.careers.jobs.title}
+            </h2>
+
+            <div className="mt-10 max-w-4xl mx-auto">
+              {jobsLoading ? (
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {[0, 1].map((i) => (
+                    <div
+                      key={i}
+                      className="rounded-2xl border border-border bg-card p-6 shadow-soft"
+                    >
+                      <div className="h-5 w-2/3 rounded bg-muted animate-pulse" />
+                      <div className="mt-4 flex gap-2">
+                        <div className="h-6 w-20 rounded-full bg-muted animate-pulse" />
+                        <div className="h-6 w-24 rounded-full bg-muted animate-pulse" />
+                      </div>
+                      <div className="mt-4 h-3 w-full rounded bg-muted animate-pulse" />
+                      <div className="mt-2 h-3 w-5/6 rounded bg-muted animate-pulse" />
+                      <div className="mt-6 h-10 w-32 rounded-full bg-muted animate-pulse" />
+                    </div>
+                  ))}
+                </div>
+              ) : jobs.length === 0 ? (
+                <p className="text-center text-muted-foreground">
+                  {t.careers.jobs.empty}
+                </p>
+              ) : (
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {jobs.map((job, i) => (
+                    <article
+                      key={`${job.title}-${i}`}
+                      className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-soft"
+                    >
+                      <h3 className="text-lg font-extrabold text-foreground tracking-tight">
+                        {job.title}
+                      </h3>
+
+                      {(job.city || job.type) && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {job.city && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                              <MapPin size={12} aria-hidden="true" />
+                              {job.city}
+                            </span>
+                          )}
+                          {job.type && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+                              <Clock size={12} aria-hidden="true" />
+                              {job.type}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      {job.description && (
+                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                          {job.description}
+                        </p>
+                      )}
+
+                      {job.formUrl && (
+                        <div className="mt-auto pt-5">
+                          <Button
+                            asChild
+                            className="rounded-full font-bold"
+                          >
+                            <a
+                              href={job.formUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {t.careers.jobs.apply}
+                            </a>
+                          </Button>
+                        </div>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </section>
