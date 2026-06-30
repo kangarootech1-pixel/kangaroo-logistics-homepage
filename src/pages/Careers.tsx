@@ -76,7 +76,10 @@ const Careers = () => {
 
     (async () => {
       try {
-        const res = await fetch("/api/jobs", { signal: controller.signal });
+        const res = await fetch("/api/jobs", {
+          signal: controller.signal,
+          cache: "no-store",
+        });
         if (!res.ok) throw new Error(`jobs responded ${res.status}`);
         const data = (await res.json()) as Job[];
         if (active) setJobs(Array.isArray(data) ? data : []);

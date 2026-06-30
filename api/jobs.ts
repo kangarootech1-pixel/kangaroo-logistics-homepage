@@ -136,11 +136,9 @@ export default async function handler(
       .map(mapPage)
       .filter((job) => job.title.trim().length > 0);
 
-    // Short edge cache; jobs change rarely.
-    res.setHeader(
-      "Cache-Control",
-      "s-maxage=300, stale-while-revalidate=600",
-    );
+    // No caching: a refresh must reflect Notion immediately, so that a job
+    // deleted or unpublished in Notion disappears from the page right away.
+    res.setHeader("Cache-Control", "no-store, max-age=0");
     res.status(200).json(jobs);
   } catch (err) {
     console.error("Notion request threw:", err);
