@@ -306,6 +306,11 @@ export const translations = {
         apply: "قدم الآن",
         empty: "لا توجد وظائف شاغرة حالياً",
       },
+      general: {
+        prompt:
+          "لم تجد وظيفة مناسبة؟ قدم طلباً عاماً وسنتواصل معك عند توفر فرصة",
+        button: "تقديم طلب عام",
+      },
       form: {
         title: "نموذج التقديم الوظيفي",
         fullName: "الاسم الرباعي",
@@ -707,6 +712,11 @@ export const translations = {
         title: "Open Positions",
         apply: "Apply Now",
         empty: "No open positions currently",
+      },
+      general: {
+        prompt:
+          "Didn't find a suitable position? Submit a general application and we'll reach out when one opens",
+        button: "General Application",
       },
       form: {
         title: "Job Application Form",

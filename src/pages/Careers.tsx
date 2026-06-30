@@ -14,6 +14,14 @@ import { Link } from "react-router-dom";
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -54,6 +62,13 @@ const Careers = () => {
 
   const [jobs, setJobs] = useState<Job[]>([]);
   const [jobsLoading, setJobsLoading] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  // Close the modal automatically once a submission succeeds; the success
+  // banner then shows on the page beneath the trigger button.
+  useEffect(() => {
+    if (success) setDialogOpen(false);
+  }, [success]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -285,31 +300,54 @@ const Careers = () => {
 
         <section className="bg-background">
           <div className="container py-16 md:py-20">
-            <div className="max-w-2xl mx-auto rounded-2xl border border-border bg-card p-8 shadow-soft">
-              <h2 className="text-xl font-extrabold text-foreground tracking-tight">
-                {t.careers.form.title}
-              </h2>
+            <div className="max-w-2xl mx-auto text-center">
+              <p className="text-muted-foreground leading-relaxed">
+                {t.careers.general.prompt}
+              </p>
 
-              {success && (
-                <div className="mt-5 flex items-start gap-3 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary">
-                  <CheckCircle2
-                    className="h-5 w-5 shrink-0"
-                    aria-hidden="true"
-                  />
-                  <span>{t.careers.form.success}</span>
-                </div>
-              )}
-              {submitError && (
-                <div className="mt-5 flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-semibold text-destructive">
-                  <AlertCircle
-                    className="h-5 w-5 shrink-0"
-                    aria-hidden="true"
-                  />
-                  <span>{t.careers.form.error}</span>
-                </div>
-              )}
+              <Dialog
+                open={dialogOpen}
+                onOpenChange={(open) => {
+                  setDialogOpen(open);
+                  // Start from a clean slate each time the modal is opened.
+                  if (open) {
+                    setSuccess(false);
+                    setSubmitError(false);
+                  }
+                }}
+              >
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="mt-6 h-12 rounded-full px-8 font-bold"
+                  >
+                    {t.careers.general.button}
+                  </Button>
+                </DialogTrigger>
+                <DialogContent
+                  dir={dir}
+                  className="max-h-[90vh] overflow-y-auto text-start sm:max-w-lg"
+                >
+                  <DialogHeader>
+                    <DialogTitle className="text-xl font-extrabold tracking-tight">
+                      {t.careers.form.title}
+                    </DialogTitle>
+                    <DialogDescription className="sr-only">
+                      {t.careers.general.prompt}
+                    </DialogDescription>
+                  </DialogHeader>
 
-              <form className="mt-6 space-y-5" onSubmit={handleSubmit} noValidate>
+                  {submitError && (
+                    <div className="flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-semibold text-destructive">
+                      <AlertCircle
+                        className="h-5 w-5 shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{t.careers.form.error}</span>
+                    </div>
+                  )}
+
+                  <form className="space-y-5" onSubmit={handleSubmit} noValidate>
                 <div>
                   <Label htmlFor="fullName">
                     {t.careers.form.fullName}{" "}
@@ -487,7 +525,16 @@ const Careers = () => {
                     t.careers.form.submit
                   )}
                 </Button>
-              </form>
+                  </form>
+                </DialogContent>
+              </Dialog>
+
+              {success && !dialogOpen && (
+                <div className="mt-6 flex items-start gap-3 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-start text-sm font-semibold text-primary">
+                  <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  <span>{t.careers.form.success}</span>
+                </div>
+              )}
             </div>
           </div>
         </section>
