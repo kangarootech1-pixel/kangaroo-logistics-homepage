@@ -112,8 +112,22 @@ export default async function handler(
     );
 
     if (!notionRes.ok) {
-      // Avoid leaking Notion's raw error body to the client.
-      res.status(502).json({ error: "Failed to load jobs from Notion" });
+      const detail = await notionRes.text();
+      // Full detail goes to the Vercel function logs (server-side only).
+      console.error(`Notion query failed: ${notionRes.status} ${detail}`);
+      // Notion's `code` (e.g. "object_not_found", "unauthorized") is safe and
+      // useful to surface so the failure is diagnosable from the browser.
+      let notionCode: string | null = null;
+      try {
+        notionCode = (JSON.parse(detail) as { code?: string }).code ?? null;
+      } catch {
+        // Body was not JSON; leave notionCode null.
+      }
+      res.status(502).json({
+        error: "Failed to load jobs from Notion",
+        notionStatus: notionRes.status,
+        notionCode,
+      });
       return;
     }
 
@@ -128,7 +142,8 @@ export default async function handler(
       "s-maxage=300, stale-while-revalidate=600",
     );
     res.status(200).json(jobs);
-  } catch {
+  } catch (err) {
+    console.error("Notion request threw:", err);
     res.status(502).json({ error: "Failed to load jobs from Notion" });
   }
 }
