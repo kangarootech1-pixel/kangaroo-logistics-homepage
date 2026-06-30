@@ -6,6 +6,7 @@ export const translations = {
     nav: {
       home: "الرئيسية",
       services: "خدماتنا",
+      careers: "الوظائف",
       about: "من نحن",
       coverage: "التغطية",
       contact: "تواصل",
@@ -411,6 +412,7 @@ export const translations = {
     nav: {
       home: "Home",
       services: "Services",
+      careers: "Careers",
       about: "About",
       coverage: "Coverage",
       contact: "Contact",

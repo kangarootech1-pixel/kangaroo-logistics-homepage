@@ -21,8 +21,9 @@ export const Navbar = () => {
   const links = [
     { to: "/", label: t.nav.home },
     { to: "/#services", label: t.nav.services },
-    { to: "/about", label: t.nav.about },
+    { to: "/careers", label: t.nav.careers },
     { to: "/#coverage", label: t.nav.coverage },
+    { to: "/about", label: t.nav.about },
     { to: "/support", label: t.nav.contact },
   ];
 
