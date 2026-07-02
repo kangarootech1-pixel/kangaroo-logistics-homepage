@@ -46,6 +46,8 @@ const Support = () => {
   const [requestType, setRequestType] = useState<number | "">("");
   const [service, setService] = useState<number>(NOT_SPECIFIED_INDEX);
   const [message, setMessage] = useState("");
+  // Honeypot — hidden from real users; only bots fill it.
+  const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -69,6 +71,7 @@ const Support = () => {
     setRequestType("");
     setService(NOT_SPECIFIED_INDEX);
     setMessage("");
+    setWebsite("");
     setErrors({});
   };
 
@@ -82,6 +85,13 @@ const Support = () => {
     };
     setErrors(nextErrors);
     if (Object.values(nextErrors).some(Boolean)) return;
+
+    // Bot filled the honeypot: pretend it worked and send nothing.
+    if (website.trim()) {
+      setSuccess(true);
+      resetForm();
+      return;
+    }
 
     setSubmitting(true);
     setSuccess(false);
@@ -243,6 +253,16 @@ const Support = () => {
                   )}
 
                   <form className="mt-6 space-y-5" onSubmit={handleSubmit} noValidate>
+                    <input
+                      type="text"
+                      name="website"
+                      value={website}
+                      onChange={(e) => setWebsite(e.target.value)}
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
                     <div>
                       <Label htmlFor="name">
                         {t.support.form.name} <span className="text-destructive">*</span>

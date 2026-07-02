@@ -55,6 +55,8 @@ const Careers = () => {
   const [education, setEducation] = useState<number | "">("");
   const [experience, setExperience] = useState("");
   const [position, setPosition] = useState<number | "">("");
+  // Honeypot — hidden from real users; only bots fill it.
+  const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -109,6 +111,7 @@ const Careers = () => {
     setEducation("");
     setExperience("");
     setPosition("");
+    setWebsite("");
     setErrors({});
   };
 
@@ -134,6 +137,13 @@ const Careers = () => {
     const nextErrors = validate();
     setErrors(nextErrors);
     if (Object.values(nextErrors).some(Boolean)) return;
+
+    // Bot filled the honeypot: pretend it worked and send nothing.
+    if (website.trim()) {
+      setSuccess(true);
+      resetForm();
+      return;
+    }
 
     setSubmitting(true);
     setSuccess(false);
@@ -351,6 +361,16 @@ const Careers = () => {
                   )}
 
                   <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+                <input
+                  type="text"
+                  name="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 <div>
                   <Label htmlFor="fullName">
                     {t.careers.form.fullName}{" "}

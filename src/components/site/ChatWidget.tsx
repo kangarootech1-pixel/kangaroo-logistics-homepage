@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, FormEvent } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { useLang } from "@/i18n/LangProvider";
+import { postToWebhook } from "@/lib/webhook";
 
 const WEBHOOK_URL: string = import.meta.env.VITE_CHAT_WEBHOOK_URL;
 
@@ -76,12 +77,11 @@ export const ChatWidget = () => {
     setSending(true);
 
     try {
-      const res = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, lang, session_id: sessionId }),
+      const res = await postToWebhook(WEBHOOK_URL, {
+        message: text,
+        lang,
+        session_id: sessionId,
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const raw = await res.text();
       const reply = extractReply(raw) ?? t.chat.error;
       setMessages((prev) => [...prev, { id: nextId.current++, role: "bot", text: reply }]);
