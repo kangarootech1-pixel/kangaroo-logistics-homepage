@@ -19,10 +19,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useLang } from "@/i18n/LangProvider";
+import { postToWebhook } from "@/lib/webhook";
 
 const WHATSAPP_NUMBER = "972593150120";
 const WEBHOOK_URL: string = import.meta.env.VITE_FORMS_WEBHOOK_URL;
-const WEBHOOK_TIMEOUT_MS = 10_000;
 
 // Maps a service slug (from ?service=) to its index in form.serviceOptions.
 // Anything unknown falls back to the last option ("Not Specified").
@@ -109,27 +109,14 @@ const Support = () => {
       timestamp: new Date().toISOString(),
     };
 
-    const controller = new AbortController();
-    const timeoutId = window.setTimeout(
-      () => controller.abort(),
-      WEBHOOK_TIMEOUT_MS,
-    );
-
     try {
-      const res = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal,
-      });
-      if (!res.ok) throw new Error(`webhook responded ${res.status}`);
+      await postToWebhook(WEBHOOK_URL, payload);
       setSuccess(true);
       resetForm();
     } catch {
       // Form data is intentionally preserved so the user can retry.
       setSubmitError(true);
     } finally {
-      window.clearTimeout(timeoutId);
       setSubmitting(false);
     }
   };
